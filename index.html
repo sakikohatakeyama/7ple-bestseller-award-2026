@@ -137,8 +137,12 @@ a{color:inherit;text-decoration:none}
 .bubble::after{bottom:calc(100% - 1.5px);border-width:0 .6em .9em .6em;border-bottom-color:#fff}
 .bubble.big{font-size:.93em;margin-top:clamp(14px,3.7vw,26px)}
 .sub .bubble{font-size:.7em;padding:.6em .75em;margin-top:1em;margin-bottom:.6em}
-.hand{display:block;margin:clamp(10px,2.7vw,20px) 0 0;padding:.45em .8em .5em;background:var(--red);color:#fff;border-radius:clamp(8px,2.1vw,14px);font-family:"Mochiy Pop One","Noto Sans JP",sans-serif;font-size:clamp(15px,4.5vw,33px);line-height:1.4;letter-spacing:.02em;text-align:left}
-.sub .hand{font-size:clamp(12px,3.5vw,25px);margin-top:.5em;padding:.4em .6em .45em}
+.phw{position:relative;display:block}
+.hand{position:absolute;z-index:3;top:calc(-1 * clamp(14px,4vw,28px));right:clamp(8px,2.4vw,16px);max-height:88%;padding:.7em .5em .6em;background:var(--red);color:#fff;border-radius:clamp(6px,1.6vw,12px);box-shadow:0 3px 10px rgba(0,0,0,.18);font-family:"Mochiy Pop One","Noto Sans JP",sans-serif;font-size:clamp(13px,3.8vw,27px);line-height:1.3;letter-spacing:.04em;writing-mode:vertical-rl;text-orientation:mixed;pointer-events:none}
+.hand .c{display:inline-block}
+.sub .hand{font-size:clamp(11px,3.3vw,23px);right:clamp(5px,1.6vw,10px);top:calc(-1 * clamp(10px,2.8vw,20px));padding:.6em .4em .5em;max-height:80%}
+.js .hand .c{opacity:0;transform:translateY(-.7em);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.3,1);transition-delay:calc(.35s + var(--i) * .07s)}
+.js .rv.in .hand .c{opacity:1;transform:none}
 .fit img{object-fit:contain!important;transform:scale(.72)}
 .idx-item .ph.fit,.fv-ph.fit{background:#fff}
 
@@ -201,6 +205,7 @@ a{color:inherit;text-decoration:none}
   .deco.float{animation:none}
   .js .rv,.js .fv > *,.js .fv-ph{opacity:1!important;transform:none!important;transition:none!important}
   .js .first.rv .ph img{transform:none!important;transition:none!important}
+  .js .hand .c{opacity:1!important;transform:none!important;transition:none!important}
 }
 </style>
 </head>
@@ -276,8 +281,7 @@ a{color:inherit;text-decoration:none}
   <!-- ITEM 1位: sbth009 -->
   <div class="first rv">
     <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
-    <a class="ph" href="https://item.rakuten.co.jp/7ple/sbth009/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth009.jpg" alt="SEIKO SELECTION Sシリーズ デイデイト SBTH009" width="640" height="640" loading="lazy"></a>
-    <span class="hand">正直、これがいちばんバランスいい</span>
+    <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/sbth009/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth009.jpg" alt="SEIKO SELECTION Sシリーズ デイデイト SBTH009" width="640" height="640" loading="lazy"></a><span class="hand" aria-label="正直、これがいちばんバランスいい"><span aria-hidden="true"><span class="c" style="--i:0">正</span><span class="c" style="--i:1">直</span><span class="c" style="--i:2">、</span><span class="c" style="--i:3">こ</span><span class="c" style="--i:4">れ</span><span class="c" style="--i:5">が</span><span class="c" style="--i:6">い</span><span class="c" style="--i:7">ち</span><span class="c" style="--i:8">ば</span><span class="c" style="--i:9">ん</span><span class="c" style="--i:10">バ</span><span class="c" style="--i:11">ラ</span><span class="c" style="--i:12">ン</span><span class="c" style="--i:13">ス</span><span class="c" style="--i:14">い</span><span class="c" style="--i:15">い</span></span></span></div>
     <div class="body">
       <p class="bubble big">ネイビーの文字盤に、曜日と日付。スーツにも休日にもなじむ、くせのない一本です。ショップ全体でも、いちばん売れています。</p>
       <p class="brand en">SEIKO SELECTION</p>
@@ -290,8 +294,8 @@ a{color:inherit;text-decoration:none}
       <!-- ITEM 2位: seiko-sbtr -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/seiko-sbtr/">
         <span class="rank r2"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">2</span>位</b></span>
-        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/seiko-sbtr-a.jpg" alt="SEIKO SELECTION 8Tクロノグラフ" width="640" height="640" loading="lazy"></span>
-        <span class="hand">持ってて困らない一本です</span><span class="bubble">ネイビー・黒・緑から選べるクロノグラフ。</span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/seiko-sbtr-a.jpg" alt="SEIKO SELECTION 8Tクロノグラフ" width="640" height="640" loading="lazy"></span><span class="hand" aria-label="持ってて困らない一本です"><span aria-hidden="true"><span class="c" style="--i:0">持</span><span class="c" style="--i:1">っ</span><span class="c" style="--i:2">て</span><span class="c" style="--i:3">て</span><span class="c" style="--i:4">困</span><span class="c" style="--i:5">ら</span><span class="c" style="--i:6">な</span><span class="c" style="--i:7">い</span><span class="c" style="--i:8">一</span><span class="c" style="--i:9">本</span><span class="c" style="--i:10">で</span><span class="c" style="--i:11">す</span></span></span></span>
+        <span class="bubble">ネイビー・黒・緑から選べるクロノグラフ。</span>
         <span class="brand en">SEIKO SELECTION</span>
         <span class="name">8Tクロノグラフ</span>
         <p class="price sm en">51,040<small>円</small></p>
@@ -300,8 +304,8 @@ a{color:inherit;text-decoration:none}
       <!-- ITEM 3位: by1025-17e -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/by1025-17e/">
         <span class="rank r3"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">3</span>位</b></span>
-        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/exceed/by1025-17e.jpg" alt="CITIZEN EXCEED ムーンフェイズ BY1025-17E" width="640" height="640" loading="lazy"></span>
-        <span class="hand">シンプルなのに、ちょっといい</span><span class="bubble">月の満ち欠けを映す、数量限定モデル。</span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/exceed/by1025-17e.jpg" alt="CITIZEN EXCEED ムーンフェイズ BY1025-17E" width="640" height="640" loading="lazy"></span><span class="hand" aria-label="シンプルなのに、ちょっといい"><span aria-hidden="true"><span class="c" style="--i:0">シ</span><span class="c" style="--i:1">ン</span><span class="c" style="--i:2">プ</span><span class="c" style="--i:3">ル</span><span class="c" style="--i:4">な</span><span class="c" style="--i:5">の</span><span class="c" style="--i:6">に</span><span class="c" style="--i:7">、</span><span class="c" style="--i:8">ち</span><span class="c" style="--i:9">ょ</span><span class="c" style="--i:10">っ</span><span class="c" style="--i:11">と</span><span class="c" style="--i:12">い</span><span class="c" style="--i:13">い</span></span></span></span>
+        <span class="bubble">月の満ち欠けを映す、数量限定モデル。</span>
         <p class="tag">数量限定</p><span class="brand en">CITIZEN EXCEED</span>
         <span class="name">ムーンフェイズ BY1025-17E</span>
         <p class="price sm en">220,000<small>円</small></p>
@@ -321,8 +325,7 @@ a{color:inherit;text-decoration:none}
   <!-- ITEM 1位: aq-240eg-9adf -->
   <div class="first rv">
     <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
-    <a class="ph" href="https://item.rakuten.co.jp/7ple/aq-240eg-9adf/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio15/aq-240eg-9adf.jpg" alt="CASIO AQ-240EG ゴールド" width="640" height="640" loading="lazy"></a>
-    <span class="hand">手元がぱっと明るくなる</span>
+    <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/aq-240eg-9adf/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio15/aq-240eg-9adf.jpg" alt="CASIO AQ-240EG ゴールド" width="640" height="640" loading="lazy"></a><span class="hand" aria-label="手元がぱっと明るくなる"><span aria-hidden="true"><span class="c" style="--i:0">手</span><span class="c" style="--i:1">元</span><span class="c" style="--i:2">が</span><span class="c" style="--i:3">ぱ</span><span class="c" style="--i:4">っ</span><span class="c" style="--i:5">と</span><span class="c" style="--i:6">明</span><span class="c" style="--i:7">る</span><span class="c" style="--i:8">く</span><span class="c" style="--i:9">な</span><span class="c" style="--i:10">る</span></span></span></div>
     <div class="body">
       <p class="bubble big">手首が明るく見える、ゴールドのアナデジ。1万円ほどで選べる、うれしい一本です。</p>
       <p class="brand en">CASIO</p>
@@ -335,8 +338,8 @@ a{color:inherit;text-decoration:none}
       <!-- ITEM 2位: es9492-57d -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/es9492-57d/">
         <span class="rank r2"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">2</span>位</b></span>
-        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/xc2/es9492-57d.jpg" alt="CITIZEN xC hikari collection" width="640" height="640" loading="lazy"></span>
-        <span class="hand">女性への贈りもの、迷ったらこれ</span><span class="bubble">シェルの文字盤に、光で動くエコ・ドライブ。</span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/xc2/es9492-57d.jpg" alt="CITIZEN xC hikari collection" width="640" height="640" loading="lazy"></span><span class="hand" aria-label="女性への贈りもの、迷ったらこれ"><span aria-hidden="true"><span class="c" style="--i:0">女</span><span class="c" style="--i:1">性</span><span class="c" style="--i:2">へ</span><span class="c" style="--i:3">の</span><span class="c" style="--i:4">贈</span><span class="c" style="--i:5">り</span><span class="c" style="--i:6">も</span><span class="c" style="--i:7">の</span><span class="c" style="--i:8">、</span><span class="c" style="--i:9">迷</span><span class="c" style="--i:10">っ</span><span class="c" style="--i:11">た</span><span class="c" style="--i:12">ら</span><span class="c" style="--i:13">こ</span><span class="c" style="--i:14">れ</span></span></span></span>
+        <span class="bubble">シェルの文字盤に、光で動くエコ・ドライブ。</span>
         <span class="brand en">CITIZEN xC</span>
         <span class="name">hikari collection</span>
         <p class="price sm en">81,840<small>円〜</small></p>
@@ -345,8 +348,8 @@ a{color:inherit;text-decoration:none}
       <!-- ITEM 3位: swfa210 -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/swfa210/">
         <span class="rank r3"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">3</span>位</b></span>
-        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/swfa210.jpg" alt="SEIKO SELECTION Sシリーズ ブレスレット ソーラー" width="640" height="640" loading="lazy"></span>
-        <span class="hand">さりげなく、ちゃんとかわいい</span><span class="bubble">ブレスレットのような、細いベルト。</span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/swfa210.jpg" alt="SEIKO SELECTION Sシリーズ ブレスレット ソーラー" width="640" height="640" loading="lazy"></span><span class="hand" aria-label="さりげなく、ちゃんとかわいい"><span aria-hidden="true"><span class="c" style="--i:0">さ</span><span class="c" style="--i:1">り</span><span class="c" style="--i:2">げ</span><span class="c" style="--i:3">な</span><span class="c" style="--i:4">く</span><span class="c" style="--i:5">、</span><span class="c" style="--i:6">ち</span><span class="c" style="--i:7">ゃ</span><span class="c" style="--i:8">ん</span><span class="c" style="--i:9">と</span><span class="c" style="--i:10">か</span><span class="c" style="--i:11">わ</span><span class="c" style="--i:12">い</span><span class="c" style="--i:13">い</span></span></span></span>
+        <span class="bubble">ブレスレットのような、細いベルト。</span>
         <span class="brand en">SEIKO SELECTION</span>
         <span class="name">Sシリーズ ブレスレット ソーラー</span>
         <p class="price sm en">36,300<small>円〜</small></p>
@@ -366,8 +369,7 @@ a{color:inherit;text-decoration:none}
   <!-- ITEM 1位: a168w -->
   <div class="first rv">
     <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
-    <a class="ph" href="https://item.rakuten.co.jp/7ple/a168w/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio13/a168w-a.jpg" alt="CASIO A168W デジタル" width="640" height="640" loading="lazy"></a>
-    <span class="hand">この小ささ、クセになります</span>
+    <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/a168w/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio13/a168w-a.jpg" alt="CASIO A168W デジタル" width="640" height="640" loading="lazy"></a><span class="hand" aria-label="この小ささ、クセになります"><span aria-hidden="true"><span class="c" style="--i:0">こ</span><span class="c" style="--i:1">の</span><span class="c" style="--i:2">小</span><span class="c" style="--i:3">さ</span><span class="c" style="--i:4">さ</span><span class="c" style="--i:5">、</span><span class="c" style="--i:6">ク</span><span class="c" style="--i:7">セ</span><span class="c" style="--i:8">に</span><span class="c" style="--i:9">な</span><span class="c" style="--i:10">り</span><span class="c" style="--i:11">ま</span><span class="c" style="--i:12">す</span></span></span></div>
     <div class="body">
       <p class="bubble big">軽くて丈夫な、定番のデジタル。迷ったら、まずはこれ。色違いで選べます。</p>
       <p class="brand en">CASIO</p>
@@ -380,8 +382,8 @@ a{color:inherit;text-decoration:none}
       <!-- ITEM 2位: w-218h -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/w-218h/">
         <span class="rank r2"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">2</span>位</b></span>
-        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio11/w-218h-a.jpg" alt="CASIO W-218H デジタル" width="640" height="640" loading="lazy"></span>
-        <span class="hand">ごつめ好きに刺さるやつ</span><span class="bubble">まるい形がかわいい、カラフルなデジタル。</span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio11/w-218h-a.jpg" alt="CASIO W-218H デジタル" width="640" height="640" loading="lazy"></span><span class="hand" aria-label="ごつめ好きに刺さるやつ"><span aria-hidden="true"><span class="c" style="--i:0">ご</span><span class="c" style="--i:1">つ</span><span class="c" style="--i:2">め</span><span class="c" style="--i:3">好</span><span class="c" style="--i:4">き</span><span class="c" style="--i:5">に</span><span class="c" style="--i:6">刺</span><span class="c" style="--i:7">さ</span><span class="c" style="--i:8">る</span><span class="c" style="--i:9">や</span><span class="c" style="--i:10">つ</span></span></span></span>
+        <span class="bubble">まるい形がかわいい、カラフルなデジタル。</span>
         <span class="brand en">CASIO</span>
         <span class="name">W-218H デジタル</span>
         <p class="price sm en">3,380<small>円〜</small></p>
@@ -390,8 +392,8 @@ a{color:inherit;text-decoration:none}
       <!-- ITEM 3位: mq-24-1b3df -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/mq-24-1b3df/">
         <span class="rank r3"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">3</span>位</b></span>
-        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio4/mq-24-1b3df-a.jpg" alt="CASIO MQ-24 オールブラック" width="640" height="640" loading="lazy"></span>
-        <span class="hand">この値段でこの出来は、ずるい</span><span class="bubble">2,000円台の、すっきりしたアナログ。</span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio4/mq-24-1b3df-a.jpg" alt="CASIO MQ-24 オールブラック" width="640" height="640" loading="lazy"></span><span class="hand" aria-label="この値段でこの出来は、ずるい"><span aria-hidden="true"><span class="c" style="--i:0">こ</span><span class="c" style="--i:1">の</span><span class="c" style="--i:2">値</span><span class="c" style="--i:3">段</span><span class="c" style="--i:4">で</span><span class="c" style="--i:5">こ</span><span class="c" style="--i:6">の</span><span class="c" style="--i:7">出</span><span class="c" style="--i:8">来</span><span class="c" style="--i:9">は</span><span class="c" style="--i:10">、</span><span class="c" style="--i:11">ず</span><span class="c" style="--i:12">る</span><span class="c" style="--i:13">い</span></span></span></span>
+        <span class="bubble">2,000円台の、すっきりしたアナログ。</span>
         <span class="brand en">CASIO</span>
         <span class="name">MQ-24 オールブラック</span>
         <p class="price sm en">2,080<small>円</small></p>
@@ -411,8 +413,7 @@ a{color:inherit;text-decoration:none}
   <!-- ITEM 1位: iei-51602 -->
   <div class="first rv">
     <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
-    <a class="ph" href="https://item.rakuten.co.jp/7ple/iei-51602/"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51602-aa.jpg" alt="SEIKO × 北斗の拳 コラボレーションウオッチ" width="640" height="640" loading="lazy"></a>
-    <span class="hand">ケンシロウか、ラオウか。悩みどころ</span>
+    <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/iei-51602/"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51602-aa.jpg" alt="SEIKO × 北斗の拳 コラボレーションウオッチ" width="640" height="640" loading="lazy"></a><span class="hand" aria-label="ケンシロウか、ラオウか。悩みどころ"><span aria-hidden="true"><span class="c" style="--i:0">ケ</span><span class="c" style="--i:1">ン</span><span class="c" style="--i:2">シ</span><span class="c" style="--i:3">ロ</span><span class="c" style="--i:4">ウ</span><span class="c" style="--i:5">か</span><span class="c" style="--i:6">、</span><span class="c" style="--i:7">ラ</span><span class="c" style="--i:8">オ</span><span class="c" style="--i:9">ウ</span><span class="c" style="--i:10">か</span><span class="c" style="--i:11">。</span><span class="c" style="--i:12">悩</span><span class="c" style="--i:13">み</span><span class="c" style="--i:14">ど</span><span class="c" style="--i:15">こ</span><span class="c" style="--i:16">ろ</span></span></span></div>
     <div class="body">
       <p class="bubble big">ケンシロウとラオウ、2つのモデル。日本製・数量限定のクロノグラフです。</p>
       <p class="tag">数量限定</p><p class="brand en">SEIKO × 北斗の拳</p>
@@ -425,8 +426,8 @@ a{color:inherit;text-decoration:none}
       <!-- ITEM 2位: iei-51599 -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/iei-51599/">
         <span class="rank r2"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">2</span>位</b></span>
-        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51599.jpg" alt="SEIKO × Re:ゼロから始める異世界生活 エミリア／レム モデル" width="640" height="640" loading="lazy"></span>
-        <span class="hand">エミリアかレムか…選べない！</span><span class="bubble">キャラクターの色をのせた文字盤。</span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51599.jpg" alt="SEIKO × Re:ゼロから始める異世界生活 エミリア／レム モデル" width="640" height="640" loading="lazy"></span><span class="hand" aria-label="エミリアかレムか…選べない！"><span aria-hidden="true"><span class="c" style="--i:0">エ</span><span class="c" style="--i:1">ミ</span><span class="c" style="--i:2">リ</span><span class="c" style="--i:3">ア</span><span class="c" style="--i:4">か</span><span class="c" style="--i:5">レ</span><span class="c" style="--i:6">ム</span><span class="c" style="--i:7">か</span><span class="c" style="--i:8">…</span><span class="c" style="--i:9">選</span><span class="c" style="--i:10">べ</span><span class="c" style="--i:11">な</span><span class="c" style="--i:12">い</span><span class="c" style="--i:13">！</span></span></span></span>
+        <span class="bubble">キャラクターの色をのせた文字盤。</span>
         <p class="tag">数量限定</p><span class="brand en">SEIKO × Re:ゼロから始める異世界生活</span>
         <span class="name">エミリア／レム モデル</span>
         <p class="price sm en">65,780<small>円</small></p>
@@ -435,8 +436,8 @@ a{color:inherit;text-decoration:none}
       <!-- ITEM 3位: iei-51598 -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/iei-51598/">
         <span class="rank r3"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">3</span>位</b></span>
-        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51598-a1.jpg" alt="SEIKO × ポムポムプリン 30周年記念ウオッチ" width="640" height="640" loading="lazy"></span>
-        <span class="hand">プリン好きの友達に、そっと渡したい</span><span class="bubble">やさしいイエローの文字盤。</span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51598-a1.jpg" alt="SEIKO × ポムポムプリン 30周年記念ウオッチ" width="640" height="640" loading="lazy"></span><span class="hand" aria-label="プリン好きの友達に、そっと渡したい"><span aria-hidden="true"><span class="c" style="--i:0">プ</span><span class="c" style="--i:1">リ</span><span class="c" style="--i:2">ン</span><span class="c" style="--i:3">好</span><span class="c" style="--i:4">き</span><span class="c" style="--i:5">の</span><span class="c" style="--i:6">友</span><span class="c" style="--i:7">達</span><span class="c" style="--i:8">に</span><span class="c" style="--i:9">、</span><span class="c" style="--i:10">そ</span><span class="c" style="--i:11">っ</span><span class="c" style="--i:12">と</span><span class="c" style="--i:13">渡</span><span class="c" style="--i:14">し</span><span class="c" style="--i:15">た</span><span class="c" style="--i:16">い</span></span></span></span>
+        <span class="bubble">やさしいイエローの文字盤。</span>
         <p class="tag">数量限定</p><span class="brand en">SEIKO × ポムポムプリン</span>
         <span class="name">30周年記念ウオッチ</span>
         <p class="price sm en">49,280<small>円</small></p>
@@ -456,8 +457,7 @@ a{color:inherit;text-decoration:none}
   <!-- ITEM 1位: ugg-earmuff -->
   <div class="first rv">
     <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
-    <a class="ph" href="https://item.rakuten.co.jp/7ple/ugg-earmuff/"><img src="https://image.rakuten.co.jp/7ple/cabinet/ugg/ugg-earmuff-a.jpg" alt="UGG シープスキン イヤーマフ" width="640" height="640" loading="lazy"></a>
-    <span class="hand">耳があったかいと、冬がラク</span>
+    <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/ugg-earmuff/"><img src="https://image.rakuten.co.jp/7ple/cabinet/ugg/ugg-earmuff-a.jpg" alt="UGG シープスキン イヤーマフ" width="640" height="640" loading="lazy"></a><span class="hand" aria-label="耳があったかいと、冬がラク"><span aria-hidden="true"><span class="c" style="--i:0">耳</span><span class="c" style="--i:1">が</span><span class="c" style="--i:2">あ</span><span class="c" style="--i:3">っ</span><span class="c" style="--i:4">た</span><span class="c" style="--i:5">か</span><span class="c" style="--i:6">い</span><span class="c" style="--i:7">と</span><span class="c" style="--i:8">、</span><span class="c" style="--i:9">冬</span><span class="c" style="--i:10">が</span><span class="c" style="--i:11">ラ</span><span class="c" style="--i:12">ク</span></span></span></div>
     <div class="body">
       <p class="bubble big">耳をすっぽり包む、ふわふわのボア。正規BOX付きなので、そのまま贈りものになります。</p>
       <p class="brand en">UGG</p>
@@ -470,8 +470,8 @@ a{color:inherit;text-decoration:none}
       <!-- ITEM 2位: 280287-blk -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/280287-blk/">
         <span class="rank r2"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">2</span>位</b></span>
-        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/ut1/280287-blk-a.jpg" alt="BVLGARI 二つ折り財布 コンパクト" width="640" height="640" loading="lazy"></span>
-        <span class="hand">財布は小さめ派の人にぜひ</span><span class="bubble">小さなバッグにも収まる、黒のレザー。</span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/ut1/280287-blk-a.jpg" alt="BVLGARI 二つ折り財布 コンパクト" width="640" height="640" loading="lazy"></span><span class="hand" aria-label="財布は小さめ派の人にぜひ"><span aria-hidden="true"><span class="c" style="--i:0">財</span><span class="c" style="--i:1">布</span><span class="c" style="--i:2">は</span><span class="c" style="--i:3">小</span><span class="c" style="--i:4">さ</span><span class="c" style="--i:5">め</span><span class="c" style="--i:6">派</span><span class="c" style="--i:7">の</span><span class="c" style="--i:8">人</span><span class="c" style="--i:9">に</span><span class="c" style="--i:10">ぜ</span><span class="c" style="--i:11">ひ</span></span></span></span>
+        <span class="bubble">小さなバッグにも収まる、黒のレザー。</span>
         <span class="brand en">BVLGARI</span>
         <span class="name">二つ折り財布 コンパクト</span>
         <p class="price sm en">48,110<small>円</small></p>
@@ -480,8 +480,8 @@ a{color:inherit;text-decoration:none}
       <!-- ITEM 3位: pata-47929-blk -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/pata-47929-blk/">
         <span class="rank r3"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">3</span>位</b></span>
-        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/patagonia/pata-47929-blk-aa.jpg" alt="PATAGONIA レフュジオ・デイパック 30L" width="640" height="640" loading="lazy"></span>
-        <span class="hand">通勤にもお出かけにも、これ一つ</span><span class="bubble">通勤にも通学にも使える、黒のリュック。</span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/patagonia/pata-47929-blk-aa.jpg" alt="PATAGONIA レフュジオ・デイパック 30L" width="640" height="640" loading="lazy"></span><span class="hand" aria-label="通勤にもお出かけにも、これ一つ"><span aria-hidden="true"><span class="c" style="--i:0">通</span><span class="c" style="--i:1">勤</span><span class="c" style="--i:2">に</span><span class="c" style="--i:3">も</span><span class="c" style="--i:4">お</span><span class="c" style="--i:5">出</span><span class="c" style="--i:6">か</span><span class="c" style="--i:7">け</span><span class="c" style="--i:8">に</span><span class="c" style="--i:9">も</span><span class="c" style="--i:10">、</span><span class="c" style="--i:11">こ</span><span class="c" style="--i:12">れ</span><span class="c" style="--i:13">一</span><span class="c" style="--i:14">つ</span></span></span></span>
+        <span class="bubble">通勤にも通学にも使える、黒のリュック。</span>
         <span class="brand en">PATAGONIA</span>
         <span class="name">レフュジオ・デイパック 30L</span>
         <p class="price sm en">17,980<small>円</small></p>
@@ -501,8 +501,7 @@ a{color:inherit;text-decoration:none}
   <!-- ITEM 1位: sbth007 -->
   <div class="first rv">
     <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
-    <a class="ph" href="https://item.rakuten.co.jp/7ple/sbth007/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth007.jpg" alt="SEIKO SELECTION Sシリーズ デイデイト SBTH007" width="640" height="640" loading="lazy"></a>
-    <span class="hand">アイボリーの文字盤、見るたび好き</span>
+    <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/sbth007/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth007.jpg" alt="SEIKO SELECTION Sシリーズ デイデイト SBTH007" width="640" height="640" loading="lazy"></a><span class="hand" aria-label="アイボリーの文字盤、見るたび好き"><span aria-hidden="true"><span class="c" style="--i:0">ア</span><span class="c" style="--i:1">イ</span><span class="c" style="--i:2">ボ</span><span class="c" style="--i:3">リ</span><span class="c" style="--i:4">ー</span><span class="c" style="--i:5">の</span><span class="c" style="--i:6">文</span><span class="c" style="--i:7">字</span><span class="c" style="--i:8">盤</span><span class="c" style="--i:9">、</span><span class="c" style="--i:10">見</span><span class="c" style="--i:11">る</span><span class="c" style="--i:12">た</span><span class="c" style="--i:13">び</span><span class="c" style="--i:14">好</span><span class="c" style="--i:15">き</span></span></span></div>
     <div class="body">
       <p class="bubble big">アイボリーの文字盤の、デイデイト。楽天のメンズ腕時計ランキングで1位に入りました。</p>
       <p class="tag">楽天 メンズ腕時計 デイリー1位</p><p class="brand en">SEIKO SELECTION</p>
@@ -515,8 +514,8 @@ a{color:inherit;text-decoration:none}
       <!-- ITEM 2位: mq-24 -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/mq-24/">
         <span class="rank r2"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">2</span>位</b></span>
-        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio12/mq-24.jpg" alt="CASIO MQ-24 アナログ" width="640" height="640" loading="lazy"></span>
-        <span class="hand">色違いで揃えたくなります</span><span class="bubble">色違いで選べる、2,000円台のアナログ。</span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio12/mq-24.jpg" alt="CASIO MQ-24 アナログ" width="640" height="640" loading="lazy"></span><span class="hand" aria-label="色違いで揃えたくなります"><span aria-hidden="true"><span class="c" style="--i:0">色</span><span class="c" style="--i:1">違</span><span class="c" style="--i:2">い</span><span class="c" style="--i:3">で</span><span class="c" style="--i:4">揃</span><span class="c" style="--i:5">え</span><span class="c" style="--i:6">た</span><span class="c" style="--i:7">く</span><span class="c" style="--i:8">な</span><span class="c" style="--i:9">り</span><span class="c" style="--i:10">ま</span><span class="c" style="--i:11">す</span></span></span></span>
+        <span class="bubble">色違いで選べる、2,000円台のアナログ。</span>
         <p class="tag">楽天 メンズ腕時計 週間1位</p><span class="brand en">CASIO</span>
         <span class="name">MQ-24 アナログ</span>
         <p class="price sm en">1,980<small>円〜</small></p>
@@ -525,8 +524,8 @@ a{color:inherit;text-decoration:none}
       <!-- ITEM 3位: ltp-v007l -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/ltp-v007l/">
         <span class="rank r3"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">3</span>位</b></span>
-        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio11/ltp-v007l.jpg" alt="CASIO LTP-V007L スクエア レザー" width="640" height="640" loading="lazy"></span>
-        <span class="hand">四角い文字盤、かわいくないですか？</span><span class="bubble">四角い文字盤に、レザーのベルト。</span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio11/ltp-v007l.jpg" alt="CASIO LTP-V007L スクエア レザー" width="640" height="640" loading="lazy"></span><span class="hand" aria-label="四角い文字盤、かわいくないですか？"><span aria-hidden="true"><span class="c" style="--i:0">四</span><span class="c" style="--i:1">角</span><span class="c" style="--i:2">い</span><span class="c" style="--i:3">文</span><span class="c" style="--i:4">字</span><span class="c" style="--i:5">盤</span><span class="c" style="--i:6">、</span><span class="c" style="--i:7">か</span><span class="c" style="--i:8">わ</span><span class="c" style="--i:9">い</span><span class="c" style="--i:10">く</span><span class="c" style="--i:11">な</span><span class="c" style="--i:12">い</span><span class="c" style="--i:13">で</span><span class="c" style="--i:14">す</span><span class="c" style="--i:15">か</span><span class="c" style="--i:16">？</span></span></span></span>
+        <span class="bubble">四角い文字盤に、レザーのベルト。</span>
         <p class="tag">楽天 レディース腕時計 週間4位</p><span class="brand en">CASIO</span>
         <span class="name">LTP-V007L スクエア レザー</span>
         <p class="price sm en">3,180<small>円〜</small></p>
