@@ -10,730 +10,457 @@
 <title>プレゼントに迷ったら、ここから。THE BEST SELLER クリスマスギフトアワード 2026｜腕時計のななぷれ select shop</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* =========================================================
-   THE BEST SELLER AWARD 2026 ／ 腕時計のななぷれ select shop
-   ・部門ごとの売れ筋 1〜3位（楽天ショップ内ランキング 11/18〜11/24 をもとに、
-     在庫のある商品で部門別に並べ替え。楽天ランキング部門は楽天市場の腕時計ランキング 11/25 確認）
-   ・動き：光のライン、紙ふぶき、文字の落下、1位のカーテン、数字のカウント、流れるブランド帯
-     （文字は回転・傾けない。prefers-reduced-motion では動きを止める）
-   ・商品の差し替えは scratchpad の gen_award.py の CATS を編集
+   クリスマスギフトアワード 2026 ／ 腕時計のななぷれ select shop
+   ・スマホ特化：PCも中央750pxの1カラム（両サイドは深緑）
+   ・装飾は控えめ。動きはフェードと写真のゆっくりズームだけ
+   ・文字は傾けない／prefers-reduced-motion では動きを止める
+   ・商品は scratchpad の gen_award.py の CATS、組み立ては gen_award2.py
    ========================================================= */
 :root{
-  --ink:#1E1A14;
-  --night:#15110B;
-  --night-2:#2A2217;
-  --cream:#FFFBF2;
-  --gold-1:#FFF1B8;
-  --gold-2:#E2B33C;
-  --gold-3:#A87A12;
-  --gold:linear-gradient(135deg,#FFF1B8 0%,#F0CB62 30%,#E2B33C 55%,#C89423 80%,#F6DC8A 100%);
-  --silver:linear-gradient(135deg,#FFFFFF 0%,#E4E7EB 45%,#C7CDD4 100%);
-  --bronze:linear-gradient(135deg,#FFF0E2 0%,#F0CFAE 50%,#DDAA7C 100%);
   --red:#B01F2E;
-  --red-dk:#8A1422;
   --green:#1D4A34;
-  --green-dk:#133626;
-  --champ:#D6C08F;
-  --champ-lt:#F0E5C6;
-  --muted:#6E655A;
-  --line:rgba(30,26,20,.14);
+  --champ:#C9B27A;
+  --ink:#222;
+  --muted:#77706A;
+  --bg:#FFFFFF;
+  --soft:#F7F3EC;
+  --line:#E6DFD3;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--cream);color:var(--ink);font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:#F3ECDF;color:var(--ink);font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.8}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 .en{font-family:"Jost",sans-serif}
-.sp{display:none}
 
-/* 紙ふぶき用キャンバス（画面全体） */
-#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60}
+/* 中央750px。中の文字サイズは幅に合わせて縮む（750pxで最大） */
+.page{display:flex;justify-content:center}
+.wrap{flex:none;width:100%;max-width:750px;background:var(--bg);overflow:hidden;font-size:clamp(14px,3.73vw,28px);box-shadow:0 0 0 1px rgba(0,0,0,.04),0 10px 40px rgba(80,50,20,.08)}
 
-/* ---------------- FV ---------------- */
-.fv{position:relative;min-height:min(100vh,900px);background-color:var(--red);background-image:radial-gradient(ellipse at 50% 40%,rgba(255,255,255,.14) 0%,transparent 55%),radial-gradient(circle,rgba(255,255,255,.5) 1.6px,transparent 2.1px),radial-gradient(circle,rgba(255,255,255,.25) 1.1px,transparent 1.5px);background-size:auto,72px 72px,44px 44px;background-position:0 0,0 0,22px 30px;color:#FFF8E6;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:90px 24px 110px}
-.rays{position:absolute;left:50%;top:40%;width:260vmax;height:260vmax;transform:translate(-50%,-50%);
-  background:repeating-conic-gradient(from 0deg,rgba(255,236,190,.13) 0deg 6deg,transparent 6deg 18deg);
-  -webkit-mask:radial-gradient(circle,#000 0,transparent 55%);mask:radial-gradient(circle,#000 0,transparent 55%);
-  animation:spin 60s linear infinite}
-@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
-.spot{position:absolute;top:-10%;width:36vw;height:120%;background:linear-gradient(180deg,rgba(255,236,170,.22),transparent 70%);filter:blur(8px);transform-origin:50% 0;animation:sway 7s ease-in-out infinite alternate}
-.spot.l{left:2%;--a:16deg}.spot.r{right:2%;--a:-16deg;animation-delay:-3.5s}
-@keyframes sway{from{transform:rotate(var(--a))}to{transform:rotate(calc(var(--a) * -0.6))}}
-.fv-shop{position:absolute;top:26px;left:0;right:0;font-size:13px;letter-spacing:.24em;color:var(--champ-lt);z-index:3}
-.fv::before{content:"";position:absolute;inset:16px;border:1px solid rgba(240,229,198,.6);outline:1px solid rgba(240,229,198,.35);outline-offset:5px;pointer-events:none;z-index:2}
-.orns{position:absolute;inset:0 0 auto 0;height:0;z-index:2;pointer-events:none}
-.orn{position:absolute;top:0;width:2px;background:var(--champ);transform-origin:50% 0;animation:swing 4s ease-in-out infinite alternate}
-.orn:nth-child(2n){animation-duration:5s;animation-delay:-2s}.orn:nth-child(3n){animation-duration:3.4s;animation-delay:-1s}
-@keyframes swing{from{transform:rotate(3deg)}to{transform:rotate(-3deg)}}
-.orn::after{content:"";position:absolute;left:50%;bottom:-1px;transform:translate(-50%,100%);width:var(--s,30px);height:var(--s,30px);border-radius:50%;background:var(--c,linear-gradient(135deg,#F3E7C8,#D6C08F 45%,#B9A06A));box-shadow:inset -5px -6px 0 rgba(0,0,0,.12),inset 5px 5px 0 rgba(255,255,255,.22)}
-.orn::before{content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);width:10px;height:7px;background:#A98F58;border-radius:2px 2px 0 0;z-index:1}
-.orn.star::after{border-radius:0;box-shadow:none;background:var(--champ);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-.orn.star::before{display:none}
-.fv-in{position:relative;z-index:2;max-width:900px}
-.fv-wreath{position:relative;width:min(600px,94vw);margin:0 auto}
-.fv-wreath svg{width:100%;height:auto;display:block;overflow:visible}
-.fv-wreath .lf,.fv-wreath .be{opacity:0}
-.fv-wreath .bow{opacity:0;transition:opacity .6s 1.4s}
-.js .fv.go .fv-wreath .bow{opacity:1}
-.fv-wreath svg{filter:drop-shadow(0 8px 14px rgba(60,0,0,.35))}
-.js .fv.go .fv-wreath .lf,.js .fv.go .fv-wreath .be{animation:leaf .5s cubic-bezier(.3,1.6,.5,1) forwards}
-@keyframes leaf{from{opacity:0;scale:.2}to{opacity:1;scale:1}}
-.fv-title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:4%}
-.fv-title .the{font-family:"Jost";font-style:normal;font-weight:500;font-size:clamp(20px,3vw,34px);letter-spacing:.2em;color:#FFF3D0}
-.fv-title .big{display:block;font-family:"Jost";font-weight:700;line-height:.95;letter-spacing:.02em;font-size:clamp(38px,7.2vw,80px)}
-.fv-title .big span{display:inline-block;filter:drop-shadow(0 3px 0 rgba(90,10,10,.45));background:linear-gradient(100deg,#C9AE72 0%,#F6EBCB 22%,#FFFFFF 30%,#E8D3A0 40%,#C9AE72 60%,#F1E2BC 80%,#C9AE72 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4.5s linear infinite}
-.js .fv-title .big span{opacity:0;transform:translateY(-70px)}
-.js .fv.go .fv-title .big span{animation:drop .7s cubic-bezier(.25,1.6,.5,1) forwards,shimmer 4.5s linear infinite}
-@keyframes drop{to{opacity:1;transform:none}}
-@keyframes shimmer{from{background-position:120% 0}to{background-position:-130% 0}}
-.fv-award{margin-top:16px;display:inline-flex;align-items:center;gap:14px;font-family:"Jost";font-weight:500;font-size:clamp(15px,1.8vw,20px);letter-spacing:.42em;color:var(--champ-lt)}
-.fv-award::before,.fv-award::after{content:"";width:46px;height:1px;background:currentColor}
-.fv-catch{margin-top:34px;font-size:clamp(24px,3.2vw,38px);font-weight:900;letter-spacing:.06em;line-height:1.5}
-.fv-catch b{color:var(--champ-lt);font-weight:900;background:linear-gradient(transparent 70%,rgba(214,192,143,.5) 70%)}
-.fv-lead{margin-top:14px;font-size:15px;color:#FBE3DE}
-.counts{margin-top:30px;display:flex;justify-content:center;gap:42px}
-.counts div{display:flex;align-items:baseline;gap:6px}
-.counts .num{font-family:"Jost";font-weight:600;font-size:54px;line-height:1;color:var(--champ-lt)}
-.counts small{font-size:16px;font-weight:700;color:#F2E3BB}
-.fv-down{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);font-family:"Jost";font-size:12px;letter-spacing:.3em;color:var(--champ-lt);z-index:3}
-.fv-down::after{content:"";display:block;width:1px;height:40px;margin:8px auto 0;background:linear-gradient(var(--champ-lt),transparent);animation:down 1.8s ease-in-out infinite}
-@keyframes down{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-.fv-in > *{transition:opacity .8s ease,transform .8s ease}
-.js .fv .fv-catch,.js .fv .fv-lead,.js .fv .counts,.js .fv .fv-award{opacity:0;transform:translateY(18px)}
-.js .fv.go .fv-award{opacity:1;transform:none;transition-delay:1.5s}
-.js .fv.go .fv-catch{opacity:1;transform:none;transition-delay:1.8s}
-.js .fv.go .fv-lead{opacity:1;transform:none;transition-delay:2s}
-.js .fv.go .counts{opacity:1;transform:none;transition-delay:2.2s}
-
-/* 流れるブランド帯（まっすぐ横に流れる） */
-.ticker{background:var(--green);color:var(--champ-lt);overflow:hidden;white-space:nowrap;border-block:3px solid var(--champ)}
-.ticker-in{display:inline-flex;align-items:center;gap:28px;padding:12px 0;animation:tick 38s linear infinite}
-.ticker span{font-size:18px;font-weight:600;letter-spacing:.2em}
-.ticker i{font-style:normal;font-size:12px;color:var(--champ)}
-@keyframes tick{to{transform:translateX(-50%)}}
-
-/* イントロ */
-.intro{max-width:860px;margin:0 auto;padding:90px 24px 70px;text-align:center}
-.intro h2{font-size:clamp(22px,2.6vw,30px);font-weight:900;line-height:1.7}
-.intro h2 em{font-style:normal;background:linear-gradient(transparent 62%,rgba(226,179,60,.45) 62%)}
-.intro p{margin-top:18px;font-size:15.5px;color:#3C352B}
-.intro .note{font-size:12.5px;color:var(--muted);margin-top:14px}
-
-/* 部門ナビ（上に貼りつく） */
-.catnav{position:sticky;top:0;z-index:30;background:rgba(19,54,38,.96);backdrop-filter:blur(6px);border-bottom:2px solid var(--champ)}
-.catnav-in{max-width:1200px;margin:0 auto;display:flex;justify-content:center;overflow-x:auto;scrollbar-width:none}
-.catnav-in::-webkit-scrollbar{display:none}
-.catnav a{flex:none;display:flex;align-items:center;gap:8px;padding:15px 20px;color:#E9DDBF;font-size:14px;font-weight:700;position:relative;transition:color .25s}
-.catnav a .en{font-size:12px;color:var(--champ);font-weight:600}
-.catnav a::after{content:"";position:absolute;left:16px;right:16px;bottom:0;height:3px;background:var(--red);transform:scaleX(0);transition:transform .35s}
-.catnav a:hover,.catnav a.on{color:#FFFFFF}
-.catnav a.on::after{transform:scaleX(1)}
-
-/* ---------------- 部門 ---------------- */
-.cat{padding:90px 24px 100px;position:relative;scroll-margin-top:54px}
-.cat{background-color:var(--cream);background-image:radial-gradient(circle,rgba(214,192,143,.5) 1.4px,transparent 1.8px),radial-gradient(circle,rgba(214,192,143,.28) 1px,transparent 1.4px);background-size:68px 68px,41px 41px;background-position:0 0,20px 26px}
-.cat.c-green{background-color:#F1F5EF}
-.cat-head{max-width:1100px;margin:0 auto 40px;display:flex;align-items:center;gap:30px;background:var(--red);color:#FFF8EA;padding:20px 36px;outline:1px solid var(--champ);outline-offset:-8px;position:relative;overflow:hidden;box-shadow:0 10px 30px -18px rgba(120,80,0,.6)}
-.c-green .cat-head{background:var(--green)}
-.cat-head::before{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:repeating-linear-gradient(90deg,var(--red-dk) 0 26px,var(--champ) 26px 30px,var(--green-dk) 30px 56px,var(--champ) 56px 60px)}
-.cat-head::after{content:"";position:absolute;top:0;bottom:0;width:30%;left:-40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);animation:sweep 5s ease-in-out infinite}
-@keyframes sweep{0%,60%{left:-40%}100%{left:130%}}
-.emb{position:relative;width:118px;flex:none}
-.emb svg{width:100%;height:auto;display:block}
-.emb p{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:.95;color:var(--champ-lt);padding-top:6px}
-.emb .t1{font-size:15px;letter-spacing:.1em}.emb .t2{font-size:28px;font-weight:700}.emb .t3{font-size:16px;font-weight:600;letter-spacing:.06em}
-.emb .leaves{fill:var(--champ);opacity:.95}
-.ttl .kick{font-size:15px;font-weight:600;letter-spacing:.28em;color:var(--champ)}
-.ttl .kick span{display:inline-block;margin-left:6px;padding:0 8px;background:var(--champ);color:var(--green-dk);letter-spacing:.1em}
-.ttl h2{font-size:clamp(30px,4vw,50px);font-weight:900;line-height:1.25;letter-spacing:.04em}
-.ttl .lead{font-size:15px;font-weight:700;color:var(--champ-lt);margin-top:4px}
-
-/* メダル */
-.medal{position:relative;width:132px;height:132px;flex:none}
-.medal::before{content:"";position:absolute;inset:19%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2F6B4C,#133626 70%);box-shadow:0 0 0 3px #E2B33C,0 4px 10px rgba(0,0,0,.25)}
-.medal.m2::before{background:radial-gradient(circle at 35% 30%,#7A8591,#3F4852 70%);box-shadow:0 0 0 3px #C4CAD2,0 4px 10px rgba(0,0,0,.25)}
-.medal.m3::before{background:radial-gradient(circle at 35% 30%,#A0602E,#5E3112 70%);box-shadow:0 0 0 3px #C98A55,0 4px 10px rgba(0,0,0,.25)}
-.medal svg{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
-.medal .mt{position:absolute;inset:0;display:flex;align-items:baseline;justify-content:center;padding-top:44px;font-weight:900;color:#F6E3A6}
-.medal .mt .n{font-size:50px;font-weight:700;line-height:1;margin:0 1px}
-.medal .mt .d{font-size:17px}
-.medal.m2 .mt{color:#FFFFFF}.medal.m3 .mt{color:#FFE7CF}
-.medal .shine{position:absolute;inset:16%;border-radius:50%;overflow:hidden;pointer-events:none}
-.medal .shine::after{content:"";position:absolute;top:-20%;bottom:-20%;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.8),transparent);animation:sweep2 3.2s ease-in-out infinite}
-@keyframes sweep2{0%,55%{left:-60%}100%{left:130%}}
-
-/* 1位 */
-.first{position:relative;max-width:1100px;margin:0 auto;border-radius:6px;overflow:hidden;box-shadow:0 24px 50px -30px rgba(90,60,0,.55)}
-.first-in{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--gold);padding:28px}
-.first .ph{display:block;background:#fff;aspect-ratio:1/1;overflow:hidden;border-radius:4px}
-.first .ph img,.sub .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.first .ph:hover img,.sub .ph:hover img{transform:scale(1.05)}
-.first .body{padding:10px 10px 10px 40px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
-.first .medal{width:150px;height:150px;margin-bottom:6px}
-.first .medal .mt{padding-top:50px}.first .medal .mt .n{font-size:58px}
-.tag{display:inline-block;font-size:13px;font-weight:700;color:var(--red);border-bottom:2px solid currentColor;margin-bottom:8px}
-.brand{font-size:14px;letter-spacing:.12em;color:#5A4410;font-weight:500}
-.first .name{font-size:clamp(22px,2.4vw,30px);font-weight:900;line-height:1.45;margin:2px 0 12px}
-.first .copy{font-size:15.5px;line-height:1.95;color:#2E271C}
-.price{font-size:38px;font-weight:500;margin-top:14px;letter-spacing:.01em;line-height:1.2}
-.price small{font-family:"Noto Sans JP";font-size:15px;font-weight:700;margin-left:3px}
-.price em{font-style:normal;font-size:12px;font-weight:400;color:var(--muted)}
-.btn{display:inline-flex;align-items:center;gap:14px;margin-top:18px;padding:16px 34px;background:var(--red);color:#FFF4D6;border-radius:999px;font-size:16px;font-weight:700;letter-spacing:.06em;transition:transform .25s,background .25s;box-shadow:0 6px 0 var(--red-dk)}
-.btn i{width:26px;height:26px;border-radius:50%;background:var(--gold);position:relative}
-.btn i::after{content:"";position:absolute;left:9px;top:8.5px;width:7px;height:7px;border-top:2px solid var(--red-dk);border-right:2px solid var(--red-dk);transform:rotate(45deg)}
-.btn:hover{transform:translateY(3px);box-shadow:0 3px 0 var(--red-dk);background:#C42A38}
-.btn.sm{padding:12px 24px;font-size:14px;margin-top:14px}
-
-/* カーテン（1位の発表） */
-.curtain{display:none}
-.js .curtain{display:block;position:absolute;inset:0;z-index:5;cursor:pointer}
-.curtain .cl,.curtain .cr{position:absolute;top:0;bottom:0;width:50.5%;
-  background:repeating-linear-gradient(90deg,#8E0F1A 0 18px,#B51E2A 18px 30px,#9C1420 30px 46px),#A3121F;
-  box-shadow:inset 0 -18px 0 -6px #E2B33C,inset 0 -24px 0 -6px #8A6410;transition:transform 1.25s cubic-bezier(.7,0,.2,1)}
-.curtain .cl{left:0}.curtain .cr{right:0}
-.curtain .drum{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#FFF1C9;transition:opacity .4s}
-.curtain .q{font-size:clamp(26px,3.6vw,44px);font-weight:900;letter-spacing:.1em;text-shadow:0 3px 0 rgba(0,0,0,.35)}
-.curtain .dots{display:flex;gap:10px}
-.curtain .dots b{width:12px;height:12px;border-radius:50%;background:var(--gold-2);animation:bounce 1s ease-in-out infinite}
-.curtain .dots b:nth-child(2){animation-delay:.15s}.curtain .dots b:nth-child(3){animation-delay:.3s}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.first.open .curtain{pointer-events:none}
-.first.open .cl{transform:translateX(-102%)}
-.first.open .cr{transform:translateX(102%)}
-.first.open .drum{opacity:0}
-.js .first .medal{transform:scale(0);transition:transform .7s cubic-bezier(.3,1.8,.5,1) .9s}
-.js .first.open .medal{transform:scale(1)}
-
-/* 2位・3位 */
-.subs{max-width:1100px;margin:32px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:32px}
-.sub{border-radius:6px;padding:24px 26px 28px;display:flex;flex-direction:column;box-shadow:0 18px 40px -30px rgba(0,0,0,.5)}
-.sub.s2{background:var(--silver)}.sub.s3{background:var(--bronze)}
-.sub-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;min-height:112px}
-.sub .medal{width:104px;height:104px}
-.sub .medal .mt{padding-top:35px}.sub .medal .mt .n{font-size:40px}.sub .medal .mt .d{font-size:14px}
-.sub .brand{font-size:12.5px}
-.sub .name{font-size:19px;font-weight:900;line-height:1.45}
-.sub .ph{display:block;background:#fff;aspect-ratio:1/1;overflow:hidden;border-radius:4px;margin-bottom:14px}
-.sub .copy{font-size:14px;line-height:1.85;color:#3A3329;flex:1}
-.sub .price{font-size:30px}
-.sub .btn{align-self:flex-start}
-
-/* スクロールで出てくる */
-.js .rv{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
-.js .rv.in{opacity:1;transform:none}
-.js .subs .s3.rv{transition-delay:.15s}
-
-/* まとめ */
-.closing{background-color:var(--green-dk);background-image:radial-gradient(circle,rgba(255,255,255,.45) 1.5px,transparent 2px),radial-gradient(circle,rgba(255,255,255,.22) 1px,transparent 1.4px);background-size:72px 72px,44px 44px;background-position:0 0,22px 30px;color:#FFF6DE;text-align:center;padding:150px 24px 80px;position:relative;overflow:hidden}
-.closing h2{font-size:clamp(24px,3.2vw,38px);font-weight:900;line-height:1.6}
-.closing h2 b{color:var(--champ);font-weight:900}
-.closing p{margin-top:16px;font-size:15px;color:#E6D9B8}
-.closing .links{margin:36px auto 0;display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
-.closing .btn{background:var(--red);color:#FFF4D6;box-shadow:0 6px 0 var(--red-dk);border:2px solid var(--champ)}
-
-
-.notes{max-width:900px;margin:50px auto 0;text-align:left;font-size:12px;color:#B9C6BD;line-height:1.9}
-
-.totop{position:fixed;right:18px;bottom:18px;z-index:40;width:58px;height:58px;border-radius:50%;background:var(--gold);color:var(--night);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:"Jost";font-size:11px;font-weight:700;letter-spacing:.1em;box-shadow:0 6px 16px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;transform:translateY(10px)}
-.totop::before{content:"";width:9px;height:9px;border-left:2px solid currentColor;border-top:2px solid currentColor;transform:rotate(45deg);margin:4px 0 1px}
-.totop.show{opacity:1;pointer-events:auto;transform:none}
-
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .js .rv,.js .fv .fv-catch,.js .fv .fv-lead,.js .fv .counts,.js .fv .fv-award{opacity:1!important;transform:none!important}
-  .js .fv-title .big span{opacity:1!important;transform:none!important}
-  .js .fv-wreath .lf,.js .fv-wreath .be,.js .fv-wreath .bow{opacity:1!important}
-  .js .curtain{display:none}
-  .js .first .medal{transform:none}
+/* PC：左に固定のタイトル欄、右に750pxの本文（参考：GLOBAL WORK 特集の見せ方） */
+.side{display:none}
+@media (min-width:1100px){
+  .page{justify-content:flex-end;padding-right:max(40px,calc((100vw - 750px - 560px) / 2))}
+  .side{display:flex;flex:1;position:sticky;top:0;height:100vh;align-self:flex-start;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 48px;max-width:560px;margin-right:auto}
+  .side-shop{font-size:13px;letter-spacing:.14em;color:var(--muted)}
+  .side-label{margin-top:22px;font-size:14px;letter-spacing:.28em;color:var(--red)}
+  .side-label::before,.side-label::after{content:"＼";margin:0 .8em;letter-spacing:0;color:var(--champ)}
+  .side-label::after{content:"／"}
+  .side h2{margin-top:10px;font-family:"Jost";font-weight:500;font-size:46px;line-height:1.05;color:var(--red);letter-spacing:.02em}
+  .side-catch{margin-top:16px;font-size:16px;font-weight:700;line-height:1.7}
+  .side-list{margin:28px 0 0;width:100%;max-width:340px;border-top:1px solid var(--line);text-align:left}
+  .side-list a{display:flex;align-items:center;gap:14px;padding:12px 6px;border-bottom:1px solid var(--line);font-size:15px;font-weight:700;transition:color .2s}
+  .side-list a .en{font-size:12px;color:var(--red);font-weight:600;width:22px}
+  .side-list a::after{content:"";margin-left:auto;width:7px;height:7px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg);opacity:.5}
+  .side-list a.on{color:var(--red)}
+  .side .btn{width:100%;max-width:340px;height:60px;font-size:16px;margin-top:26px}
+  .catnav{display:none}
+  .totop{right:calc(max(40px,calc((100vw - 750px - 560px) / 2)) + 14px)}
 }
 
-/* ---------------- スマホ ---------------- */
-@media (max-width:768px){
-  body{font-size:15px}
-  .sp{display:inline}.pc{display:none}
-  .fv{min-height:auto;padding:70px 16px 90px}
-  .fv-shop{font-size:11px;top:20px;letter-spacing:.14em}
-  .spot{width:60vw}
-  .orn.pc{display:none}
-  .fv::before{inset:8px;outline-offset:3px}
-  .counts{gap:26px}.counts .num{font-size:42px}
-  .fv-award{font-size:12px;letter-spacing:.18em;gap:10px;white-space:nowrap}.fv-award::before,.fv-award::after{width:22px}
-  .fv-catch{margin-top:26px}
-  .ticker span{font-size:15px}
-  .intro{padding:64px 20px 50px}
-  .intro p{text-align:left}
-  .catnav{border-bottom-width:1px}
-  .catnav-in{justify-content:flex-start}
-  .catnav a{padding:13px 14px;font-size:13px}
-  .cat{padding:60px 12px 70px}
-  .cat-head{gap:14px;padding:14px 16px;margin-bottom:22px}
-  .emb{width:76px}.emb .t1{font-size:10px}.emb .t2{font-size:18px}.emb .t3{font-size:10.5px}
-  .ttl .kick{font-size:11px;letter-spacing:.16em}
-  .ttl h2{font-size:25px}
-  .ttl .lead{font-size:13px}
-  .first-in{grid-template-columns:1fr;padding:14px}
-  .first .body{padding:16px 6px 8px}
-  .first .medal{width:118px;height:118px;margin:-4px 0 4px -6px}
-  .first .medal .mt{padding-top:39px}.first .medal .mt .n{font-size:46px}
-  .first .name{font-size:21px}
-  .first .copy{font-size:14.5px}
-  .price{font-size:32px}
-  .btn{width:100%;justify-content:center;padding:17px 20px}
-  .subs{gap:10px;margin-top:14px}
-  .sub{padding:12px 10px 14px}
-  .sub-head{flex-direction:column;align-items:flex-start;gap:2px;min-height:0;margin-bottom:8px}
-  .sub .medal{width:78px;height:78px;margin:-4px 0 0 -6px}
-  .sub .medal .mt{padding-top:26px}.sub .medal .mt .n{font-size:30px}.sub .medal .mt .d{font-size:11px}
-  .sub .brand{font-size:10.5px;letter-spacing:.06em}
-  .sub .name{font-size:14px}
-  .sub .copy{display:none}
-  .sub .tag{font-size:11px}
-  .sub .price{font-size:21px;margin-top:6px}
-  .sub .price small{font-size:11px}.sub .price em{display:none}
-  .btn.sm{padding:11px 8px;font-size:12.5px;gap:8px;margin-top:10px}
-  .btn.sm i{width:20px;height:20px}.btn.sm i::after{left:6px;top:6px;width:6px;height:6px}
-  .closing{padding:72px 18px 70px}
-  .totop{width:50px;height:50px;right:12px;bottom:12px}
+/* ---------------- FV ---------------- */
+.fv{background:var(--red);color:#fff;text-align:center;padding:clamp(36px,10.7vw,80px) clamp(20px,6.4vw,48px) clamp(40px,10.7vw,80px)}
+.fv-shop{font-size:clamp(11px,2.9vw,22px);letter-spacing:.12em;opacity:.85}
+.fv-label{margin-top:clamp(22px,6.4vw,48px);font-size:clamp(12px,3.2vw,24px);letter-spacing:.3em;color:#EBD9AE}
+.fv h1{margin-top:clamp(6px,1.6vw,12px);font-family:"Jost";font-weight:500;font-size:clamp(40px,12.8vw,96px);line-height:1;letter-spacing:.02em}
+.fv h1 span{display:block}
+.fv-catch{margin-top:clamp(20px,5.9vw,44px);font-size:clamp(19px,5.3vw,40px);font-weight:900;line-height:1.55;letter-spacing:.04em}
+.fv-lead{margin-top:clamp(10px,2.7vw,20px);font-size:clamp(13px,3.5vw,26px);opacity:.92}
+.fv-grid{margin-top:clamp(26px,7.5vw,56px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(4px,1.1vw,8px)}
+.fv-ph{display:block;aspect-ratio:1/1;background:#fff;overflow:hidden}
+.fv-ph img{width:100%;height:100%;object-fit:cover}
+
+/* ---------------- 本文 ---------------- */
+.intro{padding:clamp(40px,10.7vw,80px) clamp(20px,6.4vw,48px) clamp(28px,7.5vw,56px);text-align:center}
+.intro h2{font-size:clamp(18px,4.8vw,36px);font-weight:900;line-height:1.6}
+.intro p{margin-top:1em;font-size:.93em;color:#444;text-align:left}
+.intro .note{font-size:.72em;color:var(--muted);margin-top:.8em}
+
+/* 部門の目次 */
+.idx{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,2.1vw,16px);padding:0 clamp(16px,4.3vw,32px) clamp(40px,10.7vw,80px)}
+.idx-item{display:flex;flex-direction:column;align-items:center;text-align:center}
+.idx-item .ph{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--soft);border-radius:50%}
+.idx-item .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.idx-item:hover .ph img{transform:scale(1.06)}
+.idx-item .no{margin-top:.5em;font-size:.7em;color:var(--red);letter-spacing:.1em}
+.idx-item .t{font-size:.78em;font-weight:700;line-height:1.4}
+
+/* 上に貼りつく部門ナビ */
+.catnav{position:sticky;top:0;z-index:20;background:var(--green);display:flex;overflow-x:auto;scrollbar-width:none}
+.catnav::-webkit-scrollbar{display:none}
+.catnav a{flex:none;padding:clamp(11px,3.2vw,22px) clamp(12px,3.7vw,26px);color:#D8E2DB;font-size:clamp(12px,3.2vw,22px);font-weight:700;position:relative}
+.catnav a.on{color:#fff}
+.catnav a.on::after{content:"";position:absolute;left:clamp(12px,3.7vw,26px);right:clamp(12px,3.7vw,26px);bottom:0;height:3px;background:var(--champ)}
+
+/* 部門 */
+.cat{padding:clamp(44px,12.8vw,96px) clamp(16px,4.3vw,32px) clamp(20px,5.3vw,40px);scroll-margin-top:clamp(40px,11vw,70px)}
+.cat + .cat{border-top:1px solid var(--line)}
+.cat-head{text-align:center;margin-bottom:clamp(20px,5.9vw,44px)}
+.cat-no{font-size:.68em;letter-spacing:.3em;color:var(--red)}
+.cat-head h2{font-size:clamp(24px,6.9vw,52px);font-weight:900;line-height:1.3;margin-top:.15em;letter-spacing:.03em}
+.cat-lead{font-size:.86em;color:var(--muted);margin-top:.3em}
+
+/* 順位ラベル（写真の左上） */
+.rk{position:absolute;left:0;top:0;padding:.35em .8em;font-size:clamp(13px,3.7vw,28px);font-weight:600;letter-spacing:.06em;line-height:1;color:#fff}
+.rk.r1{background:var(--red);font-size:clamp(16px,4.8vw,36px)}
+.rk.r2{background:#8A9099}.rk.r3{background:#A8774E}
+
+/* 1位 */
+.first .ph{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;background:var(--soft)}
+.first .ph img{width:100%;height:100%;object-fit:cover}
+.js .first.rv .ph img{transform:scale(1.08);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.js .first.rv.in .ph img{transform:none}
+.first .body{padding:clamp(16px,4.3vw,32px) clamp(4px,1.1vw,8px) 0}
+.tag{display:inline-block;font-size:.72em;font-weight:700;color:var(--red);margin-bottom:.4em}
+.brand{display:block;font-size:.72em;letter-spacing:.1em;color:var(--muted)}
+.first .name{font-size:clamp(19px,5.3vw,40px);font-weight:900;line-height:1.45;margin:.1em 0 .45em}
+.first .copy{font-size:.93em;color:#3C3C3C}
+.price{font-size:clamp(26px,7.5vw,56px);font-weight:500;line-height:1.2;margin-top:.35em}
+.price small{font-family:"Noto Sans JP";font-size:.4em;font-weight:700;margin-left:.15em}
+.btn{display:flex;align-items:center;justify-content:center;margin-top:clamp(14px,3.7vw,28px);height:clamp(50px,13.9vw,104px);background:var(--red);color:#fff;font-size:clamp(15px,4.3vw,32px);font-weight:700;letter-spacing:.06em;border-radius:6px;transition:background .25s}
+.btn::after{content:"";width:.45em;height:.45em;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);margin-left:.7em}
+.btn:hover{background:#94192A}
+
+/* 2位・3位 */
+.subs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,2.7vw,20px);margin-top:clamp(28px,8vw,60px)}
+.sub{display:flex;flex-direction:column}
+.sub .ph{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;background:var(--soft);margin-bottom:.6em}
+.sub .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.sub:hover .ph img{transform:scale(1.05)}
+.sub .tag{font-size:.62em}
+.sub .brand{font-size:.62em}
+.sub .name{font-size:.86em;font-weight:700;line-height:1.45;margin-top:.1em;flex:1}
+.price.sm{font-size:clamp(18px,5.1vw,38px)}
+.more{display:block;margin-top:.6em;padding:.55em 0;text-align:center;border:1px solid var(--ink);border-radius:6px;font-size:.78em;font-weight:700;transition:background .25s,color .25s}
+.sub:hover .more{background:var(--ink);color:#fff}
+
+/* まとめ */
+.closing{margin-top:clamp(40px,10.7vw,80px);background:var(--soft);padding:clamp(44px,11.7vw,88px) clamp(20px,6.4vw,48px);text-align:center}
+.closing h2{font-size:clamp(19px,5.3vw,40px);font-weight:900;line-height:1.55}
+.closing p{margin-top:.6em;font-size:.9em;color:#555}
+.closing .btn{max-width:100%}
+.closing .btn.sec{background:var(--green)}
+.closing .btn.sec:hover{background:#163A29}
+.notes{padding:clamp(24px,6.4vw,48px) clamp(20px,6.4vw,48px) clamp(40px,10.7vw,80px);font-size:.66em;color:var(--muted);line-height:1.9}
+
+.totop{position:fixed;right:max(12px,calc(50vw - 375px + 12px));bottom:14px;z-index:30;width:46px;height:46px;border-radius:50%;background:rgba(34,34,34,.85);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.totop::before{content:"";width:10px;height:10px;border-left:2px solid #fff;border-top:2px solid #fff;transform:translateY(3px) rotate(45deg)}
+.totop.show{opacity:1;pointer-events:auto}
+
+/* 動き：ふわっと出る */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.js .rv.in{opacity:1;transform:none}
+.js .subs .sub.rv:nth-child(2){transition-delay:.12s}
+.js .fv > *{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
+.js .fv.go > *{opacity:1;transform:none}
+.js .fv.go > :nth-child(2){transition-delay:.15s}.js .fv.go > :nth-child(3){transition-delay:.3s}
+.js .fv.go > :nth-child(4){transition-delay:.5s}.js .fv.go > :nth-child(5){transition-delay:.65s}
+.js .fv-ph{opacity:0;transition:opacity .7s ease}
+.js .fv.go .fv-ph{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  .js .rv,.js .fv > *,.js .fv-ph{opacity:1!important;transform:none!important;transition:none!important}
+  .js .first.rv .ph img{transform:none!important;transition:none!important}
 }
 </style>
 </head>
 <body>
 <script>document.documentElement.classList.add("js");</script>
-<canvas id="fx" aria-hidden="true"></canvas>
+<div class="page">
+<aside class="side" aria-label="特集の案内">
+  <p class="side-shop">腕時計のななぷれ select shop</p>
+  <p class="side-label en">CHRISTMAS GIFT AWARD 2026</p>
+  <h2>THE BEST<br>SELLER</h2>
+  <p class="side-catch">プレゼントに迷ったら、<br>ここから選べば大丈夫。</p>
+  <nav class="side-list"><a href="#mens" data-sec="mens"><span class="en">01</span>メンズ腕時計部門</a><a href="#ladies" data-sec="ladies"><span class="en">02</span>レディース腕時計部門</a><a href="#cheap" data-sec="cheap"><span class="en">03</span>チプカシ部門</a><a href="#collab" data-sec="collab"><span class="en">04</span>コラボウォッチ部門</a><a href="#goods" data-sec="goods"><span class="en">05</span>ブランド小物部門</a><a href="#rakuten" data-sec="rakuten"><span class="en">06</span>楽天ランキング部門</a></nav>
+  <a class="btn" href="https://search.rakuten.co.jp/search/mall/?sid=404544">すべての商品を見る</a>
+</aside>
+<div class="wrap">
 
 <!-- =================== FV =================== -->
 <header class="fv" id="top">
-  <div class="rays" aria-hidden="true"></div>
-  <div class="orns" aria-hidden="true">
-    <span class="orn" style="left:5%;height:90px;--s:38px"></span><span class="orn star" style="left:12%;height:46px;--s:28px"></span>
-    <span class="orn" style="left:20%;height:120px;--s:30px;--c:#1D4A34"></span><span class="orn pc" style="left:29%;height:60px;--s:24px;--c:#F0E5C6"></span>
-    <span class="orn pc" style="left:71%;height:70px;--s:26px;--c:#1D4A34"></span><span class="orn" style="left:80%;height:110px;--s:34px"></span>
-    <span class="orn star" style="left:88%;height:54px;--s:26px"></span><span class="orn" style="left:95%;height:80px;--s:28px;--c:#F0E5C6"></span>
-  </div>
-  <div class="spot l" aria-hidden="true"></div><div class="spot r" aria-hidden="true"></div>
   <p class="fv-shop">腕時計のななぷれ select shop</p>
-  <div class="fv-in">
-    <div class="fv-wreath">
-      <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-fv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".5" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs><g transform="translate(169.9 100.0) rotate(-27.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(168.1 106.7) rotate(8.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(170.1 113.9) rotate(44.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(165.3 119.8) rotate(11.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(164.2 126.6) rotate(26.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(164.3 134.4) rotate(-2.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(159.7 139.9) rotate(40.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(155.2 145.3) rotate(31.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(148.3 148.3) rotate(73.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(144.7 154.5) rotate(53.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(138.8 158.1) rotate(81.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(132.3 160.5) rotate(67.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(126.9 164.9) rotate(71.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(120.7 168.3) rotate(82.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(114.1 170.7) rotate(73.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(106.9 170.5) rotate(118.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(100.0 169.8) rotate(113.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(93.3 168.2) rotate(79.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(85.7 171.8) rotate(119.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(79.2 168.6) rotate(72.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(73.0 165.1) rotate(133.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(65.3 164.9) rotate(111.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(59.7 160.4) rotate(129.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(55.6 154.1) rotate(117.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(49.5 150.5) rotate(131.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(43.1 146.7) rotate(138.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(43.2 138.0) rotate(162.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(34.8 134.9) rotate(177.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(33.2 127.7) rotate(188.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(34.8 119.8) rotate(160.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(29.7 114.0) rotate(168.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(27.7 107.1) rotate(144.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(29.6 100.0) rotate(213.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(31.8 93.3) rotate(181.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(31.7 86.4) rotate(162.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(30.0 78.8) rotate(179.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(31.7 71.7) rotate(217.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(35.0 65.2) rotate(180.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(42.7 61.7) rotate(226.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(45.2 55.0) rotate(226.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(50.7 50.7) rotate(196.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(55.5 45.7) rotate(235.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(59.9 40.0) rotate(237.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(66.1 36.6) rotate(261.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(71.9 32.2) rotate(269.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(79.6 32.7) rotate(245.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(86.2 30.5) rotate(250.8)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(93.3 31.9) rotate(241.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(100.0 31.3) rotate(278.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(106.7 32.3) rotate(247.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(114.4 27.7) rotate(290.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(121.3 29.9) rotate(296.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(127.5 33.7) rotate(328.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(133.1 38.1) rotate(268.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(141.1 38.5) rotate(301.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(144.3 46.0) rotate(280.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(151.2 48.8) rotate(313.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(155.0 54.9) rotate(297.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(158.3 61.0) rotate(341.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(164.0 65.8) rotate(315.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(166.7 72.4) rotate(318.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(170.3 78.7) rotate(331.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(169.8 86.1) rotate(371.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(171.5 93.0) rotate(363.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(181.7 104.1) rotate(28.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(177.3 111.5) rotate(7.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(180.4 120.2) rotate(37.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(173.9 126.5) rotate(35.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(172.0 134.1) rotate(60.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(170.9 142.6) rotate(20.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(162.3 146.3) rotate(34.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(157.9 152.6) rotate(52.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(155.0 160.8) rotate(46.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(148.7 165.7) rotate(20.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(142.3 170.8) rotate(81.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(134.1 172.2) rotate(39.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(126.0 173.0) rotate(106.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(119.3 177.4) rotate(95.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(111.9 180.5) rotate(55.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(103.7 177.1) rotate(94.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(95.9 181.7) rotate(64.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(87.8 182.0) rotate(111.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(81.0 175.6) rotate(108.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(74.0 172.6) rotate(147.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(65.7 172.4) rotate(150.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(57.3 171.1) rotate(96.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(54.0 161.9) rotate(103.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(47.3 158.1) rotate(139.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(40.5 153.8) rotate(164.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(33.7 149.1) rotate(131.8)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(30.5 141.6) rotate(174.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(28.1 133.9) rotate(188.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(26.7 126.1) rotate(132.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(25.2 118.7) rotate(161.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(20.2 111.8) rotate(193.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(22.1 103.8) rotate(175.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(19.8 96.0) rotate(168.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(20.7 88.2) rotate(187.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(20.2 79.9) rotate(158.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(26.0 73.4) rotate(221.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(28.0 65.9) rotate(167.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(31.7 59.0) rotate(220.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(35.3 51.9) rotate(192.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(41.0 46.4) rotate(224.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(46.3 40.6) rotate(207.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(51.1 33.9) rotate(268.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(57.6 29.2) rotate(270.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(65.0 25.8) rotate(215.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(73.3 25.3) rotate(235.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(80.7 22.8) rotate(233.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(88.1 19.2) rotate(293.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(96.0 17.5) rotate(278.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(103.9 22.2) rotate(303.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(111.6 22.5) rotate(314.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(120.1 20.2) rotate(257.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(126.3 26.6) rotate(284.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(134.0 28.2) rotate(289.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(140.6 32.4) rotate(318.8)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(147.1 36.6) rotate(303.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(153.3 41.3) rotate(313.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(159.4 46.3) rotate(283.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(166.6 50.7) rotate(291.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(167.5 59.6) rotate(361.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(171.1 66.4) rotate(305.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(177.3 72.4) rotate(354.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(177.1 80.8) rotate(348.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(179.6 88.3) rotate(367.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(178.6 96.2) rotate(381.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(188.1 108.8) rotate(-28.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(188.0 117.7) rotate(35.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(185.7 126.2) rotate(-5.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(184.2 135.0) rotate(18.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(181.0 143.5) rotate(21.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(174.5 150.0) rotate(-2.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(170.7 158.3) rotate(77.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(160.9 161.1) rotate(21.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(156.8 169.5) rotate(53.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(148.6 173.0) rotate(56.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(141.2 177.4) rotate(86.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(132.9 179.7) rotate(29.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(125.8 185.5) rotate(48.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(116.9 185.8) rotate(74.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(108.7 189.5) rotate(88.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(99.8 191.8) rotate(74.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(90.8 191.4) rotate(83.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(82.6 186.7) rotate(89.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(73.4 187.1) rotate(68.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(66.0 181.8) rotate(77.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(56.9 180.4) rotate(131.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(50.1 174.4) rotate(139.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(43.6 168.5) rotate(102.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(39.1 160.7) rotate(124.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(28.9 158.1) rotate(144.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(28.2 147.8) rotate(176.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(22.2 141.4) rotate(112.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(20.0 133.0) rotate(139.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(16.2 125.2) rotate(185.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(14.1 116.9) rotate(136.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(10.9 108.6) rotate(166.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(12.2 99.8) rotate(158.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(8.7 90.8) rotate(214.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(11.8 82.3) rotate(208.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(15.5 74.2) rotate(183.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(19.8 66.6) rotate(220.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(24.0 59.2) rotate(235.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(25.5 50.0) rotate(232.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(33.0 44.8) rotate(221.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(36.9 36.7) rotate(250.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(42.4 29.6) rotate(237.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(52.1 28.0) rotate(199.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(56.9 19.0) rotate(232.1)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(66.0 17.4) rotate(257.8)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(74.0 13.7) rotate(252.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(82.8 12.9) rotate(224.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(91.2 9.0) rotate(231.8)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(100.2 13.6) rotate(289.0)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(109.1 9.6) rotate(303.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(117.8 11.4) rotate(257.8)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(126.0 14.9) rotate(277.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(135.2 15.6) rotate(275.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(142.4 21.0) rotate(309.7)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(149.9 25.6) rotate(290.4)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(157.0 30.7) rotate(280.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(161.2 39.0) rotate(296.6)"><ellipse class="lf" rx="3.2" ry="12" fill="#1D4A34"/></g><g transform="translate(169.8 42.9) rotate(334.8)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(175.1 50.0) rotate(309.2)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(178.4 58.3) rotate(301.5)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(180.6 66.8) rotate(375.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#173D2B"/></g><g transform="translate(182.4 75.2) rotate(339.9)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(190.1 82.3) rotate(344.8)"><ellipse class="lf" rx="3.2" ry="12" fill="#2F6B4C"/></g><g transform="translate(187.9 91.5) rotate(387.8)"><ellipse class="lf" rx="3.2" ry="12" fill="#24573E"/></g><g transform="translate(186.4 100.2) rotate(327.3)"><ellipse class="lf" rx="3.2" ry="12" fill="#3B7A57"/></g><g transform="translate(181.9 118.7)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(186.9 121.7)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(180.9 124.7)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(165.7 152.4)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(170.7 155.4)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(164.7 158.4)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(136.4 175.7)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(141.4 178.7)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(135.4 181.7)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(100.0 184.0)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(105.0 187.0)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(99.0 190.0)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(63.6 175.7)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(68.6 178.7)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(62.6 181.7)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(34.3 152.4)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(39.3 155.4)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(33.3 158.4)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(18.1 118.7)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(23.1 121.7)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(17.1 124.7)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(18.1 81.3)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(23.1 84.3)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(17.1 87.3)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(34.3 47.6)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(39.3 50.6)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(33.3 53.6)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(63.6 24.3)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(68.6 27.3)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(62.6 30.3)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(100.0 16.0)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(105.0 19.0)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(99.0 22.0)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(136.4 24.3)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(141.4 27.3)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(135.4 30.3)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(165.7 47.6)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(170.7 50.6)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(164.7 53.6)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(181.9 81.3)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(186.9 84.3)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(180.9 87.3)"><circle class="be" r="3.6" fill="#C8262F"/></g><g transform="translate(172.8 113.2)"><circle class="be" r="5.5" fill="url(#g-fv)"/></g><g transform="translate(135.1 165.2)"><circle class="be" r="5.5" fill="url(#g-fv)"/></g><g transform="translate(70.9 168.0)"><circle class="be" r="5.5" fill="url(#g-fv)"/></g><g transform="translate(28.7 119.7)"><circle class="be" r="5.5" fill="url(#g-fv)"/></g><g transform="translate(40.1 56.5)"><circle class="be" r="5.5" fill="url(#g-fv)"/></g><g transform="translate(96.7 26.1)"><circle class="be" r="5.5" fill="url(#g-fv)"/></g><g transform="translate(155.7 51.3)"><circle class="be" r="5.5" fill="url(#g-fv)"/></g><g class="bow" transform="translate(100 182)"><path d="M0 0 C-14 -22 -40 -26 -42 -12 C-44 2 -20 6 0 0 Z" fill="#C8262F"/><path d="M0 0 C14 -22 40 -26 42 -12 C44 2 20 6 0 0 Z" fill="#C8262F"/><path d="M-4 2 L-16 26 L-8 22 L-3 27 L1 4 Z" fill="#9E1820"/><path d="M4 2 L16 26 L8 22 L3 27 L-1 4 Z" fill="#9E1820"/><ellipse rx="7" ry="6" fill="#E2B33C"/></g></svg>
-      <h1 class="fv-title"><em class="the">The</em><span class="big" data-split>BEST</span><span class="big" data-split>SELLER</span></h1>
-    </div>
-    <p class="fv-award">CHRISTMAS GIFT AWARD 2026</p>
-    <p class="fv-catch">プレゼントに迷ったら、<br class="sp"><b>ここから選べば大丈夫。</b></p>
-    <p class="fv-lead">ななぷれでよく売れているものを、部門ごとに1位〜3位で発表します。</p>
-    <div class="counts"><div><span class="num" data-count="6">0</span><small>部門</small></div><div><span class="num" data-count="18">0</span><small>アイテム</small></div></div>
-  </div>
-  <p class="fv-down">SCROLL</p>
+  <p class="fv-label en">CHRISTMAS GIFT AWARD 2026</p>
+  <h1><span>THE BEST</span><span>SELLER</span></h1>
+  <p class="fv-catch">プレゼントに迷ったら、<br>ここから選べば大丈夫。</p>
+  <div class="fv-grid"><span class="fv-ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth009.jpg" alt="" width="300" height="300"></span><span class="fv-ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio15/aq-240eg-9adf.jpg" alt="" width="300" height="300"></span><span class="fv-ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio13/a168w-a.jpg" alt="" width="300" height="300"></span><span class="fv-ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51602-aa.jpg" alt="" width="300" height="300"></span><span class="fv-ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/ugg/ugg-earmuff-a.jpg" alt="" width="300" height="300"></span><span class="fv-ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth007.jpg" alt="" width="300" height="300"></span></div>
 </header>
 
-<div class="ticker" aria-hidden="true"><div class="ticker-in"><span class="en">SEIKO</span><i>✦</i><span class="en">CASIO</span><i>✦</i><span class="en">CITIZEN</span><i>✦</i><span class="en">G-SHOCK</span><i>✦</i><span class="en">HAMILTON</span><i>✦</i><span class="en">UGG</span><i>✦</i><span class="en">BVLGARI</span><i>✦</i><span class="en">PATAGONIA</span><i>✦</i><span class="en">ORIENT</span><i>✦</i><span class="en">LUMINOX</span><i>✦</i><span class="en">MONCLER</span><i>✦</i><span class="en">JIL SANDER</span><i>✦</i><span class="en">COACH</span><i>✦</i><span class="en">DIESEL</span><i>✦</i><span class="en">SEIKO</span><i>✦</i><span class="en">CASIO</span><i>✦</i><span class="en">CITIZEN</span><i>✦</i><span class="en">G-SHOCK</span><i>✦</i><span class="en">HAMILTON</span><i>✦</i><span class="en">UGG</span><i>✦</i><span class="en">BVLGARI</span><i>✦</i><span class="en">PATAGONIA</span><i>✦</i><span class="en">ORIENT</span><i>✦</i><span class="en">LUMINOX</span><i>✦</i><span class="en">MONCLER</span><i>✦</i><span class="en">JIL SANDER</span><i>✦</i><span class="en">COACH</span><i>✦</i><span class="en">DIESEL</span><i>✦</i></div></div>
-
 <section class="intro rv">
-  <h2>何を贈るか迷ったら、<br><em>みんなが選んでいるもの</em>から。</h2>
-  <p>腕時計から、冬の小物、記念のコラボモデルまで。ななぷれ select shopで売れているものを、部門ごとに集めました。贈る相手に合う部門から見てください。</p>
+  <h2>ななぷれでよく売れているものを、<br>部門ごとに1位〜3位で発表します。</h2>
+  <p>腕時計から、冬の小物、記念のコラボモデルまで。贈る相手に合う部門から見てください。</p>
   <p class="note">※楽天市場 ショップ内ランキング（集計期間：2026年11月18日〜11月24日）をもとに、在庫のある商品を部門ごとに順位順で掲載しています。</p>
 </section>
 
-<nav class="catnav" aria-label="部門"><div class="catnav-in"><a href="#mens" data-sec="mens"><span class="en">01</span>メンズ腕時計</a><a href="#ladies" data-sec="ladies"><span class="en">02</span>レディース腕時計</a><a href="#cheap" data-sec="cheap"><span class="en">03</span>チプカシ</a><a href="#collab" data-sec="collab"><span class="en">04</span>コラボウォッチ</a><a href="#goods" data-sec="goods"><span class="en">05</span>ブランド小物</a><a href="#rakuten" data-sec="rakuten"><span class="en">06</span>楽天ランキング</a></div></nav>
+<nav class="idx" aria-label="部門一覧"><a class="idx-item" href="#mens"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth009.jpg" alt="" width="300" height="300"></span><span class="no en">01</span><span class="t">メンズ腕時計</span></a><a class="idx-item" href="#ladies"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio15/aq-240eg-9adf.jpg" alt="" width="300" height="300"></span><span class="no en">02</span><span class="t">レディース腕時計</span></a><a class="idx-item" href="#cheap"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio13/a168w-a.jpg" alt="" width="300" height="300"></span><span class="no en">03</span><span class="t">チプカシ</span></a><a class="idx-item" href="#collab"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51602-aa.jpg" alt="" width="300" height="300"></span><span class="no en">04</span><span class="t">コラボウォッチ</span></a><a class="idx-item" href="#goods"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/ugg/ugg-earmuff-a.jpg" alt="" width="300" height="300"></span><span class="no en">05</span><span class="t">ブランド小物</span></a><a class="idx-item" href="#rakuten"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth007.jpg" alt="" width="300" height="300"></span><span class="no en">06</span><span class="t">楽天ランキング</span></a></nav>
+
+<nav class="catnav" aria-label="部門"><a href="#mens" data-sec="mens">メンズ腕時計</a><a href="#ladies" data-sec="ladies">レディース腕時計</a><a href="#cheap" data-sec="cheap">チプカシ</a><a href="#collab" data-sec="collab">コラボウォッチ</a><a href="#goods" data-sec="goods">ブランド小物</a><a href="#rakuten" data-sec="rakuten">楽天ランキング</a></nav>
 
 
 <!-- =================== メンズ腕時計部門 =================== -->
-<section class="cat c-red" id="mens">
-  <div class="cat-head rv">
-    <div class="emb" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><linearGradient id="g-embmens" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".45" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs><g class="leaves" fill="url(#g-embmens)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g></svg><p><span class="en t1">The</span><span class="en t2">BEST</span><span class="en t3">SELLER</span></p></div>
-    <div class="ttl"><p class="kick en">CATEGORY AWARD <span>01</span></p><h2>メンズ腕時計部門</h2><p class="lead">毎日着けたい、頼れる一本。</p></div>
-  </div>
-  
-    <!-- ITEM 1位: sbth009 -->
-    <div class="first">
-      <div class="first-in">
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/sbth009/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth009.jpg" alt="SEIKO SELECTION Sシリーズ デイデイト SBTH009" width="640" height="640" loading="lazy"></a>
-        <div class="body">
-          <div class="medal m1" aria-label="第1位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-mens1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".45" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-mens1)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-mens1)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">1</span><span class="d">位</span></p><i class="shine"></i></div>
-          
-          <p class="brand en">SEIKO SELECTION</p>
-          <h3 class="name">Sシリーズ デイデイト SBTH009</h3>
-          <p class="copy">ネイビーの文字盤に、曜日と日付。スーツにも休日にもなじむ、くせのない一本です。ショップ全体でも、いちばん売れています。</p>
-          <p class="price en">26,400<small>円〜<em>（税込）</em></small></p>
-          <a class="btn" href="https://item.rakuten.co.jp/7ple/sbth009/">商品を今すぐチェック<i aria-hidden="true"></i></a>
-        </div>
-      </div>
-      <div class="curtain" aria-hidden="true"><span class="cl"></span><span class="cr"></span>
-        <p class="drum"><span class="q">第1位は…</span><span class="dots"><b></b><b></b><b></b></span></p></div>
+<section class="cat" id="mens">
+  <header class="cat-head rv">
+    <p class="cat-no en">CATEGORY 01</p>
+    <h2>メンズ腕時計部門</h2>
+    <p class="cat-lead">毎日着けたい、頼れる一本。</p>
+  </header>
+
+  <!-- ITEM 1位: sbth009 -->
+  <div class="first rv">
+    <a class="ph" href="https://item.rakuten.co.jp/7ple/sbth009/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth009.jpg" alt="SEIKO SELECTION Sシリーズ デイデイト SBTH009" width="640" height="640" loading="lazy"><span class="rk en r1">No.1</span></a>
+    <div class="body">
+      <p class="brand en">SEIKO SELECTION</p>
+      <h3 class="name">Sシリーズ デイデイト SBTH009</h3>
+      <p class="copy">ネイビーの文字盤に、曜日と日付。スーツにも休日にもなじむ、くせのない一本です。ショップ全体でも、いちばん売れています。</p>
+      <p class="price en">26,400<small>円〜</small></p>
+      <a class="btn" href="https://item.rakuten.co.jp/7ple/sbth009/">商品ページを見る</a>
     </div>
+  </div>
   <div class="subs">
       <!-- ITEM 2位: seiko-sbtr -->
-      <div class="sub s2 rv">
-        <div class="sub-head"><div class="medal m2" aria-label="第2位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-mens2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#C4CAD2"/><stop offset="1" stop-color="#8C949E"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-mens2)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-mens2)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">2</span><span class="d">位</span></p><i class="shine"></i></div><div><p class="brand en">SEIKO SELECTION</p><h3 class="name">8Tクロノグラフ</h3></div></div>
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/seiko-sbtr/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/seiko-sbtr-a.jpg" alt="SEIKO SELECTION 8Tクロノグラフ" width="640" height="640" loading="lazy"></a>
-        <p class="copy">ネイビー・黒・緑から選べるクロノグラフ。</p>
-        <p class="price en">51,040<small>円<em>（税込）</em></small></p>
-        <a class="btn sm" href="https://item.rakuten.co.jp/7ple/seiko-sbtr/">商品をチェック<i aria-hidden="true"></i></a>
-      </div>
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/seiko-sbtr/">
+        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/seiko-sbtr-a.jpg" alt="SEIKO SELECTION 8Tクロノグラフ" width="640" height="640" loading="lazy"><span class="rk en r2">No.2</span></span>
+        <span class="brand en">SEIKO SELECTION</span>
+        <span class="name">8Tクロノグラフ</span>
+        <p class="price sm en">51,040<small>円</small></p>
+        <span class="more">商品を見る</span>
+      </a>
       <!-- ITEM 3位: by1025-17e -->
-      <div class="sub s3 rv">
-        <div class="sub-head"><div class="medal m3" aria-label="第3位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-mens3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE0C4"/><stop offset=".5" stop-color="#C98A55"/><stop offset="1" stop-color="#8E5427"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-mens3)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-mens3)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">3</span><span class="d">位</span></p><i class="shine"></i></div><div><p class="brand en">CITIZEN EXCEED</p><h3 class="name">ムーンフェイズ BY1025-17E</h3></div></div>
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/by1025-17e/"><img src="https://image.rakuten.co.jp/7ple/cabinet/exceed/by1025-17e.jpg" alt="CITIZEN EXCEED ムーンフェイズ BY1025-17E" width="640" height="640" loading="lazy"></a>
-        <p class="tag">数量限定</p><p class="copy">月の満ち欠けを映す、数量限定モデル。</p>
-        <p class="price en">220,000<small>円<em>（税込）</em></small></p>
-        <a class="btn sm" href="https://item.rakuten.co.jp/7ple/by1025-17e/">商品をチェック<i aria-hidden="true"></i></a>
-      </div></div>
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/by1025-17e/">
+        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/exceed/by1025-17e.jpg" alt="CITIZEN EXCEED ムーンフェイズ BY1025-17E" width="640" height="640" loading="lazy"><span class="rk en r3">No.3</span></span>
+        <p class="tag">数量限定</p><span class="brand en">CITIZEN EXCEED</span>
+        <span class="name">ムーンフェイズ BY1025-17E</span>
+        <p class="price sm en">220,000<small>円</small></p>
+        <span class="more">商品を見る</span>
+      </a>
+  </div>
 </section>
 <!-- =================== レディース腕時計部門 =================== -->
-<section class="cat c-green" id="ladies">
-  <div class="cat-head rv">
-    <div class="emb" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><linearGradient id="g-embladies" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".45" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs><g class="leaves" fill="url(#g-embladies)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g></svg><p><span class="en t1">The</span><span class="en t2">BEST</span><span class="en t3">SELLER</span></p></div>
-    <div class="ttl"><p class="kick en">CATEGORY AWARD <span>02</span></p><h2>レディース腕時計部門</h2><p class="lead">手もとを、ぱっと明るく。</p></div>
-  </div>
-  
-    <!-- ITEM 1位: aq-240eg-9adf -->
-    <div class="first">
-      <div class="first-in">
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/aq-240eg-9adf/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio15/aq-240eg-9adf.jpg" alt="CASIO AQ-240EG ゴールド" width="640" height="640" loading="lazy"></a>
-        <div class="body">
-          <div class="medal m1" aria-label="第1位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-ladies1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".45" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-ladies1)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-ladies1)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">1</span><span class="d">位</span></p><i class="shine"></i></div>
-          
-          <p class="brand en">CASIO</p>
-          <h3 class="name">AQ-240EG ゴールド</h3>
-          <p class="copy">手首が明るく見える、ゴールドのアナデジ。1万円ほどで選べる、うれしい一本です。</p>
-          <p class="price en">10,480<small>円<em>（税込）</em></small></p>
-          <a class="btn" href="https://item.rakuten.co.jp/7ple/aq-240eg-9adf/">商品を今すぐチェック<i aria-hidden="true"></i></a>
-        </div>
-      </div>
-      <div class="curtain" aria-hidden="true"><span class="cl"></span><span class="cr"></span>
-        <p class="drum"><span class="q">第1位は…</span><span class="dots"><b></b><b></b><b></b></span></p></div>
+<section class="cat" id="ladies">
+  <header class="cat-head rv">
+    <p class="cat-no en">CATEGORY 02</p>
+    <h2>レディース腕時計部門</h2>
+    <p class="cat-lead">手もとを、ぱっと明るく。</p>
+  </header>
+
+  <!-- ITEM 1位: aq-240eg-9adf -->
+  <div class="first rv">
+    <a class="ph" href="https://item.rakuten.co.jp/7ple/aq-240eg-9adf/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio15/aq-240eg-9adf.jpg" alt="CASIO AQ-240EG ゴールド" width="640" height="640" loading="lazy"><span class="rk en r1">No.1</span></a>
+    <div class="body">
+      <p class="brand en">CASIO</p>
+      <h3 class="name">AQ-240EG ゴールド</h3>
+      <p class="copy">手首が明るく見える、ゴールドのアナデジ。1万円ほどで選べる、うれしい一本です。</p>
+      <p class="price en">10,480<small>円</small></p>
+      <a class="btn" href="https://item.rakuten.co.jp/7ple/aq-240eg-9adf/">商品ページを見る</a>
     </div>
+  </div>
   <div class="subs">
       <!-- ITEM 2位: es9492-57d -->
-      <div class="sub s2 rv">
-        <div class="sub-head"><div class="medal m2" aria-label="第2位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-ladies2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#C4CAD2"/><stop offset="1" stop-color="#8C949E"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-ladies2)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-ladies2)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">2</span><span class="d">位</span></p><i class="shine"></i></div><div><p class="brand en">CITIZEN xC</p><h3 class="name">hikari collection</h3></div></div>
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/es9492-57d/"><img src="https://image.rakuten.co.jp/7ple/cabinet/xc2/es9492-57d.jpg" alt="CITIZEN xC hikari collection" width="640" height="640" loading="lazy"></a>
-        <p class="copy">シェルの文字盤に、光で動くエコ・ドライブ。</p>
-        <p class="price en">81,840<small>円〜<em>（税込）</em></small></p>
-        <a class="btn sm" href="https://item.rakuten.co.jp/7ple/es9492-57d/">商品をチェック<i aria-hidden="true"></i></a>
-      </div>
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/es9492-57d/">
+        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/xc2/es9492-57d.jpg" alt="CITIZEN xC hikari collection" width="640" height="640" loading="lazy"><span class="rk en r2">No.2</span></span>
+        <span class="brand en">CITIZEN xC</span>
+        <span class="name">hikari collection</span>
+        <p class="price sm en">81,840<small>円〜</small></p>
+        <span class="more">商品を見る</span>
+      </a>
       <!-- ITEM 3位: swfa210 -->
-      <div class="sub s3 rv">
-        <div class="sub-head"><div class="medal m3" aria-label="第3位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-ladies3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE0C4"/><stop offset=".5" stop-color="#C98A55"/><stop offset="1" stop-color="#8E5427"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-ladies3)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-ladies3)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">3</span><span class="d">位</span></p><i class="shine"></i></div><div><p class="brand en">SEIKO SELECTION</p><h3 class="name">Sシリーズ ブレスレット ソーラー</h3></div></div>
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/swfa210/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/swfa210.jpg" alt="SEIKO SELECTION Sシリーズ ブレスレット ソーラー" width="640" height="640" loading="lazy"></a>
-        <p class="copy">ブレスレットのような、細いベルト。</p>
-        <p class="price en">36,300<small>円〜<em>（税込）</em></small></p>
-        <a class="btn sm" href="https://item.rakuten.co.jp/7ple/swfa210/">商品をチェック<i aria-hidden="true"></i></a>
-      </div></div>
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/swfa210/">
+        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/swfa210.jpg" alt="SEIKO SELECTION Sシリーズ ブレスレット ソーラー" width="640" height="640" loading="lazy"><span class="rk en r3">No.3</span></span>
+        <span class="brand en">SEIKO SELECTION</span>
+        <span class="name">Sシリーズ ブレスレット ソーラー</span>
+        <p class="price sm en">36,300<small>円〜</small></p>
+        <span class="more">商品を見る</span>
+      </a>
+  </div>
 </section>
 <!-- =================== チプカシ部門 =================== -->
-<section class="cat c-red" id="cheap">
-  <div class="cat-head rv">
-    <div class="emb" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><linearGradient id="g-embcheap" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".45" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs><g class="leaves" fill="url(#g-embcheap)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g></svg><p><span class="en t1">The</span><span class="en t2">BEST</span><span class="en t3">SELLER</span></p></div>
-    <div class="ttl"><p class="kick en">CATEGORY AWARD <span>03</span></p><h2>チプカシ部門</h2><p class="lead">3,000円台でそろう、名作たち。</p></div>
-  </div>
-  
-    <!-- ITEM 1位: a168w -->
-    <div class="first">
-      <div class="first-in">
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/a168w/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio13/a168w-a.jpg" alt="CASIO A168W デジタル" width="640" height="640" loading="lazy"></a>
-        <div class="body">
-          <div class="medal m1" aria-label="第1位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-cheap1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".45" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-cheap1)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-cheap1)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">1</span><span class="d">位</span></p><i class="shine"></i></div>
-          
-          <p class="brand en">CASIO</p>
-          <h3 class="name">A168W デジタル</h3>
-          <p class="copy">軽くて丈夫な、定番のデジタル。迷ったら、まずはこれ。色違いで選べます。</p>
-          <p class="price en">3,300<small>円〜<em>（税込）</em></small></p>
-          <a class="btn" href="https://item.rakuten.co.jp/7ple/a168w/">商品を今すぐチェック<i aria-hidden="true"></i></a>
-        </div>
-      </div>
-      <div class="curtain" aria-hidden="true"><span class="cl"></span><span class="cr"></span>
-        <p class="drum"><span class="q">第1位は…</span><span class="dots"><b></b><b></b><b></b></span></p></div>
+<section class="cat" id="cheap">
+  <header class="cat-head rv">
+    <p class="cat-no en">CATEGORY 03</p>
+    <h2>チプカシ部門</h2>
+    <p class="cat-lead">3,000円台でそろう、名作たち。</p>
+  </header>
+
+  <!-- ITEM 1位: a168w -->
+  <div class="first rv">
+    <a class="ph" href="https://item.rakuten.co.jp/7ple/a168w/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio13/a168w-a.jpg" alt="CASIO A168W デジタル" width="640" height="640" loading="lazy"><span class="rk en r1">No.1</span></a>
+    <div class="body">
+      <p class="brand en">CASIO</p>
+      <h3 class="name">A168W デジタル</h3>
+      <p class="copy">軽くて丈夫な、定番のデジタル。迷ったら、まずはこれ。色違いで選べます。</p>
+      <p class="price en">3,300<small>円〜</small></p>
+      <a class="btn" href="https://item.rakuten.co.jp/7ple/a168w/">商品ページを見る</a>
     </div>
+  </div>
   <div class="subs">
       <!-- ITEM 2位: w-218h -->
-      <div class="sub s2 rv">
-        <div class="sub-head"><div class="medal m2" aria-label="第2位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-cheap2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#C4CAD2"/><stop offset="1" stop-color="#8C949E"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-cheap2)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-cheap2)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">2</span><span class="d">位</span></p><i class="shine"></i></div><div><p class="brand en">CASIO</p><h3 class="name">W-218H デジタル</h3></div></div>
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/w-218h/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio11/w-218h-a.jpg" alt="CASIO W-218H デジタル" width="640" height="640" loading="lazy"></a>
-        <p class="copy">まるい形がかわいい、カラフルなデジタル。</p>
-        <p class="price en">3,380<small>円〜<em>（税込）</em></small></p>
-        <a class="btn sm" href="https://item.rakuten.co.jp/7ple/w-218h/">商品をチェック<i aria-hidden="true"></i></a>
-      </div>
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/w-218h/">
+        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio11/w-218h-a.jpg" alt="CASIO W-218H デジタル" width="640" height="640" loading="lazy"><span class="rk en r2">No.2</span></span>
+        <span class="brand en">CASIO</span>
+        <span class="name">W-218H デジタル</span>
+        <p class="price sm en">3,380<small>円〜</small></p>
+        <span class="more">商品を見る</span>
+      </a>
       <!-- ITEM 3位: mq-24-1b3df -->
-      <div class="sub s3 rv">
-        <div class="sub-head"><div class="medal m3" aria-label="第3位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-cheap3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE0C4"/><stop offset=".5" stop-color="#C98A55"/><stop offset="1" stop-color="#8E5427"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-cheap3)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-cheap3)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">3</span><span class="d">位</span></p><i class="shine"></i></div><div><p class="brand en">CASIO</p><h3 class="name">MQ-24 オールブラック</h3></div></div>
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/mq-24-1b3df/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio4/mq-24-1b3df-a.jpg" alt="CASIO MQ-24 オールブラック" width="640" height="640" loading="lazy"></a>
-        <p class="copy">2,000円台の、すっきりしたアナログ。</p>
-        <p class="price en">2,080<small>円<em>（税込）</em></small></p>
-        <a class="btn sm" href="https://item.rakuten.co.jp/7ple/mq-24-1b3df/">商品をチェック<i aria-hidden="true"></i></a>
-      </div></div>
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/mq-24-1b3df/">
+        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio4/mq-24-1b3df-a.jpg" alt="CASIO MQ-24 オールブラック" width="640" height="640" loading="lazy"><span class="rk en r3">No.3</span></span>
+        <span class="brand en">CASIO</span>
+        <span class="name">MQ-24 オールブラック</span>
+        <p class="price sm en">2,080<small>円</small></p>
+        <span class="more">商品を見る</span>
+      </a>
+  </div>
 </section>
 <!-- =================== コラボウォッチ部門 =================== -->
-<section class="cat c-green" id="collab">
-  <div class="cat-head rv">
-    <div class="emb" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><linearGradient id="g-embcollab" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".45" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs><g class="leaves" fill="url(#g-embcollab)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g></svg><p><span class="en t1">The</span><span class="en t2">BEST</span><span class="en t3">SELLER</span></p></div>
-    <div class="ttl"><p class="kick en">CATEGORY AWARD <span>04</span></p><h2>コラボウォッチ部門</h2><p class="lead">好きな世界を、腕もとに。</p></div>
-  </div>
-  
-    <!-- ITEM 1位: iei-51602 -->
-    <div class="first">
-      <div class="first-in">
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/iei-51602/"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51602-aa.jpg" alt="SEIKO × 北斗の拳 コラボレーションウオッチ" width="640" height="640" loading="lazy"></a>
-        <div class="body">
-          <div class="medal m1" aria-label="第1位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-collab1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".45" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-collab1)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-collab1)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">1</span><span class="d">位</span></p><i class="shine"></i></div>
-          <p class="tag">数量限定</p>
-          <p class="brand en">SEIKO × 北斗の拳</p>
-          <h3 class="name">コラボレーションウオッチ</h3>
-          <p class="copy">ケンシロウとラオウ、2つのモデル。日本製・数量限定のクロノグラフです。</p>
-          <p class="price en">65,780<small>円<em>（税込）</em></small></p>
-          <a class="btn" href="https://item.rakuten.co.jp/7ple/iei-51602/">商品を今すぐチェック<i aria-hidden="true"></i></a>
-        </div>
-      </div>
-      <div class="curtain" aria-hidden="true"><span class="cl"></span><span class="cr"></span>
-        <p class="drum"><span class="q">第1位は…</span><span class="dots"><b></b><b></b><b></b></span></p></div>
+<section class="cat" id="collab">
+  <header class="cat-head rv">
+    <p class="cat-no en">CATEGORY 04</p>
+    <h2>コラボウォッチ部門</h2>
+    <p class="cat-lead">好きな世界を、腕もとに。</p>
+  </header>
+
+  <!-- ITEM 1位: iei-51602 -->
+  <div class="first rv">
+    <a class="ph" href="https://item.rakuten.co.jp/7ple/iei-51602/"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51602-aa.jpg" alt="SEIKO × 北斗の拳 コラボレーションウオッチ" width="640" height="640" loading="lazy"><span class="rk en r1">No.1</span></a>
+    <div class="body">
+      <p class="tag">数量限定</p><p class="brand en">SEIKO × 北斗の拳</p>
+      <h3 class="name">コラボレーションウオッチ</h3>
+      <p class="copy">ケンシロウとラオウ、2つのモデル。日本製・数量限定のクロノグラフです。</p>
+      <p class="price en">65,780<small>円</small></p>
+      <a class="btn" href="https://item.rakuten.co.jp/7ple/iei-51602/">商品ページを見る</a>
     </div>
+  </div>
   <div class="subs">
       <!-- ITEM 2位: iei-51599 -->
-      <div class="sub s2 rv">
-        <div class="sub-head"><div class="medal m2" aria-label="第2位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-collab2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#C4CAD2"/><stop offset="1" stop-color="#8C949E"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-collab2)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-collab2)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">2</span><span class="d">位</span></p><i class="shine"></i></div><div><p class="brand en">SEIKO × Re:ゼロから始める異世界生活</p><h3 class="name">エミリア／レム モデル</h3></div></div>
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/iei-51599/"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51599.jpg" alt="SEIKO × Re:ゼロから始める異世界生活 エミリア／レム モデル" width="640" height="640" loading="lazy"></a>
-        <p class="tag">数量限定</p><p class="copy">キャラクターの色をのせた文字盤。</p>
-        <p class="price en">65,780<small>円<em>（税込）</em></small></p>
-        <a class="btn sm" href="https://item.rakuten.co.jp/7ple/iei-51599/">商品をチェック<i aria-hidden="true"></i></a>
-      </div>
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/iei-51599/">
+        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51599.jpg" alt="SEIKO × Re:ゼロから始める異世界生活 エミリア／レム モデル" width="640" height="640" loading="lazy"><span class="rk en r2">No.2</span></span>
+        <p class="tag">数量限定</p><span class="brand en">SEIKO × Re:ゼロから始める異世界生活</span>
+        <span class="name">エミリア／レム モデル</span>
+        <p class="price sm en">65,780<small>円</small></p>
+        <span class="more">商品を見る</span>
+      </a>
       <!-- ITEM 3位: iei-51598 -->
-      <div class="sub s3 rv">
-        <div class="sub-head"><div class="medal m3" aria-label="第3位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-collab3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE0C4"/><stop offset=".5" stop-color="#C98A55"/><stop offset="1" stop-color="#8E5427"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-collab3)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-collab3)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">3</span><span class="d">位</span></p><i class="shine"></i></div><div><p class="brand en">SEIKO × ポムポムプリン</p><h3 class="name">30周年記念ウオッチ</h3></div></div>
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/iei-51598/"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51598-a1.jpg" alt="SEIKO × ポムポムプリン 30周年記念ウオッチ" width="640" height="640" loading="lazy"></a>
-        <p class="tag">数量限定</p><p class="copy">やさしいイエローの文字盤。</p>
-        <p class="price en">49,280<small>円<em>（税込）</em></small></p>
-        <a class="btn sm" href="https://item.rakuten.co.jp/7ple/iei-51598/">商品をチェック<i aria-hidden="true"></i></a>
-      </div></div>
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/iei-51598/">
+        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51598-a1.jpg" alt="SEIKO × ポムポムプリン 30周年記念ウオッチ" width="640" height="640" loading="lazy"><span class="rk en r3">No.3</span></span>
+        <p class="tag">数量限定</p><span class="brand en">SEIKO × ポムポムプリン</span>
+        <span class="name">30周年記念ウオッチ</span>
+        <p class="price sm en">49,280<small>円</small></p>
+        <span class="more">商品を見る</span>
+      </a>
+  </div>
 </section>
 <!-- =================== ブランド小物部門 =================== -->
-<section class="cat c-red" id="goods">
-  <div class="cat-head rv">
-    <div class="emb" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><linearGradient id="g-embgoods" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".45" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs><g class="leaves" fill="url(#g-embgoods)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g></svg><p><span class="en t1">The</span><span class="en t2">BEST</span><span class="en t3">SELLER</span></p></div>
-    <div class="ttl"><p class="kick en">CATEGORY AWARD <span>05</span></p><h2>ブランド小物部門</h2><p class="lead">時計のほかにも、よく売れています。</p></div>
-  </div>
-  
-    <!-- ITEM 1位: ugg-earmuff -->
-    <div class="first">
-      <div class="first-in">
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/ugg-earmuff/"><img src="https://image.rakuten.co.jp/7ple/cabinet/ugg/ugg-earmuff-a.jpg" alt="UGG シープスキン イヤーマフ" width="640" height="640" loading="lazy"></a>
-        <div class="body">
-          <div class="medal m1" aria-label="第1位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-goods1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".45" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-goods1)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-goods1)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">1</span><span class="d">位</span></p><i class="shine"></i></div>
-          
-          <p class="brand en">UGG</p>
-          <h3 class="name">シープスキン イヤーマフ</h3>
-          <p class="copy">耳をすっぽり包む、ふわふわのボア。正規BOX付きなので、そのまま贈りものになります。</p>
-          <p class="price en">9,480<small>円〜<em>（税込）</em></small></p>
-          <a class="btn" href="https://item.rakuten.co.jp/7ple/ugg-earmuff/">商品を今すぐチェック<i aria-hidden="true"></i></a>
-        </div>
-      </div>
-      <div class="curtain" aria-hidden="true"><span class="cl"></span><span class="cr"></span>
-        <p class="drum"><span class="q">第1位は…</span><span class="dots"><b></b><b></b><b></b></span></p></div>
+<section class="cat" id="goods">
+  <header class="cat-head rv">
+    <p class="cat-no en">CATEGORY 05</p>
+    <h2>ブランド小物部門</h2>
+    <p class="cat-lead">時計のほかにも、よく売れています。</p>
+  </header>
+
+  <!-- ITEM 1位: ugg-earmuff -->
+  <div class="first rv">
+    <a class="ph" href="https://item.rakuten.co.jp/7ple/ugg-earmuff/"><img src="https://image.rakuten.co.jp/7ple/cabinet/ugg/ugg-earmuff-a.jpg" alt="UGG シープスキン イヤーマフ" width="640" height="640" loading="lazy"><span class="rk en r1">No.1</span></a>
+    <div class="body">
+      <p class="brand en">UGG</p>
+      <h3 class="name">シープスキン イヤーマフ</h3>
+      <p class="copy">耳をすっぽり包む、ふわふわのボア。正規BOX付きなので、そのまま贈りものになります。</p>
+      <p class="price en">9,480<small>円〜</small></p>
+      <a class="btn" href="https://item.rakuten.co.jp/7ple/ugg-earmuff/">商品ページを見る</a>
     </div>
+  </div>
   <div class="subs">
       <!-- ITEM 2位: 280287-blk -->
-      <div class="sub s2 rv">
-        <div class="sub-head"><div class="medal m2" aria-label="第2位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-goods2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#C4CAD2"/><stop offset="1" stop-color="#8C949E"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-goods2)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-goods2)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">2</span><span class="d">位</span></p><i class="shine"></i></div><div><p class="brand en">BVLGARI</p><h3 class="name">二つ折り財布 コンパクト</h3></div></div>
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/280287-blk/"><img src="https://image.rakuten.co.jp/7ple/cabinet/ut1/280287-blk-a.jpg" alt="BVLGARI 二つ折り財布 コンパクト" width="640" height="640" loading="lazy"></a>
-        <p class="copy">小さなバッグにも収まる、黒のレザー。</p>
-        <p class="price en">48,110<small>円<em>（税込）</em></small></p>
-        <a class="btn sm" href="https://item.rakuten.co.jp/7ple/280287-blk/">商品をチェック<i aria-hidden="true"></i></a>
-      </div>
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/280287-blk/">
+        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/ut1/280287-blk-a.jpg" alt="BVLGARI 二つ折り財布 コンパクト" width="640" height="640" loading="lazy"><span class="rk en r2">No.2</span></span>
+        <span class="brand en">BVLGARI</span>
+        <span class="name">二つ折り財布 コンパクト</span>
+        <p class="price sm en">48,110<small>円</small></p>
+        <span class="more">商品を見る</span>
+      </a>
       <!-- ITEM 3位: pata-47929-blk -->
-      <div class="sub s3 rv">
-        <div class="sub-head"><div class="medal m3" aria-label="第3位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-goods3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE0C4"/><stop offset=".5" stop-color="#C98A55"/><stop offset="1" stop-color="#8E5427"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-goods3)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-goods3)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">3</span><span class="d">位</span></p><i class="shine"></i></div><div><p class="brand en">PATAGONIA</p><h3 class="name">レフュジオ・デイパック 30L</h3></div></div>
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/pata-47929-blk/"><img src="https://image.rakuten.co.jp/7ple/cabinet/patagonia/pata-47929-blk-aa.jpg" alt="PATAGONIA レフュジオ・デイパック 30L" width="640" height="640" loading="lazy"></a>
-        <p class="copy">通勤にも通学にも使える、黒のリュック。</p>
-        <p class="price en">17,980<small>円<em>（税込）</em></small></p>
-        <a class="btn sm" href="https://item.rakuten.co.jp/7ple/pata-47929-blk/">商品をチェック<i aria-hidden="true"></i></a>
-      </div></div>
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/pata-47929-blk/">
+        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/patagonia/pata-47929-blk-aa.jpg" alt="PATAGONIA レフュジオ・デイパック 30L" width="640" height="640" loading="lazy"><span class="rk en r3">No.3</span></span>
+        <span class="brand en">PATAGONIA</span>
+        <span class="name">レフュジオ・デイパック 30L</span>
+        <p class="price sm en">17,980<small>円</small></p>
+        <span class="more">商品を見る</span>
+      </a>
+  </div>
 </section>
 <!-- =================== 楽天ランキング部門 =================== -->
-<section class="cat c-green" id="rakuten">
-  <div class="cat-head rv">
-    <div class="emb" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><linearGradient id="g-embrakuten" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".45" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs><g class="leaves" fill="url(#g-embrakuten)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g></svg><p><span class="en t1">The</span><span class="en t2">BEST</span><span class="en t3">SELLER</span></p></div>
-    <div class="ttl"><p class="kick en">CATEGORY AWARD <span>06</span></p><h2>楽天ランキング部門</h2><p class="lead">楽天市場全体でも、売れています。</p></div>
-  </div>
-  
-    <!-- ITEM 1位: sbth007 -->
-    <div class="first">
-      <div class="first-in">
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/sbth007/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth007.jpg" alt="SEIKO SELECTION Sシリーズ デイデイト SBTH007" width="640" height="640" loading="lazy"></a>
-        <div class="body">
-          <div class="medal m1" aria-label="第1位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-rakuten1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset=".45" stop-color="#E2B33C"/><stop offset="1" stop-color="#A87A12"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-rakuten1)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-rakuten1)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">1</span><span class="d">位</span></p><i class="shine"></i></div>
-          <p class="tag">楽天 メンズ腕時計 デイリー1位</p>
-          <p class="brand en">SEIKO SELECTION</p>
-          <h3 class="name">Sシリーズ デイデイト SBTH007</h3>
-          <p class="copy">アイボリーの文字盤の、デイデイト。楽天のメンズ腕時計ランキングで1位に入りました。</p>
-          <p class="price en">26,400<small>円<em>（税込）</em></small></p>
-          <a class="btn" href="https://item.rakuten.co.jp/7ple/sbth007/">商品を今すぐチェック<i aria-hidden="true"></i></a>
-        </div>
-      </div>
-      <div class="curtain" aria-hidden="true"><span class="cl"></span><span class="cr"></span>
-        <p class="drum"><span class="q">第1位は…</span><span class="dots"><b></b><b></b><b></b></span></p></div>
+<section class="cat" id="rakuten">
+  <header class="cat-head rv">
+    <p class="cat-no en">CATEGORY 06</p>
+    <h2>楽天ランキング部門</h2>
+    <p class="cat-lead">楽天市場全体でも、売れています。</p>
+  </header>
+
+  <!-- ITEM 1位: sbth007 -->
+  <div class="first rv">
+    <a class="ph" href="https://item.rakuten.co.jp/7ple/sbth007/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth007.jpg" alt="SEIKO SELECTION Sシリーズ デイデイト SBTH007" width="640" height="640" loading="lazy"><span class="rk en r1">No.1</span></a>
+    <div class="body">
+      <p class="tag">楽天 メンズ腕時計 デイリー1位</p><p class="brand en">SEIKO SELECTION</p>
+      <h3 class="name">Sシリーズ デイデイト SBTH007</h3>
+      <p class="copy">アイボリーの文字盤の、デイデイト。楽天のメンズ腕時計ランキングで1位に入りました。</p>
+      <p class="price en">26,400<small>円</small></p>
+      <a class="btn" href="https://item.rakuten.co.jp/7ple/sbth007/">商品ページを見る</a>
     </div>
+  </div>
   <div class="subs">
       <!-- ITEM 2位: mq-24 -->
-      <div class="sub s2 rv">
-        <div class="sub-head"><div class="medal m2" aria-label="第2位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-rakuten2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#C4CAD2"/><stop offset="1" stop-color="#8C949E"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-rakuten2)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-rakuten2)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">2</span><span class="d">位</span></p><i class="shine"></i></div><div><p class="brand en">CASIO</p><h3 class="name">MQ-24 アナログ</h3></div></div>
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/mq-24/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio12/mq-24.jpg" alt="CASIO MQ-24 アナログ" width="640" height="640" loading="lazy"></a>
-        <p class="tag">楽天 メンズ腕時計 週間1位</p><p class="copy">色違いで選べる、2,000円台のアナログ。</p>
-        <p class="price en">1,980<small>円〜<em>（税込）</em></small></p>
-        <a class="btn sm" href="https://item.rakuten.co.jp/7ple/mq-24/">商品をチェック<i aria-hidden="true"></i></a>
-      </div>
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/mq-24/">
+        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio12/mq-24.jpg" alt="CASIO MQ-24 アナログ" width="640" height="640" loading="lazy"><span class="rk en r2">No.2</span></span>
+        <p class="tag">楽天 メンズ腕時計 週間1位</p><span class="brand en">CASIO</span>
+        <span class="name">MQ-24 アナログ</span>
+        <p class="price sm en">1,980<small>円〜</small></p>
+        <span class="more">商品を見る</span>
+      </a>
       <!-- ITEM 3位: ltp-v007l -->
-      <div class="sub s3 rv">
-        <div class="sub-head"><div class="medal m3" aria-label="第3位">
-  <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="g-rakuten3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE0C4"/><stop offset=".5" stop-color="#C98A55"/><stop offset="1" stop-color="#8E5427"/></linearGradient></defs>
-  <g class="leaves" fill="url(#g-rakuten3)"><g transform="translate(134.1 174.4) rotate(34.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(150.6 164.0) rotate(20.8)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(164.1 149.8) rotate(6.7)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(173.8 132.8) rotate(-7.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.1 114.0) rotate(-21.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(179.6 94.5) rotate(-35.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(175.4 75.4) rotate(-49.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(166.7 57.9) rotate(-63.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(154.0 43.0) rotate(-77.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(65.9 174.4) rotate(145.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(49.4 164.0) rotate(159.2)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(35.9 149.8) rotate(173.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(26.2 132.8) rotate(187.3)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.9 114.0) rotate(201.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(20.4 94.5) rotate(215.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(24.6 75.4) rotate(229.4)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(33.3 57.9) rotate(243.5)"><ellipse rx="5.5" ry="14"/></g><g transform="translate(46.0 43.0) rotate(257.5)"><ellipse rx="5.5" ry="14"/></g></g><path class="crown" d="M78 52 L86 34 L100 46 L114 34 L122 52 Z" fill="url(#g-rakuten3)"/></svg>
-  <p class="mt"><span class="d">第</span><span class="n en">3</span><span class="d">位</span></p><i class="shine"></i></div><div><p class="brand en">CASIO</p><h3 class="name">LTP-V007L スクエア レザー</h3></div></div>
-        <a class="ph" href="https://item.rakuten.co.jp/7ple/ltp-v007l/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio11/ltp-v007l.jpg" alt="CASIO LTP-V007L スクエア レザー" width="640" height="640" loading="lazy"></a>
-        <p class="tag">楽天 レディース腕時計 週間4位</p><p class="copy">四角い文字盤に、レザーのベルト。</p>
-        <p class="price en">3,180<small>円〜<em>（税込）</em></small></p>
-        <a class="btn sm" href="https://item.rakuten.co.jp/7ple/ltp-v007l/">商品をチェック<i aria-hidden="true"></i></a>
-      </div></div>
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/ltp-v007l/">
+        <span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio11/ltp-v007l.jpg" alt="CASIO LTP-V007L スクエア レザー" width="640" height="640" loading="lazy"><span class="rk en r3">No.3</span></span>
+        <p class="tag">楽天 レディース腕時計 週間4位</p><span class="brand en">CASIO</span>
+        <span class="name">LTP-V007L スクエア レザー</span>
+        <p class="price sm en">3,180<small>円〜</small></p>
+        <span class="more">商品を見る</span>
+      </a>
+  </div>
 </section>
 
-<footer class="closing">
-  <div class="orns" aria-hidden="true"><span class="orn" style="left:8%;height:70px;--s:34px;--c:#B01F2E"></span><span class="orn star" style="left:17%;height:40px;--s:26px"></span><span class="orn pc" style="left:30%;height:96px;--s:26px"></span><span class="orn pc" style="left:70%;height:56px;--s:28px;--c:#B01F2E"></span><span class="orn star" style="left:83%;height:86px;--s:30px"></span><span class="orn" style="left:92%;height:46px;--s:24px;--c:#F0E5C6"></span></div>
-  <h2>贈りたいひとつは、<br class="sp"><b>見つかりましたか？</b></h2>
+<section class="closing">
+  <h2>贈りたいひとつは、<br>見つかりましたか？</h2>
   <p>ほかにも、冬のギフトにぴったりの腕時計やブランド小物がそろっています。</p>
-  <div class="links">
-    <a class="btn" href="https://www.rakuten.co.jp/7ple/">ショップトップへ<i aria-hidden="true"></i></a>
-    <a class="btn" href="https://search.rakuten.co.jp/search/mall/?sid=404544">すべての商品を見る<i aria-hidden="true"></i></a>
-  </div>
-  <p class="notes">
-    ※順位は、楽天市場のショップ内ランキング（集計期間：2026年11月18日〜11月24日）をもとに、在庫のある商品を部門ごとに並べたものです（2026年11月25日時点）。<br>
-    ※「楽天ランキング部門」は、楽天市場の腕時計ランキングで2026年11月25日に確認した順位です。ほかのショップの出品分も含めた、そのモデルの順位です。<br>
-    ※価格は2026年11月25日時点の税込価格です。「〜」はモデルや色によって価格が変わる商品です。最新の価格・在庫は各商品ページでご確認ください。
-  </p>
-</footer>
+  <a class="btn" href="https://search.rakuten.co.jp/search/mall/?sid=404544">すべての商品を見る</a>
+  <a class="btn sec" href="https://www.rakuten.co.jp/7ple/">ショップトップへ</a>
+</section>
 
-<a class="totop" href="#top" aria-label="ページの先頭へ">TOP</a>
+<p class="notes">
+  ※順位は、楽天市場のショップ内ランキング（集計期間：2026年11月18日〜11月24日）をもとに、在庫のある商品を部門ごとに並べたものです（2026年11月25日時点）。<br>
+  ※「楽天ランキング部門」は、楽天市場の腕時計ランキングで2026年11月25日に確認した順位です。ほかのショップの出品分も含めた、そのモデルの順位です。<br>
+  ※価格は2026年11月25日時点の税込価格です。「〜」はモデルや色によって価格が変わる商品です。最新の価格・在庫は各商品ページでご確認ください。
+</p>
+</div>
+</div>
+
+<a class="totop" href="#top" aria-label="ページの先頭へ"></a>
 
 <script>
 (() => {
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  /* ---- 紙ふぶき ---- */
-  const cv = document.getElementById("fx"), cx = cv.getContext("2d");
-  const COLORS = ["#D6C08F","#F0E5C6","#B01F2E","#FFFFFF","#2F6B4C","#E2B33C","#1D4A34"];
-  let W, H, DPR, parts = [], ambient = true, raf = null;
-  const size = () => { DPR = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; cv.width = W * DPR; cv.height = H * DPR; cx.setTransform(DPR,0,0,DPR,0,0); };
-  size(); addEventListener("resize", size);
-  const add = (x, y, vx, vy, snow) => parts.push({x, y, vx, vy, snow, r: Math.random()*Math.PI, vr: (Math.random()-.5)*.3,
-      w: 6 + Math.random()*6, h: 3 + Math.random()*5, c: COLORS[Math.random()*COLORS.length|0], life: 0, tw: Math.random()*6, rad: 1.5 + Math.random()*2.5});
-  const burst = (x, y, n = 120) => { for (let i = 0; i < n; i++) { const a = Math.random()*Math.PI*2, s = 4 + Math.random()*9; add(x, y, Math.cos(a)*s, Math.sin(a)*s - 6); } loop(); };
-  function loop(){
-    if (raf) return;
-    const step = () => {
-      cx.clearRect(0, 0, W, H);
-      if (ambient && parts.length < 160 && Math.random() < .7) add(Math.random()*W, -12, (Math.random()-.5)*.6, .6 + Math.random()*1.1, true);
-      parts = parts.filter(p => p.y < H + 30 && p.life < 900);
-      for (const p of parts) {
-        p.life++;
-        if (p.snow) { p.x += Math.sin((p.life + p.tw*30) / 40) * .5; p.y += p.vy; cx.globalAlpha = .85; cx.fillStyle = "#FFFFFF"; cx.beginPath(); cx.arc(p.x, p.y, p.rad, 0, 7); cx.fill(); cx.globalAlpha = 1; continue; }
-        p.vy += .12; p.vx *= .985; p.vy = Math.min(p.vy, 3.2 + p.tw*.25);
-        p.x += p.vx + Math.sin((p.life + p.tw*20) / 18) * .6; p.y += p.vy; p.r += p.vr;
-        cx.save(); cx.translate(p.x, p.y); cx.rotate(p.r); cx.scale(1, Math.cos(p.life/8 + p.tw));
-        cx.fillStyle = p.c; cx.fillRect(-p.w/2, -p.h/2, p.w, p.h); cx.restore();
-      }
-      if (parts.length || ambient) raf = requestAnimationFrame(step); else { raf = null; cx.clearRect(0,0,W,H); }
-    };
-    raf = requestAnimationFrame(step);
-  }
-
-  /* ---- 数字のカウント ---- */
-  const countUp = el => { const to = +el.dataset.count, t0 = performance.now(), d = 1400;
-    const f = t => { const k = Math.min(1, (t - t0) / d); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(f); }; requestAnimationFrame(f); };
-
-  /* ---- FV ---- */
   const fv = document.querySelector(".fv");
-  document.querySelectorAll("[data-split]").forEach((el, j) => {
-    const t = el.textContent; el.textContent = "";
-    [...t].forEach((ch, i) => { const s = document.createElement("span"); s.textContent = ch; s.style.animationDelay = `${.35 + j*.35 + i*.07}s, 0s`; el.appendChild(s); });
-  });
-  document.querySelectorAll(".fv-wreath .lf").forEach((l, i) => { l.style.animationDelay = ((i % 64) * .016 + Math.floor(i / 64) * .12) + "s"; });
-  document.querySelectorAll(".fv-wreath .be").forEach((l, i) => { l.style.animationDelay = (1.1 + i * .02) + "s"; });
-  if (reduce) { document.querySelectorAll("[data-count]").forEach(el => el.textContent = el.dataset.count); ambient = false; }
-  else {
-    requestAnimationFrame(() => fv.classList.add("go"));
-    setTimeout(() => document.querySelectorAll("[data-count]").forEach(countUp), 2300);
-    setTimeout(() => burst(W/2, H*.38, 160), 1300);
-    loop();
-    new IntersectionObserver(es => es.forEach(en => { ambient = en.isIntersecting; if (ambient) loop(); }), {threshold: .05}).observe(fv);
-  }
+  requestAnimationFrame(() => fv.classList.add("go"));
+  document.querySelectorAll(".fv-ph").forEach((p, i) => p.style.transitionDelay = (.8 + i * .12) + "s");
 
-  /* ---- スクロールで表示 ---- */
   const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), {threshold: .15});
   document.querySelectorAll(".rv").forEach(el => io.observe(el));
 
-  /* ---- 1位のカーテン ---- */
-  const open = f => { if (f.classList.contains("open")) return; f.classList.add("open");
-    if (!reduce) setTimeout(() => { const r = f.getBoundingClientRect(); burst(r.left + r.width/2, r.top + r.height*.35, 140); }, 700); };
-  const io2 = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { io2.unobserve(en.target); setTimeout(() => open(en.target), 1100); } }), {threshold: .55});
-  document.querySelectorAll(".first").forEach(f => { if (reduce) f.classList.add("open"); else { io2.observe(f); f.querySelector(".curtain").addEventListener("click", () => open(f)); } });
+  const links = [...document.querySelectorAll(".catnav a, .side-list a")];
+  const io2 = new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) return;
+    links.forEach(a => a.classList.toggle("on", a.dataset.sec === en.target.id));
+    const on = links.find(a => a.dataset.sec === en.target.id && a.parentNode.classList.contains("catnav"));
+    if (on && on.parentNode.classList.contains("catnav")) on.parentNode.scrollTo({left: on.offsetLeft - 16, behavior: "smooth"}); }), {rootMargin: "-40% 0px -55% 0px"});
+  document.querySelectorAll(".cat").forEach(s => io2.observe(s));
 
-  /* ---- 部門ナビ ---- */
-  const links = [...document.querySelectorAll(".catnav a")];
-  const io3 = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) {
-      links.forEach(a => a.classList.toggle("on", a.dataset.sec === en.target.id));
-      const on = links.find(a => a.dataset.sec === en.target.id); if (on) on.parentNode.scrollTo({left: on.offsetLeft - 20, behavior: "smooth"}); } }),
-    {rootMargin: "-45% 0px -50% 0px"});
-  document.querySelectorAll(".cat").forEach(s => io3.observe(s));
-
-  /* ---- TOPへ ---- */
   const tt = document.querySelector(".totop");
   addEventListener("scroll", () => tt.classList.toggle("show", scrollY > innerHeight), {passive: true});
 })();
