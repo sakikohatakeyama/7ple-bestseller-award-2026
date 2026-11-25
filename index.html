@@ -20,18 +20,21 @@
    ・商品は scratchpad の gen_award.py の CATS、組み立ては gen_award2.py
    ========================================================= */
 :root{
-  --red:#B01F2E;
-  --green:#1D4A34;
-  --champ:#C9B27A;
+  --red:#9E2230;
+  --green:#1E4A3A;
+  --champ:#D2B483;
+  --sand:#E6D2B2;
+  --sage:#B9BDB4;
+  --cream:#F6F0E6;
   --ink:#222;
   --muted:#77706A;
   --bg:#FFFFFF;
-  --soft:#F7F3EC;
+  --soft:#F6F0E6;
   --line:#E6DFD3;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:#F3ECDF;color:var(--ink);font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.8}
+body{background:var(--cream);color:var(--ink);font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.8}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 .en{font-family:"Jost",sans-serif}
@@ -44,7 +47,8 @@ a{color:inherit;text-decoration:none}
 .side{display:none}
 @media (min-width:1100px){
   .page{justify-content:flex-end;padding-right:max(40px,calc((100vw - 750px - 560px) / 2))}
-  .side{display:flex;flex:1;position:sticky;top:0;height:100vh;align-self:flex-start;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 48px;max-width:560px;margin-right:auto}
+  .side .deco{z-index:-1}
+  .side{isolation:isolate;overflow:hidden;display:flex;flex:1;position:sticky;top:0;height:100vh;align-self:flex-start;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 48px;max-width:560px;margin-right:auto}
   .side-shop{font-size:13px;letter-spacing:.14em;color:var(--muted)}
   .side-label{margin-top:22px;font-size:14px;letter-spacing:.28em;color:var(--red)}
   .side-label::before,.side-label::after{content:"＼";margin:0 .8em;letter-spacing:0;color:var(--champ)}
@@ -62,15 +66,18 @@ a{color:inherit;text-decoration:none}
 }
 
 /* ---------------- FV ---------------- */
-.fv{background:var(--red);color:#fff;text-align:center;padding:clamp(36px,10.7vw,80px) clamp(20px,6.4vw,48px) clamp(40px,10.7vw,80px)}
+.fv{position:relative;overflow:hidden;background:var(--red);color:#fff;text-align:center;padding:clamp(36px,10.7vw,80px) clamp(20px,6.4vw,48px) clamp(40px,10.7vw,80px)}
+.fv > :not(.deco){position:relative;z-index:1}
+.deco{position:absolute;pointer-events:none;z-index:0}
+.deco svg{display:block;width:100%;height:auto;overflow:visible}
 .fv-shop{font-size:clamp(11px,2.9vw,22px);letter-spacing:.12em;opacity:.85}
-.fv-label{margin-top:clamp(22px,6.4vw,48px);font-size:clamp(12px,3.2vw,24px);letter-spacing:.3em;color:#EBD9AE}
+.fv-label{margin-top:clamp(22px,6.4vw,48px);font-size:clamp(12px,3.2vw,24px);letter-spacing:.3em;color:var(--sand)}
 .fv h1{margin-top:clamp(6px,1.6vw,12px);font-family:"Jost";font-weight:500;font-size:clamp(40px,12.8vw,96px);line-height:1;letter-spacing:.02em}
 .fv h1 span{display:block}
 .fv-catch{margin-top:clamp(20px,5.9vw,44px);font-size:clamp(19px,5.3vw,40px);font-weight:900;line-height:1.55;letter-spacing:.04em}
 .fv-lead{margin-top:clamp(10px,2.7vw,20px);font-size:clamp(13px,3.5vw,26px);opacity:.92}
 .fv-grid{margin-top:clamp(26px,7.5vw,56px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(4px,1.1vw,8px)}
-.fv-ph{display:block;aspect-ratio:1/1;background:#fff;overflow:hidden}
+.fv-ph{display:block;aspect-ratio:1/1;background:#fff;overflow:hidden;border-radius:clamp(6px,1.6vw,12px)}
 .fv-ph img{width:100%;height:100%;object-fit:cover}
 
 /* ---------------- 本文 ---------------- */
@@ -82,7 +89,7 @@ a{color:inherit;text-decoration:none}
 /* 部門の目次 */
 .idx{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,2.1vw,16px);padding:0 clamp(16px,4.3vw,32px) clamp(40px,10.7vw,80px)}
 .idx-item{display:flex;flex-direction:column;align-items:center;text-align:center}
-.idx-item .ph{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--soft);border-radius:50%}
+.idx-item .ph{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--soft);border-radius:50%;box-shadow:0 0 0 clamp(3px,.8vw,6px) var(--sand)}
 .idx-item .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .idx-item:hover .ph img{transform:scale(1.06)}
 .idx-item .no{margin-top:.5em;font-size:.7em;color:var(--red);letter-spacing:.1em}
@@ -99,17 +106,18 @@ a{color:inherit;text-decoration:none}
 .cat{padding:clamp(44px,12.8vw,96px) clamp(16px,4.3vw,32px) clamp(20px,5.3vw,40px);scroll-margin-top:clamp(40px,11vw,70px)}
 .cat + .cat{border-top:1px solid var(--line)}
 .cat-head{text-align:center;margin-bottom:clamp(20px,5.9vw,44px)}
+.cat-ico{display:block;width:clamp(34px,9.6vw,72px);height:clamp(34px,9.6vw,72px);margin:0 auto .3em}
 .cat-no{font-size:.68em;letter-spacing:.3em;color:var(--red)}
 .cat-head h2{font-size:clamp(24px,6.9vw,52px);font-weight:900;line-height:1.3;margin-top:.15em;letter-spacing:.03em}
 .cat-lead{font-size:.86em;color:var(--muted);margin-top:.3em}
 
 /* 順位ラベル（写真の左上） */
-.rk{position:absolute;left:0;top:0;padding:.35em .8em;font-size:clamp(13px,3.7vw,28px);font-weight:600;letter-spacing:.06em;line-height:1;color:#fff}
+.rk{position:absolute;left:0;top:0;padding:.35em .8em;border-bottom-right-radius:clamp(6px,1.6vw,12px);font-size:clamp(13px,3.7vw,28px);font-weight:600;letter-spacing:.06em;line-height:1;color:#fff}
 .rk.r1{background:var(--red);font-size:clamp(16px,4.8vw,36px)}
-.rk.r2{background:#8A9099}.rk.r3{background:#A8774E}
+.rk.r2{background:var(--green)}.rk.r3{background:#B8925A}
 
 /* 1位 */
-.first .ph{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;background:var(--soft)}
+.first .ph{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;background:var(--soft);border-radius:clamp(8px,2.1vw,16px)}
 .first .ph img{width:100%;height:100%;object-fit:cover}
 .js .first.rv .ph img{transform:scale(1.08);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
 .js .first.rv.in .ph img{transform:none}
@@ -127,7 +135,7 @@ a{color:inherit;text-decoration:none}
 /* 2位・3位 */
 .subs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,2.7vw,20px);margin-top:clamp(28px,8vw,60px)}
 .sub{display:flex;flex-direction:column}
-.sub .ph{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;background:var(--soft);margin-bottom:.6em}
+.sub .ph{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;background:var(--soft);margin-bottom:.6em;border-radius:clamp(8px,2.1vw,16px)}
 .sub .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .sub:hover .ph img{transform:scale(1.05)}
 .sub .tag{font-size:.62em}
@@ -138,12 +146,13 @@ a{color:inherit;text-decoration:none}
 .sub:hover .more{background:var(--ink);color:#fff}
 
 /* まとめ */
-.closing{margin-top:clamp(40px,10.7vw,80px);background:var(--soft);padding:clamp(44px,11.7vw,88px) clamp(20px,6.4vw,48px);text-align:center}
+.closing{position:relative;overflow:hidden;margin-top:clamp(40px,10.7vw,80px);background:var(--green);color:#fff;padding:clamp(44px,11.7vw,88px) clamp(20px,6.4vw,48px);text-align:center}
 .closing h2{font-size:clamp(19px,5.3vw,40px);font-weight:900;line-height:1.55}
-.closing p{margin-top:.6em;font-size:.9em;color:#555}
+.closing > :not(.deco){position:relative;z-index:1}
+.closing p{margin-top:.6em;font-size:.9em;color:#E4EAE4}
 .closing .btn{max-width:100%}
-.closing .btn.sec{background:var(--green)}
-.closing .btn.sec:hover{background:#163A29}
+.closing .btn.sec{background:transparent;border:2px solid var(--sand);color:var(--sand)}
+.closing .btn.sec:hover{background:rgba(255,255,255,.08)}
 .notes{padding:clamp(24px,6.4vw,48px) clamp(20px,6.4vw,48px) clamp(40px,10.7vw,80px);font-size:.66em;color:var(--muted);line-height:1.9}
 
 .totop{position:fixed;right:max(12px,calc(50vw - 375px + 12px));bottom:14px;z-index:30;width:46px;height:46px;border-radius:50%;background:rgba(34,34,34,.85);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
@@ -154,13 +163,16 @@ a{color:inherit;text-decoration:none}
 .js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .js .rv.in{opacity:1;transform:none}
 .js .subs .sub.rv:nth-child(2){transition-delay:.12s}
-.js .fv > *{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
-.js .fv.go > *{opacity:1;transform:none}
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(var(--dx,8px),var(--dy,10px))}}
+.deco.float{animation:drift 6s ease-in-out infinite alternate}
+.js .fv > :not(.deco){opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
+.js .fv.go > :not(.deco){opacity:1;transform:none}
 .js .fv.go > :nth-child(2){transition-delay:.15s}.js .fv.go > :nth-child(3){transition-delay:.3s}
 .js .fv.go > :nth-child(4){transition-delay:.5s}.js .fv.go > :nth-child(5){transition-delay:.65s}
 .js .fv-ph{opacity:0;transition:opacity .7s ease}
 .js .fv.go .fv-ph{opacity:1}
 @media (prefers-reduced-motion:reduce){
+  .deco.float{animation:none}
   .js .rv,.js .fv > *,.js .fv-ph{opacity:1!important;transform:none!important;transition:none!important}
   .js .first.rv .ph img{transform:none!important;transition:none!important}
 }
@@ -168,8 +180,23 @@ a{color:inherit;text-decoration:none}
 </head>
 <body>
 <script>document.documentElement.classList.add("js");</script>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- 線画のイラスト（参考画像のイメージ） -->
+  <symbol id="i-gift" viewBox="0 0 64 64"><g fill="none" stroke="#D2B483" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="26" width="40" height="28" rx="2"/><rect x="9" y="19" width="46" height="9" rx="2"/><path d="M32 19v35M32 19c-4-9-15-9-13-2 1 3 8 2 13 2zM32 19c4-9 15-9 13-2-1 3-8 2-13 2z"/></g></symbol>
+  <symbol id="i-ornament" viewBox="0 0 64 64"><g fill="none" stroke="#D2B483" stroke-width="2.4" stroke-linecap="round"><circle cx="32" cy="38" r="17"/><rect x="27" y="15" width="10" height="6" rx="1.5"/><path d="M32 15c0-5 6-6 6-2M16 34c10 5 22 5 32 0M17 44c10 4 20 4 30 0"/></g><g fill="#9E2230"><circle cx="24" cy="39" r="1.8"/><circle cx="32" cy="40" r="1.8"/><circle cx="40" cy="39" r="1.8"/></g></symbol>
+  <symbol id="i-candy" viewBox="0 0 64 64"><g fill="none" stroke-linecap="round" stroke-width="5"><path d="M24 56V22a10 10 0 0 1 20 0v4" stroke="#D2B483"/><path d="M24 50l0 0M24 40l0 0M24 30l0 0M30 14l0 0M41 16l0 0" stroke="#9E2230" stroke-width="6"/></g></symbol>
+  <symbol id="i-tree" viewBox="0 0 64 64"><g fill="none" stroke="#D2B483" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M32 8 18 30h8L14 46h36L38 30h8z"/><path d="M32 46v10"/></g><g fill="#9E2230"><circle cx="28" cy="34" r="1.8"/><circle cx="37" cy="39" r="1.8"/><circle cx="31" cy="22" r="1.8"/></g></symbol>
+  <symbol id="i-snow" viewBox="0 0 64 64"><g fill="none" stroke="#D2B483" stroke-width="2.4" stroke-linecap="round"><path d="M32 8v48M11 20l42 24M11 44l42-24"/><path d="M26 12l6 6 6-6M26 52l6-6 6 6M10 28l8-2-2-8M54 36l-8 2 2 8M10 36l8 2-2 8M54 28l-8-2 2-8"/></g></symbol>
+  <symbol id="i-holly" viewBox="0 0 64 64"><g fill="none" stroke="#D2B483" stroke-width="2.4" stroke-linejoin="round"><path d="M30 34C24 22 14 18 6 22c3 2 2 6 6 7-2 3 1 6 5 5 0 4 4 6 8 4 2 3 5 1 5-4z"/><path d="M34 34c6-12 16-16 24-12-3 2-2 6-6 7 2 3-1 6-5 5 0 4-4 6-8 4-2 3-5 1-5-4z"/></g><g fill="#9E2230"><circle cx="28" cy="40" r="4"/><circle cx="36" cy="40" r="4"/><circle cx="32" cy="33" r="4"/></g></symbol>
+  <symbol id="branch" viewBox="0 0 200 120"><g fill="none" stroke="#D2B483" stroke-width="1.6" stroke-linecap="round"><path d="M10 110C60 80 110 50 190 10"/><path d="M40 92c-8-14-4-26 6-30M40 92c14-6 26-2 30 8M80 68c-6-14 0-26 10-28M80 68c14-4 26 2 28 12M120 46c-4-14 4-24 14-24M120 46c12-2 22 4 24 14M160 26c-2-10 6-18 14-16"/></g></symbol>
+  <symbol id="sprig" viewBox="0 0 120 160"><g fill="none" stroke="#D2B483" stroke-width="1.6" stroke-linecap="round"><path d="M60 150V10"/><path d="M60 130 30 110M60 130 90 110M60 100 34 82M60 100 86 82M60 70 40 56M60 70 80 56M60 42 46 32M60 42 74 32"/></g><g fill="#D2B483"><circle cx="30" cy="110" r="3"/><circle cx="90" cy="110" r="3"/><circle cx="34" cy="82" r="3"/><circle cx="86" cy="82" r="3"/><circle cx="40" cy="56" r="3"/><circle cx="80" cy="56" r="3"/><circle cx="60" cy="10" r="3"/></g></symbol>
+</svg>
 <div class="page">
 <aside class="side" aria-label="特集の案内">
+  <div class="deco float" style="left:-60px;top:-50px;width:240px;--dx:10px;--dy:14px" aria-hidden="true"><svg viewBox="0 0 140 130"><path d="M58 8C88-4 124 10 132 42s-6 64-38 76S22 122 8 92 28 20 58 8z" fill="#1E4A3A" opacity=".92"/></svg></div>
+  <div class="deco float" style="right:-50px;bottom:-40px;width:220px;--dx:-12px;--dy:-8px" aria-hidden="true"><svg viewBox="0 0 130 125"><path d="M70 4c34 2 60 30 56 64s-34 56-68 52S2 92 4 58 36 2 70 4z" fill="#9E2230" opacity=".9"/></svg></div>
+  <div class="deco" style="right:10px;top:60px;width:120px" aria-hidden="true"><svg viewBox="0 0 130 125"><path d="M70 4c34 2 60 30 56 64s-34 56-68 52S2 92 4 58 36 2 70 4z" fill="#D2B483" opacity=".6"/></svg></div>
+  <div class="deco" style="left:30px;bottom:40px;width:150px" aria-hidden="true"><svg viewBox="0 0 200 120"><use href="#branch"/></svg></div>
   <p class="side-shop">腕時計のななぷれ select shop</p>
   <p class="side-label en">CHRISTMAS GIFT AWARD 2026</p>
   <h2>THE BEST<br>SELLER</h2>
@@ -181,6 +208,13 @@ a{color:inherit;text-decoration:none}
 
 <!-- =================== FV =================== -->
 <header class="fv" id="top">
+  <div class="deco float" style="left:-14%;top:-8%;width:46%;--dx:10px;--dy:12px" aria-hidden="true"><svg viewBox="0 0 140 130"><path d="M58 8C88-4 124 10 132 42s-6 64-38 76S22 122 8 92 28 20 58 8z" fill="#1E4A3A"/></svg></div>
+  <div class="deco float" style="right:-16%;top:28%;width:42%;--dx:-10px;--dy:8px" aria-hidden="true"><svg viewBox="0 0 130 125"><path d="M70 4c34 2 60 30 56 64s-34 56-68 52S2 92 4 58 36 2 70 4z" fill="#D2B483" opacity=".9"/></svg></div>
+  <div class="deco" style="left:-6%;top:40%;width:30%" aria-hidden="true"><svg viewBox="0 0 130 125"><path d="M70 4c34 2 60 30 56 64s-34 56-68 52S2 92 4 58 36 2 70 4z" fill="#B9BDB4" opacity=".35"/></svg></div>
+  <div class="deco" style="right:4%;top:4%;width:34%" aria-hidden="true"><svg viewBox="0 0 200 120"><use href="#branch"/></svg></div>
+  <div class="deco" style="left:6%;top:30%;width:11%" aria-hidden="true"><svg viewBox="-4 -4 44 40" fill="#E6D2B2" opacity=".8"><circle cx="0" cy="0" r="3.2"/><circle cx="14" cy="4" r="3.2"/><circle cx="28" cy="0" r="3.2"/><circle cx="6" cy="14" r="3.2"/><circle cx="20" cy="16" r="3.2"/><circle cx="34" cy="12" r="3.2"/><circle cx="2" cy="28" r="3.2"/><circle cx="16" cy="30" r="3.2"/><circle cx="30" cy="26" r="3.2"/></svg></div>
+  <div class="deco" style="right:8%;top:40%;width:9%" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#i-gift"/></svg></div>
+  <div class="deco" style="left:7%;top:6%;width:8%" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#i-snow"/></svg></div>
   <p class="fv-shop">腕時計のななぷれ select shop</p>
   <p class="fv-label en">CHRISTMAS GIFT AWARD 2026</p>
   <h1><span>THE BEST</span><span>SELLER</span></h1>
@@ -202,6 +236,7 @@ a{color:inherit;text-decoration:none}
 <!-- =================== メンズ腕時計部門 =================== -->
 <section class="cat" id="mens">
   <header class="cat-head rv">
+    <svg class="cat-ico" aria-hidden="true"><use href="#i-gift"/></svg>
     <p class="cat-no en">CATEGORY 01</p>
     <h2>メンズ腕時計部門</h2>
     <p class="cat-lead">毎日着けたい、頼れる一本。</p>
@@ -240,6 +275,7 @@ a{color:inherit;text-decoration:none}
 <!-- =================== レディース腕時計部門 =================== -->
 <section class="cat" id="ladies">
   <header class="cat-head rv">
+    <svg class="cat-ico" aria-hidden="true"><use href="#i-ornament"/></svg>
     <p class="cat-no en">CATEGORY 02</p>
     <h2>レディース腕時計部門</h2>
     <p class="cat-lead">手もとを、ぱっと明るく。</p>
@@ -278,6 +314,7 @@ a{color:inherit;text-decoration:none}
 <!-- =================== チプカシ部門 =================== -->
 <section class="cat" id="cheap">
   <header class="cat-head rv">
+    <svg class="cat-ico" aria-hidden="true"><use href="#i-candy"/></svg>
     <p class="cat-no en">CATEGORY 03</p>
     <h2>チプカシ部門</h2>
     <p class="cat-lead">3,000円台でそろう、名作たち。</p>
@@ -316,6 +353,7 @@ a{color:inherit;text-decoration:none}
 <!-- =================== コラボウォッチ部門 =================== -->
 <section class="cat" id="collab">
   <header class="cat-head rv">
+    <svg class="cat-ico" aria-hidden="true"><use href="#i-holly"/></svg>
     <p class="cat-no en">CATEGORY 04</p>
     <h2>コラボウォッチ部門</h2>
     <p class="cat-lead">好きな世界を、腕もとに。</p>
@@ -354,6 +392,7 @@ a{color:inherit;text-decoration:none}
 <!-- =================== ブランド小物部門 =================== -->
 <section class="cat" id="goods">
   <header class="cat-head rv">
+    <svg class="cat-ico" aria-hidden="true"><use href="#i-tree"/></svg>
     <p class="cat-no en">CATEGORY 05</p>
     <h2>ブランド小物部門</h2>
     <p class="cat-lead">時計のほかにも、よく売れています。</p>
@@ -392,6 +431,7 @@ a{color:inherit;text-decoration:none}
 <!-- =================== 楽天ランキング部門 =================== -->
 <section class="cat" id="rakuten">
   <header class="cat-head rv">
+    <svg class="cat-ico" aria-hidden="true"><use href="#i-snow"/></svg>
     <p class="cat-no en">CATEGORY 06</p>
     <h2>楽天ランキング部門</h2>
     <p class="cat-lead">楽天市場全体でも、売れています。</p>
@@ -429,6 +469,10 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <section class="closing">
+  <div class="deco" style="right:-12%;top:-20%;width:44%" aria-hidden="true"><svg viewBox="0 0 140 130"><path d="M58 8C88-4 124 10 132 42s-6 64-38 76S22 122 8 92 28 20 58 8z" fill="#9E2230"/></svg></div>
+  <div class="deco" style="left:-10%;bottom:-18%;width:36%" aria-hidden="true"><svg viewBox="0 0 130 125"><path d="M70 4c34 2 60 30 56 64s-34 56-68 52S2 92 4 58 36 2 70 4z" fill="#D2B483" opacity=".85"/></svg></div>
+  <div class="deco" style="left:5%;top:8%;width:16%" aria-hidden="true"><svg viewBox="0 0 120 160"><use href="#sprig"/></svg></div>
+  <div class="deco" style="right:8%;bottom:10%;width:10%" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#i-tree"/></svg></div>
   <h2>贈りたいひとつは、<br>見つかりましたか？</h2>
   <p>ほかにも、冬のギフトにぴったりの腕時計やブランド小物がそろっています。</p>
   <a class="btn" href="https://search.rakuten.co.jp/search/mall/?sid=404544">すべての商品を見る</a>
