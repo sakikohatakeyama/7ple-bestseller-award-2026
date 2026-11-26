@@ -191,8 +191,8 @@ a{color:inherit;text-decoration:none}
 
 .sub .rank svg{width:clamp(30px,8.5vw,60px);height:clamp(22px,6.2vw,44px)}
 .sub .rank b{font-size:clamp(22px,6.4vw,46px)}
-.bubble{text-align:left;line-break:strict;position:relative;display:flex;justify-content:center;background:#fff;border:0;border-radius:clamp(12px,3.2vw,22px);padding:.85em 1.05em;font-size:.9em;line-height:1.75;color:#222;box-shadow:0 2px 8px rgba(80,50,20,.08);font-weight:400;margin:clamp(14px,3.7vw,26px) 0 .7em}
-.bubble .bt{display:block;max-width:100%;text-align:left;text-wrap:balance}
+.bubble{position:relative;display:block;background:#fff;border:0;border-radius:clamp(12px,3.2vw,22px);padding:.8em .85em;font-size:.9em;line-height:1.75;color:#222;box-shadow:0 2px 8px rgba(80,50,20,.08);font-weight:400;margin:clamp(14px,3.7vw,26px) 0 .7em}
+.bubble .bt{display:block;width:100%;text-align:justify;text-justify:inter-character;text-align-last:left;text-wrap:wrap;line-break:normal}
 .bubble::before{content:"";position:absolute;left:50%;margin-left:-.6em;bottom:100%;border:solid transparent;border-width:0 .6em .9em .6em;border-bottom-color:#fff}
 .bubble::after{content:none}
 .bubble.big{font-size:1.02em;margin-top:clamp(12px,3.2vw,22px);margin-bottom:.5em}
@@ -276,7 +276,7 @@ html:not(.js) .santa{transform:none}
   .sub .rank svg{width:clamp(40px,11.5vw,84px);height:clamp(29px,8.3vw,60px)}
   .sub .rank b{font-size:clamp(30px,9vw,64px)}
   .sub .rank{margin-bottom:clamp(6px,1.6vw,12px)}
-  .sub .bubble{font-size:.9em;padding:.85em 1.05em;margin-top:clamp(12px,3.2vw,22px);margin-bottom:.5em}
+  .sub .bubble{font-size:.9em;padding:.8em .85em;margin-top:clamp(12px,3.2vw,22px);margin-bottom:.5em}
   .sub .name{font-size:clamp(19px,5.3vw,40px);font-weight:900;margin:.05em 0 .15em}
   .sub .brand{font-size:.72em}
   .sub .tag{font-size:.72em}
@@ -714,20 +714,6 @@ html:not(.js) .santa{transform:none}
 
   const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), {threshold: .15});
   document.querySelectorAll(".rv").forEach(el => io.observe(el));
-
-  function fitBubbles(){
-    document.querySelectorAll(".bubble .bt").forEach(function(el){
-      el.style.width="";
-      var rg=document.createRange();rg.selectNodeContents(el);
-      var rs=rg.getClientRects(),min=1e9,max=-1e9;
-      for(var i=0;i<rs.length;i++){if(rs[i].width<1)continue;min=Math.min(min,rs[i].left);max=Math.max(max,rs[i].right);}
-      if(max>min)el.style.width=Math.ceil(max-min)+1+"px";
-    });
-  }
-  fitBubbles();
-  addEventListener("load",fitBubbles);
-  addEventListener("resize",fitBubbles);
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitBubbles);
 
   const cl = document.getElementById("closing");
   if (cl) new IntersectionObserver((es, o) => es.forEach(en => { if (en.isIntersecting) { cl.classList.add("pop"); o.disconnect(); } }), {threshold: .45}).observe(cl);
