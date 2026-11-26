@@ -126,8 +126,9 @@ a{color:inherit;text-decoration:none}
 
 /* ---------------- 本文 ---------------- */
 .intro{padding:clamp(40px,10.7vw,80px) clamp(20px,6.4vw,48px) clamp(28px,7.5vw,56px);text-align:center}
-.intro h2{font-size:clamp(14px,3.95vw,34px);font-weight:900;line-height:1.6}
-.intro p{margin-top:1em;font-size:.93em;color:#444;text-align:left}
+.intro-lead{font-size:.93em;line-height:1.9;color:#444;text-align:left}
+.intro-lead h2,.intro-lead p{display:inline;font-size:inherit;margin:0}
+.intro-lead h2{font-weight:900;color:#222;line-height:inherit}
 .intro .note{font-size:.72em;color:var(--muted);margin-top:.8em}
 
 /* 部門の目次 */
@@ -381,8 +382,7 @@ html:not(.js) .santa{transform:none}
 </header>
 
 <section class="intro rv">
-  <h2>ななぷれ select shopでよく売れているものを<br>部門ごとに1位〜3位で発表します！</h2>
-  <p>腕時計から、冬の小物、記念のコラボモデルまで。贈る相手に合う部門から見てください。</p>
+  <div class="intro-lead"><h2>ななぷれ select shopでよく売れているものを、部門ごとに1位〜3位で発表します！</h2><p>腕時計から、冬の小物、記念のコラボモデルまで。贈る相手に合う部門から見てください。</p></div>
 </section>
 
 <nav class="idx" aria-label="部門一覧"><a class="idx-item" href="#mens"><span class="no en">01</span><span class="t">メンズ腕時計</span></a><a class="idx-item" href="#ladies"><span class="no en">02</span><span class="t">レディース腕時計</span></a><a class="idx-item" href="#cheap"><span class="no en">03</span><span class="t">チプカシ</span></a><a class="idx-item" href="#collab"><span class="no en">04</span><span class="t">コラボウォッチ</span></a><a class="idx-item" href="#goods"><span class="no en">05</span><span class="t">ブランド小物</span></a><a class="idx-item" href="#pair"><span class="no en">06</span><span class="t">ペアウォッチ</span></a></nav>
