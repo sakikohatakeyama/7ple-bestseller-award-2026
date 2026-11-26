@@ -82,12 +82,17 @@ a{color:inherit;text-decoration:none}
   .totop{right:calc((100vw - 750px) / 2 + 14px)}
 }
 
-.cat .first,.cat .sub{position:relative}
-.fav{position:absolute;z-index:3;top:clamp(10px,2.9vw,20px);right:clamp(10px,2.9vw,20px);display:flex;align-items:center;justify-content:center;width:clamp(36px,10vw,64px);height:clamp(36px,10vw,64px);border:0;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.18);cursor:pointer;-webkit-tap-highlight-color:transparent}
-.pr-row{display:flex;align-items:center;justify-content:space-between;gap:4px}
-.sub .fav{position:static;flex:none;width:clamp(28px,7.6vw,46px);height:clamp(28px,7.6vw,46px);box-shadow:0 0 0 1.5px #E7E1D8;margin-top:.35em}
-.fav svg{width:56%;height:56%;fill:none;stroke:var(--red);stroke-width:2;stroke-linejoin:round;transition:transform .2s}
+.act{display:flex;align-items:stretch;gap:clamp(8px,2.1vw,14px);margin-top:clamp(14px,3.7vw,28px)}
+.act .btn{flex:1;margin-top:0}
+.sub .act{margin-top:.6em;gap:6px}
+.sub .act .more{flex:1;margin-top:0;display:flex;align-items:center;justify-content:center}
+.fav{flex:none;display:flex;align-items:center;justify-content:center;width:clamp(50px,13.9vw,104px);border:2px solid var(--red);border-radius:6px;background:#fff;cursor:pointer;transition:background .2s,border-color .2s;-webkit-tap-highlight-color:transparent}
+.sub .fav{width:clamp(34px,9.4vw,58px);height:auto;border-width:1.5px}
+.fav svg{width:46%;height:46%;fill:none;stroke:var(--red);stroke-width:2;stroke-linejoin:round;transition:transform .2s,stroke .2s,fill .2s}
+.fav:hover{background:var(--red)}
+.fav:hover svg{stroke:#fff}
 .fav[aria-pressed="true"] svg{fill:var(--red)}
+.fav[aria-pressed="true"]:hover svg{fill:#fff}
 .fav:active svg{transform:scale(.85)}
 #snow{display:none;position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:50}
 
@@ -217,7 +222,7 @@ a{color:inherit;text-decoration:none}
 .sub .name{font-size:.86em;font-weight:700;line-height:1.45;margin-top:.1em;flex:1}
 .name .en{font-weight:700;letter-spacing:.01em}
 .first .name .en{font-size:1.04em}
-.price.sm{font-size:clamp(19px,5.4vw,42px);white-space:nowrap}
+.price.sm{font-size:clamp(22px,6.3vw,48px);white-space:nowrap}
 .more{display:block;margin-top:.6em;padding:.55em 0;text-align:center;border:1px solid var(--ink);border-radius:6px;font-size:.78em;font-weight:700;transition:background .25s,color .25s}
 .sub:hover .more{background:var(--ink);color:#fff}
 
@@ -332,14 +337,14 @@ a{color:inherit;text-decoration:none}
 
   <!-- ITEM 1位: sbth009 -->
   <div class="first rv">
-    <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p><button type="button" class="fav" data-id="sbth009" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button>
+    <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
     <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/sbth009/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth009.jpg" alt="SEIKO SELECTION Sシリーズ デイデイト SBTH009" width="640" height="640" loading="lazy"></a></div>
     <div class="body">
       <p class="bubble big">この文字盤のネイビー、ほんとにかっこいいんです！曜日と日付も入っていて、スーツにも休日の服にも合うので、結局いちばん手が伸びる一本です。</p>
       <p class="brand en">SEIKO SELECTION</p>
       <h3 class="name"><span class="en">S</span>シリーズ デイデイト <span class="en">SBTH009</span></h3>
       <p class="price en">26,400<small>円〜</small></p>
-      <a class="btn" href="https://item.rakuten.co.jp/7ple/sbth009/">商品ページを見る</a>
+      <div class="act"><a class="btn" href="https://item.rakuten.co.jp/7ple/sbth009/">商品ページを見る</a><button type="button" class="fav" data-id="sbth009" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></div>
     </div>
   </div>
   <div class="subs">
@@ -350,8 +355,8 @@ a{color:inherit;text-decoration:none}
         <span class="bubble">セイコーのこのシリーズは、見た目がきりっとしていて好きなんです。派手ではないのに、つけると不思議と気分が上がります。</span>
         <span class="brand en">SEIKO SELECTION</span>
         <span class="name"><span class="en">8T</span>クロノグラフ</span>
-        <span class="pr-row"><p class="price sm en">51,040<small>円</small></p><button type="button" class="fav" data-id="seiko-sbtr" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
-        <span class="more">商品を見る</span>
+        <p class="price sm en">51,040<small>円</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="seiko-sbtr" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
       <!-- ITEM 3位: by1025-17e -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/by1025-17e/">
@@ -360,8 +365,8 @@ a{color:inherit;text-decoration:none}
         <span class="bubble">シンプルなデザインですが、よく見るとちゃんと作りがいいんです。毎日使いやすい一本だと思います。</span>
         <p class="tag">数量限定</p><span class="brand en">CITIZEN EXCEED</span>
         <span class="name">ムーンフェイズ <span class="en">BY1025-17E</span></span>
-        <span class="pr-row"><p class="price sm en">220,000<small>円</small></p><button type="button" class="fav" data-id="by1025-17e" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
-        <span class="more">商品を見る</span>
+        <p class="price sm en">220,000<small>円</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="by1025-17e" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
   </div>
 </section>
@@ -376,14 +381,14 @@ a{color:inherit;text-decoration:none}
 
   <!-- ITEM 1位: aq-240eg-9adf -->
   <div class="first rv">
-    <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p><button type="button" class="fav" data-id="aq-240eg-9adf" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button>
+    <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
     <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/aq-240eg-9adf/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio15/aq-240eg-9adf.jpg" alt="CASIO AQ-240EG ゴールド" width="640" height="640" loading="lazy"></a></div>
     <div class="body">
       <p class="bubble big">ゴールドの色がきれいで、つけた瞬間に手元がぱっと明るくなります。レトロなデジタルのかわいさもあって、見ているだけで気分が上がります。</p>
       <p class="brand en">CASIO</p>
       <h3 class="name"><span class="en">AQ-240EG</span> ゴールド</h3>
       <p class="price en">10,480<small>円</small></p>
-      <a class="btn" href="https://item.rakuten.co.jp/7ple/aq-240eg-9adf/">商品ページを見る</a>
+      <div class="act"><a class="btn" href="https://item.rakuten.co.jp/7ple/aq-240eg-9adf/">商品ページを見る</a><button type="button" class="fav" data-id="aq-240eg-9adf" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></div>
     </div>
   </div>
   <div class="subs">
@@ -394,8 +399,8 @@ a{color:inherit;text-decoration:none}
         <span class="bubble">女性への贈りものは悩みますが、これなら外さないかなと思って選びました。上品で、毎日つけてもらえそうな雰囲気です。</span>
         <span class="brand en">CITIZEN xC</span>
         <span class="name"><span class="en">hikari</span> <span class="en">collection</span></span>
-        <span class="pr-row"><p class="price sm en">81,840<small>円〜</small></p><button type="button" class="fav" data-id="es9492-57d" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
-        <span class="more">商品を見る</span>
+        <p class="price sm en">81,840<small>円〜</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="es9492-57d" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
       <!-- ITEM 3位: swfa210 -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/swfa210/">
@@ -404,8 +409,8 @@ a{color:inherit;text-decoration:none}
         <span class="bubble">小ぶりで、さりげなくかわいいんです。主張しすぎないので、仕事のときも休みの日もつけられると思います。</span>
         <span class="brand en">SEIKO SELECTION</span>
         <span class="name"><span class="en">S</span>シリーズ ブレスレット ソーラー</span>
-        <span class="pr-row"><p class="price sm en">36,300<small>円〜</small></p><button type="button" class="fav" data-id="swfa210" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
-        <span class="more">商品を見る</span>
+        <p class="price sm en">36,300<small>円〜</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="swfa210" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
   </div>
 </section>
@@ -420,14 +425,14 @@ a{color:inherit;text-decoration:none}
 
   <!-- ITEM 1位: a168w -->
   <div class="first rv">
-    <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p><button type="button" class="fav" data-id="a168w" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button>
+    <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
     <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/a168w/"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio13/a168w-a.jpg" alt="CASIO A168W デジタル" width="640" height="640" loading="lazy"></a></div>
     <div class="body">
       <p class="bubble big">とにかく小さくて軽いところが、クセになります。チプカシの定番ですが、つけていると不思議と愛着が湧いてきます。</p>
       <p class="brand en">CASIO</p>
       <h3 class="name"><span class="en">A168W</span> デジタル</h3>
       <p class="price en">3,300<small>円〜</small></p>
-      <a class="btn" href="https://item.rakuten.co.jp/7ple/a168w/">商品ページを見る</a>
+      <div class="act"><a class="btn" href="https://item.rakuten.co.jp/7ple/a168w/">商品ページを見る</a><button type="button" class="fav" data-id="a168w" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></div>
     </div>
   </div>
   <div class="subs">
@@ -438,8 +443,8 @@ a{color:inherit;text-decoration:none}
         <span class="bubble">ちょっとごつめのデジタルが好きな方には、きっと刺さると思います。ラフな服にもよく合いますよ。</span>
         <span class="brand en">CASIO</span>
         <span class="name"><span class="en">W-218H</span> デジタル</span>
-        <span class="pr-row"><p class="price sm en">3,380<small>円〜</small></p><button type="button" class="fav" data-id="w-218h" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
-        <span class="more">商品を見る</span>
+        <p class="price sm en">3,380<small>円〜</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="w-218h" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
       <!-- ITEM 3位: mq-24-1b3df -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/mq-24-1b3df/">
@@ -448,8 +453,8 @@ a{color:inherit;text-decoration:none}
         <span class="bubble">2,000円台でこのシンプルさは、正直ちょっとずるいです。黒でまとまっているので、ふだん使いに気軽に選べます。</span>
         <span class="brand en">CASIO</span>
         <span class="name"><span class="en">MQ-24</span> オールブラック</span>
-        <span class="pr-row"><p class="price sm en">2,080<small>円</small></p><button type="button" class="fav" data-id="mq-24-1b3df" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
-        <span class="more">商品を見る</span>
+        <p class="price sm en">2,080<small>円</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="mq-24-1b3df" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
   </div>
 </section>
@@ -464,14 +469,14 @@ a{color:inherit;text-decoration:none}
 
   <!-- ITEM 1位: iei-51602 -->
   <div class="first rv">
-    <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p><button type="button" class="fav" data-id="iei-51602" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button>
+    <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
     <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/iei-51602/"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51602-aa.jpg" alt="SEIKO × 北斗の拳 コラボレーションウオッチ" width="640" height="640" loading="lazy"></a></div>
     <div class="body">
       <p class="bubble big">ケンシロウモデルとラオウモデル、どちらも渋くてかっこいいんです！日本製で数量限定なので、ファンの方にはたまらないと思います。</p>
       <p class="tag">数量限定</p><p class="brand en">SEIKO × 北斗の拳</p>
       <h3 class="name">コラボレーションウオッチ</h3>
       <p class="price en">65,780<small>円</small></p>
-      <a class="btn" href="https://item.rakuten.co.jp/7ple/iei-51602/">商品ページを見る</a>
+      <div class="act"><a class="btn" href="https://item.rakuten.co.jp/7ple/iei-51602/">商品ページを見る</a><button type="button" class="fav" data-id="iei-51602" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></div>
     </div>
   </div>
   <div class="subs">
@@ -482,8 +487,8 @@ a{color:inherit;text-decoration:none}
         <span class="bubble">エミリアとレム、どちらの色にするかほんとに迷います…！文字盤にキャラクターの雰囲気が出ていて、見ているだけで楽しいです。</span>
         <p class="tag">数量限定</p><span class="brand en">SEIKO × Re:ゼロから始める異世界生活</span>
         <span class="name">エミリア／レム モデル</span>
-        <span class="pr-row"><p class="price sm en">65,780<small>円</small></p><button type="button" class="fav" data-id="iei-51599" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
-        <span class="more">商品を見る</span>
+        <p class="price sm en">65,780<small>円</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="iei-51599" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
       <!-- ITEM 3位: iei-51598 -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/iei-51598/">
@@ -492,8 +497,8 @@ a{color:inherit;text-decoration:none}
         <span class="bubble">このやさしいイエローの文字盤が、かわいいんです。ポムポムプリン好きのお友達に渡したら、きっと喜んでもらえると思います。</span>
         <p class="tag">数量限定</p><span class="brand en">SEIKO × ポムポムプリン</span>
         <span class="name"><span class="en">30</span>周年記念ウオッチ</span>
-        <span class="pr-row"><p class="price sm en">49,280<small>円</small></p><button type="button" class="fav" data-id="iei-51598" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
-        <span class="more">商品を見る</span>
+        <p class="price sm en">49,280<small>円</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="iei-51598" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
   </div>
 </section>
@@ -508,14 +513,14 @@ a{color:inherit;text-decoration:none}
 
   <!-- ITEM 1位: ugg-earmuff -->
   <div class="first rv">
-    <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p><button type="button" class="fav" data-id="ugg-earmuff" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button>
+    <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
     <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/ugg-earmuff/"><img src="https://image.rakuten.co.jp/7ple/cabinet/ugg/ugg-earmuff-a.jpg" alt="UGG シープスキン イヤーマフ" width="640" height="640" loading="lazy"></a></div>
     <div class="body">
       <p class="bubble big">耳をすっぽり包んでくれるので、寒い日でもほんとにあったかいです。正規BOXに入っているので、そのままプレゼントにできるのもうれしいですよね。</p>
       <p class="brand en">UGG</p>
       <h3 class="name">シープスキン イヤーマフ</h3>
       <p class="price en">9,480<small>円〜</small></p>
-      <a class="btn" href="https://item.rakuten.co.jp/7ple/ugg-earmuff/">商品ページを見る</a>
+      <div class="act"><a class="btn" href="https://item.rakuten.co.jp/7ple/ugg-earmuff/">商品ページを見る</a><button type="button" class="fav" data-id="ugg-earmuff" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></div>
     </div>
   </div>
   <div class="subs">
@@ -526,8 +531,8 @@ a{color:inherit;text-decoration:none}
         <span class="bubble">黒のレザーでコンパクトなので、小さめのバッグにもすっと入ります。大人っぽい雰囲気で、いいなと思います。</span>
         <span class="brand en">BVLGARI</span>
         <span class="name">二つ折り財布 コンパクト</span>
-        <span class="pr-row"><p class="price sm en">48,110<small>円</small></p><button type="button" class="fav" data-id="280287-blk" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
-        <span class="more">商品を見る</span>
+        <p class="price sm en">48,110<small>円</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="280287-blk" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
       <!-- ITEM 3位: pata-47929-blk -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/pata-47929-blk/">
@@ -536,8 +541,8 @@ a{color:inherit;text-decoration:none}
         <span class="bubble">通勤にも、ちょっとしたお出かけにも使えるリュックです。黒なのでどんな服にも合わせやすく、ひとつ持っていると便利です。</span>
         <span class="brand en">PATAGONIA</span>
         <span class="name">レフュジオ・デイパック <span class="en">30L</span></span>
-        <span class="pr-row"><p class="price sm en">17,980<small>円</small></p><button type="button" class="fav" data-id="pata-47929-blk" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
-        <span class="more">商品を見る</span>
+        <p class="price sm en">17,980<small>円</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="pata-47929-blk" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
   </div>
 </section>
@@ -552,14 +557,14 @@ a{color:inherit;text-decoration:none}
 
   <!-- ITEM 1位: sbth007 -->
   <div class="first rv">
-    <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p><button type="button" class="fav" data-id="sbth007" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button>
+    <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
     <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/sbth007/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth007.jpg" alt="SEIKO SELECTION Sシリーズ デイデイト SBTH007" width="640" height="640" loading="lazy"></a></div>
     <div class="body">
       <p class="bubble big">アイボリーの文字盤がやさしい雰囲気で、見るたびに好きだなと思います。楽天のメンズ腕時計ランキングで1位にも入りました！</p>
       <p class="tag">楽天 メンズ腕時計 デイリー1位</p><p class="brand en">SEIKO SELECTION</p>
       <h3 class="name"><span class="en">S</span>シリーズ デイデイト <span class="en">SBTH007</span></h3>
       <p class="price en">26,400<small>円</small></p>
-      <a class="btn" href="https://item.rakuten.co.jp/7ple/sbth007/">商品ページを見る</a>
+      <div class="act"><a class="btn" href="https://item.rakuten.co.jp/7ple/sbth007/">商品ページを見る</a><button type="button" class="fav" data-id="sbth007" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></div>
     </div>
   </div>
   <div class="subs">
@@ -570,8 +575,8 @@ a{color:inherit;text-decoration:none}
         <span class="bubble">色違いで選べるので、つい何本も欲しくなってしまいます。1,980円からという気軽さも、うれしいところです。</span>
         <p class="tag">楽天 メンズ腕時計 週間1位</p><span class="brand en">CASIO</span>
         <span class="name"><span class="en">MQ-24</span> アナログ</span>
-        <span class="pr-row"><p class="price sm en">1,980<small>円〜</small></p><button type="button" class="fav" data-id="mq-24" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
-        <span class="more">商品を見る</span>
+        <p class="price sm en">1,980<small>円〜</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="mq-24" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
       <!-- ITEM 3位: ltp-v007l -->
       <a class="sub rv" href="https://item.rakuten.co.jp/7ple/ltp-v007l/">
@@ -580,8 +585,8 @@ a{color:inherit;text-decoration:none}
         <span class="bubble">四角い文字盤にレザーのベルトという組み合わせが、ちょっとレトロでかわいいんです。3,000円台なので、プレゼントにも選びやすいですよ。</span>
         <p class="tag">楽天 レディース腕時計 週間4位</p><span class="brand en">CASIO</span>
         <span class="name"><span class="en">LTP-V007L</span> スクエア レザー</span>
-        <span class="pr-row"><p class="price sm en">3,180<small>円〜</small></p><button type="button" class="fav" data-id="ltp-v007l" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
-        <span class="more">商品を見る</span>
+        <p class="price sm en">3,180<small>円〜</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="ltp-v007l" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
   </div>
 </section>
