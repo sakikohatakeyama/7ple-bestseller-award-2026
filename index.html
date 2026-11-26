@@ -269,6 +269,23 @@ html:not(.js) .santa{transform:none}
 .js .fv.go > :nth-child(4){transition-delay:.5s}.js .fv.go > :nth-child(5){transition-delay:.65s}
 .js .fv-ph{opacity:0;transition:opacity .7s ease}
 .js .fv.go .fv-ph{opacity:1}
+/* スマホ：2位・3位も縦1列 */
+@media (max-width:767px){
+  .subs{grid-template-columns:1fr;gap:clamp(14px,4vw,28px)}
+  .cat .sub{padding:clamp(10px,2.7vw,20px) clamp(14px,4vw,28px) clamp(14px,3.7vw,26px)}
+  .sub .rank svg{width:clamp(40px,11.5vw,84px);height:clamp(29px,8.3vw,60px)}
+  .sub .rank b{font-size:clamp(30px,9vw,64px)}
+  .sub .rank{margin-bottom:clamp(6px,1.6vw,12px)}
+  .sub .bubble{font-size:.9em;padding:.85em 1.05em;margin-top:clamp(12px,3.2vw,22px);margin-bottom:.5em}
+  .sub .name{font-size:clamp(19px,5.3vw,40px);font-weight:900;margin:.05em 0 .15em}
+  .sub .brand{font-size:.72em}
+  .sub .tag{font-size:.72em}
+  .price.sm{font-size:clamp(38px,11.5vw,84px)}
+  .sub .act{gap:clamp(8px,2.1vw,14px);margin-top:clamp(8px,2.1vw,16px)}
+  .sub .act .more{height:clamp(50px,13.9vw,104px);font-size:clamp(15px,4.3vw,32px);letter-spacing:.06em}
+  .sub .fav{width:clamp(50px,13.9vw,104px);height:clamp(50px,13.9vw,104px);border-width:2px}
+}
+
 @media (prefers-reduced-motion:reduce){
   .deco.float{animation:none}
   .js .rv,.js .fv > *,.js .fv-ph{opacity:1!important;transform:none!important;transition:none!important}
