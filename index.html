@@ -50,10 +50,10 @@ a{color:inherit;text-decoration:none}
   .page{display:grid;grid-template-columns:1fr 750px 1fr;justify-content:stretch}
   .side{isolation:isolate;overflow:hidden;display:flex;position:sticky;top:0;height:100vh;align-self:start;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px clamp(24px,3vw,56px)}
   .side .deco{z-index:-1}
-  .side-logo{position:relative;display:block;width:100%;max-width:250px;margin-top:14px;transition:transform .25s}
+  .side-logo{position:relative;display:block;width:100%;max-width:250px;margin-top:34px;transition:transform .25s}
   .side-logo:hover{transform:translateY(-2px)}
   .side-logo img{display:block;width:100%;height:auto;filter:brightness(0) invert(1)}
-  .side-logo .hat{position:absolute;left:11.5%;top:-24%;width:24%;height:auto;overflow:visible;transform:rotate(-14deg);transform-origin:50% 100%}
+  .side-logo .hat{position:absolute;left:9%;top:-46%;width:17%;height:auto;overflow:visible;transform:rotate(-20deg);transform-origin:50% 100%}
   .side-label{margin-top:20px;font-size:12px;letter-spacing:.18em;white-space:nowrap;color:#FFE08A}
   .side h2{margin-top:10px;font-family:"Jost";font-weight:500;font-size:clamp(36px,3.2vw,50px);line-height:1.05;color:#fff;letter-spacing:.02em}
   .side-catch{margin-top:16px;font-size:16px;font-weight:700;line-height:1.7;color:#fff}
@@ -82,12 +82,12 @@ a{color:inherit;text-decoration:none}
   .totop{right:calc((100vw - 750px) / 2 + 14px)}
 }
 
-.act{display:flex;align-items:stretch;gap:clamp(8px,2.1vw,14px);margin-top:clamp(14px,3.7vw,28px)}
+.act{display:flex;align-items:center;gap:clamp(8px,2.1vw,14px);margin-top:clamp(14px,3.7vw,28px)}
 .act .btn{flex:1;margin-top:0}
 .sub .act{margin-top:.6em;gap:6px}
-.sub .act .more{flex:1;margin-top:0;display:flex;align-items:center;justify-content:center}
-.fav{flex:none;display:flex;align-items:center;justify-content:center;width:clamp(50px,13.9vw,104px);border:2px solid var(--red);border-radius:6px;background:#fff;cursor:pointer;transition:background .2s,border-color .2s;-webkit-tap-highlight-color:transparent}
-.sub .fav{width:clamp(34px,9.4vw,58px);height:auto;border-width:1.5px}
+.sub .act .more{flex:1;margin-top:0;display:flex;align-items:center;justify-content:center;height:clamp(34px,9.4vw,58px);padding:0}
+.fav{flex:none;display:flex;align-items:center;justify-content:center;width:clamp(50px,13.9vw,104px);height:clamp(50px,13.9vw,104px);border:2px solid var(--red);border-radius:50%;background:#fff;cursor:pointer;transition:background .2s,border-color .2s;-webkit-tap-highlight-color:transparent}
+.sub .fav{width:clamp(34px,9.4vw,58px);height:clamp(34px,9.4vw,58px);border-width:1.5px}
 .fav svg{width:46%;height:46%;fill:none;stroke:var(--red);stroke-width:2;stroke-linejoin:round;transition:transform .2s,stroke .2s,fill .2s}
 .fav:hover{background:var(--red)}
 .fav:hover svg{stroke:#fff}
@@ -127,12 +127,12 @@ a{color:inherit;text-decoration:none}
 
 /* 部門の目次 */
 .idx{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(6px,1.6vw,12px);padding:0 clamp(16px,4.3vw,32px) clamp(40px,10.7vw,80px)}
-.idx-item{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:clamp(60px,16vw,104px);padding:clamp(8px,2.1vw,14px) clamp(10px,2.7vw,18px);border-radius:clamp(8px,2.1vw,14px);transition:transform .25s}
+.idx-item{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:clamp(60px,16vw,104px);padding:clamp(8px,2.1vw,14px) clamp(12px,3.2vw,22px);border-radius:999px;transition:transform .25s}
 .idx-item:hover{transform:translateY(-3px)}
 .idx-item{background:var(--green)}
 .idx-item{color:#fff}
 .idx-item .no{font-size:clamp(18px,5vw,34px);font-weight:500;line-height:1;color:#FFE08A;letter-spacing:.04em}
-.idx-item .t{margin-top:.2em;font-size:.72em;font-weight:900;line-height:1.35}
+.idx-item .t{margin-top:.2em;font-size:.66em;font-weight:900;line-height:1.35;white-space:nowrap}
 .idx-item::after{content:"";position:absolute;right:clamp(8px,2.1vw,14px);top:clamp(10px,2.7vw,18px);width:.4em;height:.4em;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
 
 /* 上に貼りつく部門ナビ */
@@ -212,7 +212,7 @@ a{color:inherit;text-decoration:none}
 .first .copy{font-size:.93em;color:#3C3C3C}
 .price{font-size:clamp(32px,9.3vw,70px);font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-top:.35em}
 .price small{font-family:"Noto Sans JP";font-size:.4em;font-weight:700;margin-left:.15em}
-.btn{display:flex;align-items:center;justify-content:center;margin-top:clamp(14px,3.7vw,28px);height:clamp(50px,13.9vw,104px);background:var(--red);color:#fff;font-size:clamp(15px,4.3vw,32px);font-weight:700;letter-spacing:.06em;border-radius:6px;transition:background .25s}
+.btn{display:flex;align-items:center;justify-content:center;margin-top:clamp(14px,3.7vw,28px);height:clamp(50px,13.9vw,104px);background:var(--red);color:#fff;font-size:clamp(15px,4.3vw,32px);font-weight:700;letter-spacing:.06em;border-radius:999px;transition:background .25s}
 .btn::after{content:"";width:.45em;height:.45em;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);margin-left:.7em}
 .btn:hover{background:#AE0F24}
 
@@ -228,7 +228,7 @@ a{color:inherit;text-decoration:none}
 .name .en{font-weight:700;letter-spacing:.01em}
 .first .name .en{font-size:1.04em}
 .price.sm{font-size:clamp(22px,6.3vw,48px);white-space:nowrap}
-.more{display:block;margin-top:.6em;padding:.55em 0;text-align:center;border:1px solid var(--ink);border-radius:6px;font-size:.78em;font-weight:700;transition:background .25s,color .25s}
+.more{display:block;margin-top:.6em;padding:.55em 0;text-align:center;border:1px solid var(--ink);border-radius:999px;font-size:.78em;font-weight:700;transition:background .25s,color .25s}
 .sub:hover .more{background:var(--ink);color:#fff}
 
 /* まとめ */
