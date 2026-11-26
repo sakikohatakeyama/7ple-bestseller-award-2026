@@ -76,6 +76,7 @@ a{color:inherit;text-decoration:none}
   .side .btn{width:100%;max-width:300px;height:56px;font-size:15px;margin-top:22px}
   .side .btn.sec{margin-top:10px;background:transparent;border:2px solid #fff;color:#fff}
   .side .btn.sec:hover{background:#fff;color:#12275F}
+  #snow{display:block!important}
   .catnav{display:none}
   .totop{right:calc((100vw - 750px) / 2 + 14px)}
 }
@@ -87,7 +88,7 @@ a{color:inherit;text-decoration:none}
 .fav svg{width:56%;height:56%;fill:none;stroke:var(--red);stroke-width:2;stroke-linejoin:round;transition:transform .2s}
 .fav[aria-pressed="true"] svg{fill:var(--red)}
 .fav:active svg{transform:scale(.85)}
-#snow{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:50}
+#snow{display:none;position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:50}
 
 /* ---------------- FV ---------------- */
 .fv{position:relative;overflow:hidden;background:var(--red);color:#fff;text-align:center;padding:clamp(36px,10.7vw,80px) clamp(20px,6.4vw,48px) clamp(40px,10.7vw,80px)}
@@ -663,17 +664,19 @@ a{color:inherit;text-decoration:none}
   if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
   var c=document.getElementById("snow"),x=c.getContext("2d"),W,H,F=[],N=46,dpr=Math.min(window.devicePixelRatio||1,2);
   function size(){W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
-  function mk(top){return{x:Math.random()*W,y:top?-10:Math.random()*H,r:1.5+Math.random()*2.8,v:.35+Math.random()*.8,p:Math.random()*6.28,s:.6+Math.random()*.9}}
+  function mk(top){var sx=Math.random()*(W-750),sx=sx<(W-750)/2?sx:sx+750;return{x:sx,y:top?-10:Math.random()*H,r:1.5+Math.random()*2.8,v:.35+Math.random()*.8,p:Math.random()*6.28,s:.6+Math.random()*.9}}
   size();for(var i=0;i<N;i++)F.push(mk(false));
   addEventListener("resize",size);
   function tick(){
     x.clearRect(0,0,W,H);
+    if(W<1240){requestAnimationFrame(tick);return}
     for(var i=0;i<F.length;i++){var f=F[i];
       f.y+=f.v;f.p+=.012*f.s;f.x+=Math.sin(f.p)*.35;
       if(f.y>H+10||f.x<-10||f.x>W+10)F[i]=mk(true);
       x.beginPath();x.fillStyle="rgba(255,255,255,.92)";x.shadowColor="rgba(0,0,0,.18)";x.shadowBlur=3;
       x.arc(f.x,f.y,f.r,0,6.283);x.fill();
     }
+    x.clearRect((W-750)/2,0,750,H);
     requestAnimationFrame(tick);
   }
   tick();
