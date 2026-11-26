@@ -286,6 +286,35 @@ html:not(.js) .santa{transform:none}
   .sub .fav{width:clamp(50px,13.9vw,104px);height:clamp(50px,13.9vw,104px);border-width:2px}
 }
 
+/* スマホ・タブレット：固定ヘッダー＋ハンバーガーメニュー */
+.sp-head,.sp-menu{display:none}
+@media (max-width:1239px){
+  :root{--hh:clamp(50px,13.5vw,68px)}
+  body{padding-top:var(--hh)}
+  .sp-head{display:flex;position:fixed;top:0;left:0;right:0;z-index:70;height:var(--hh);align-items:center;justify-content:space-between;padding:0 clamp(12px,3.5vw,24px);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+  .sp-logo{display:block;height:62%}
+  .sp-logo img{display:block;height:100%;width:auto}
+  .burger{position:relative;width:clamp(40px,11vw,52px);height:clamp(40px,11vw,52px);border:0;border-radius:50%;background:#1F3A7A;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .burger span{position:absolute;left:28%;width:44%;height:2px;border-radius:2px;background:#fff;transition:transform .3s,opacity .2s,top .3s}
+  .burger span:nth-child(1){top:34%}.burger span:nth-child(2){top:49%}.burger span:nth-child(3){top:64%}
+  .burger[aria-expanded="true"] span:nth-child(1){top:49%;transform:rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){top:49%;transform:rotate(-45deg)}
+  .sp-menu{position:fixed;top:var(--hh);left:0;right:0;bottom:0;z-index:65;background:#12275F;color:#fff;padding:clamp(20px,6vw,36px) clamp(20px,6vw,40px) 40px;overflow-y:auto;display:block}
+  .sp-menu[hidden]{display:none}
+  .sp-menu-t{font-size:13px;letter-spacing:.3em;color:#FFE08A;text-align:center}
+  .sp-list{margin:12px auto 0;max-width:520px;border-top:1px solid rgba(255,255,255,.25)}
+  .sp-list a{display:flex;align-items:center;gap:14px;padding:clamp(14px,4vw,20px) 6px;border-bottom:1px solid rgba(255,255,255,.25);font-size:clamp(16px,4.4vw,22px);font-weight:700;color:#fff}
+  .sp-list a .en{font-size:.8em;color:#FFE08A;font-weight:600;width:1.8em}
+  .sp-list a::after{content:"";margin-left:auto;width:8px;height:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);opacity:.6}
+  .sp-btn{max-width:520px;margin-left:auto;margin-right:auto}
+  .sp-menu .btn:not(.sec){background:#fff;color:#1F3A7A;margin-top:26px}
+  .sp-menu .btn.sec{background:transparent;border:2px solid #fff;color:#fff}
+  .cat{scroll-margin-top:calc(var(--hh) + 8px)}
+  .totop{z-index:40}
+}
+@media (min-width:1240px){.sp-head,.sp-menu{display:none!important}}
+
 @media (prefers-reduced-motion:reduce){
   .deco.float{animation:none}
   .js .rv,.js .fv > *,.js .fv-ph{opacity:1!important;transform:none!important;transition:none!important}
@@ -309,6 +338,16 @@ html:not(.js) .santa{transform:none}
   <symbol id="branch" viewBox="0 0 200 120"><g fill="none" stroke="#E8BE62" stroke-width="1.6" stroke-linecap="round"><path d="M10 110C60 80 110 50 190 10"/><path d="M40 92c-8-14-4-26 6-30M40 92c14-6 26-2 30 8M80 68c-6-14 0-26 10-28M80 68c14-4 26 2 28 12M120 46c-4-14 4-24 14-24M120 46c12-2 22 4 24 14M160 26c-2-10 6-18 14-16"/></g></symbol>
   <symbol id="sprig" viewBox="0 0 120 160"><g fill="none" stroke="#E8BE62" stroke-width="1.6" stroke-linecap="round"><path d="M60 150V10"/><path d="M60 130 30 110M60 130 90 110M60 100 34 82M60 100 86 82M60 70 40 56M60 70 80 56M60 42 46 32M60 42 74 32"/></g><g fill="#E8BE62"><circle cx="30" cy="110" r="3"/><circle cx="90" cy="110" r="3"/><circle cx="34" cy="82" r="3"/><circle cx="86" cy="82" r="3"/><circle cx="40" cy="56" r="3"/><circle cx="80" cy="56" r="3"/><circle cx="60" cy="10" r="3"/></g></symbol>
 </svg>
+<header class="sp-head" id="sphead">
+  <a class="sp-logo" href="https://www.rakuten.co.jp/7ple/" aria-label="腕時計のななぷれ select shop（ショップトップへ）"><img src="logo2.png" alt="腕時計のななぷれ nanaple" width="345" height="75"></a>
+  <button type="button" class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="spmenu"><span></span><span></span><span></span></button>
+</header>
+<nav class="sp-menu" id="spmenu" aria-label="メニュー" hidden>
+  <p class="sp-menu-t en">MENU</p>
+  <div class="sp-list"><a href="#mens" data-sec="mens"><span class="en">01</span>メンズ腕時計部門</a><a href="#ladies" data-sec="ladies"><span class="en">02</span>レディース腕時計部門</a><a href="#cheap" data-sec="cheap"><span class="en">03</span>チプカシ部門</a><a href="#collab" data-sec="collab"><span class="en">04</span>コラボウォッチ部門</a><a href="#goods" data-sec="goods"><span class="en">05</span>ブランド小物部門</a><a href="#pair" data-sec="pair"><span class="en">06</span>ペアウォッチ部門</a></div>
+  <a class="btn sp-btn" href="https://search.rakuten.co.jp/search/mall/?sid=404544">すべての商品を見る</a>
+  <a class="btn sec sp-btn" href="https://www.rakuten.co.jp/7ple/">ショップトップへ</a>
+</nav>
 <div class="page">
 <aside class="side side-l" aria-label="特集タイトル">
   <div class="deco float" style="left:-60px;top:-50px;width:240px;--dx:10px;--dy:14px" aria-hidden="true"><svg viewBox="0 0 140 130"><path d="M58 8C88-4 124 10 132 42s-6 64-38 76S22 122 8 92 28 20 58 8z" fill="#1F3A7A" opacity=".92"/></svg></div>
@@ -693,7 +732,16 @@ html:not(.js) .santa{transform:none}
   const cl = document.getElementById("closing");
   if (cl) new IntersectionObserver((es, o) => es.forEach(en => { if (en.isIntersecting) { cl.classList.add("pop"); o.disconnect(); } }), {threshold: .45}).observe(cl);
 
-  const links = [...document.querySelectorAll(".catnav a, .side-list a")];
+  (function(){
+    var b=document.getElementById("burger"),m=document.getElementById("spmenu");
+    if(!b||!m)return;
+    function set(o){b.setAttribute("aria-expanded",o);b.setAttribute("aria-label",o?"メニューを閉じる":"メニューを開く");m.hidden=!o;document.documentElement.style.overflow=o?"hidden":"";}
+    b.addEventListener("click",function(){set(b.getAttribute("aria-expanded")!=="true")});
+    m.addEventListener("click",function(e){if(e.target.closest("a"))set(false)});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)});
+    addEventListener("resize",function(){if(innerWidth>=1240)set(false)});
+  })();
+  const links = [...document.querySelectorAll(".catnav a, .side-list a, .sp-list a")];
   const io2 = new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) return;
     links.forEach(a => a.classList.toggle("on", a.dataset.sec === en.target.id));
     const on = links.find(a => a.dataset.sec === en.target.id && a.parentNode.classList.contains("catnav"));
