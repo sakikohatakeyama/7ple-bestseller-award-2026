@@ -98,13 +98,15 @@ a{color:inherit;text-decoration:none}
 .intro .note{font-size:.72em;color:var(--muted);margin-top:.8em}
 
 /* 部門の目次 */
-.idx{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,2.1vw,16px);padding:0 clamp(16px,4.3vw,32px) clamp(40px,10.7vw,80px)}
-.idx-item{display:flex;flex-direction:column;align-items:center;text-align:center}
-.idx-item .ph{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--soft);border-radius:50%;box-shadow:0 0 0 clamp(3px,.8vw,6px) var(--sand)}
-.idx-item .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.idx-item:hover .ph img{transform:scale(1.06)}
-.idx-item .no{margin-top:.5em;font-size:.7em;color:var(--red);letter-spacing:.1em}
-.idx-item .t{font-size:.78em;font-weight:700;line-height:1.4}
+.idx{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,2.1vw,16px);padding:0 clamp(16px,4.3vw,32px) clamp(40px,10.7vw,80px)}
+.idx-item{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:clamp(78px,21vw,150px);padding:clamp(12px,3.2vw,22px) clamp(14px,3.7vw,26px);border-radius:clamp(10px,2.7vw,18px);transition:transform .25s}
+.idx-item:hover{transform:translateY(-3px)}
+.idx-item:nth-child(1),.idx-item:nth-child(4){background:#FFE3DF}
+.idx-item:nth-child(2),.idx-item:nth-child(5){background:#DDF1E5}
+.idx-item:nth-child(3),.idx-item:nth-child(6){background:#FFF1C9}
+.idx-item .no{font-size:clamp(26px,7.5vw,54px);font-weight:500;line-height:1;color:var(--red);letter-spacing:.04em}
+.idx-item .t{margin-top:.3em;font-size:.9em;font-weight:900;line-height:1.4;padding-right:1.2em}
+.idx-item::after{content:"";position:absolute;right:clamp(14px,3.7vw,26px);bottom:clamp(16px,4.3vw,30px);width:.5em;height:.5em;border-right:2px solid var(--red);border-bottom:2px solid var(--red);transform:rotate(45deg)}
 
 /* 上に貼りつく部門ナビ */
 .catnav{position:sticky;top:0;z-index:20;background:var(--green);display:flex;overflow-x:auto;scrollbar-width:none}
@@ -149,7 +151,7 @@ a{color:inherit;text-decoration:none}
 .js .hand .c{opacity:0;transform:translateY(-.7em);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.3,1);transition-delay:calc(.35s + var(--i) * .07s)}
 .js .rv.in .hand .c{opacity:1;transform:none}
 .fit img{object-fit:contain!important;transform:scale(.72)}
-.idx-item .ph.fit,.fv-ph.fit{background:#fff}
+.fv-ph.fit{background:#fff}
 
 /* 1位 */
 .first .ph{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;background:var(--soft);border-radius:clamp(8px,2.1vw,16px)}
@@ -269,7 +271,7 @@ a{color:inherit;text-decoration:none}
   <p class="note">※楽天市場 ショップ内ランキング（集計期間：2026年11月18日〜11月24日）をもとに、在庫のある商品を部門ごとに順位順で掲載しています。</p>
 </section>
 
-<nav class="idx" aria-label="部門一覧"><a class="idx-item" href="#mens"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth009.jpg" alt="" width="300" height="300"></span><span class="no en">01</span><span class="t">メンズ腕時計</span></a><a class="idx-item" href="#ladies"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio15/aq-240eg-9adf.jpg" alt="" width="300" height="300"></span><span class="no en">02</span><span class="t">レディース腕時計</span></a><a class="idx-item" href="#cheap"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio13/a168w-a.jpg" alt="" width="300" height="300"></span><span class="no en">03</span><span class="t">チプカシ</span></a><a class="idx-item" href="#collab"><span class="ph fit"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51602-aa.jpg" alt="" width="300" height="300"></span><span class="no en">04</span><span class="t">コラボウォッチ</span></a><a class="idx-item" href="#goods"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/ugg/ugg-earmuff-a.jpg" alt="" width="300" height="300"></span><span class="no en">05</span><span class="t">ブランド小物</span></a><a class="idx-item" href="#rakuten"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth007.jpg" alt="" width="300" height="300"></span><span class="no en">06</span><span class="t">楽天ランキング</span></a></nav>
+<nav class="idx" aria-label="部門一覧"><a class="idx-item" href="#mens"><span class="no en">01</span><span class="t">メンズ腕時計</span></a><a class="idx-item" href="#ladies"><span class="no en">02</span><span class="t">レディース腕時計</span></a><a class="idx-item" href="#cheap"><span class="no en">03</span><span class="t">チプカシ</span></a><a class="idx-item" href="#collab"><span class="no en">04</span><span class="t">コラボウォッチ</span></a><a class="idx-item" href="#goods"><span class="no en">05</span><span class="t">ブランド小物</span></a><a class="idx-item" href="#rakuten"><span class="no en">06</span><span class="t">楽天ランキング</span></a></nav>
 
 <nav class="catnav" aria-label="部門"><a href="#mens" data-sec="mens">メンズ腕時計</a><a href="#ladies" data-sec="ladies">レディース腕時計</a><a href="#cheap" data-sec="cheap">チプカシ</a><a href="#collab" data-sec="collab">コラボウォッチ</a><a href="#goods" data-sec="goods">ブランド小物</a><a href="#rakuten" data-sec="rakuten">楽天ランキング</a></nav>
 
