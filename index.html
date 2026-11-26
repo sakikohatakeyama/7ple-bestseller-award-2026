@@ -679,20 +679,8 @@ a{color:inherit;text-decoration:none}
     for(var i=0;i<F.length;i++){var f=F[i];
       f.y+=f.v;f.p+=.012*f.s;f.x+=Math.sin(f.p)*.35;
       if(f.y>H+10||f.x<-10||f.x>W+10)F[i]=mk(true);
-      f.a+=f.w;
-      var R=f.r*2.6;
-      x.save();x.translate(f.x,f.y);x.rotate(f.a);
-      x.strokeStyle="rgba(255,255,255,.95)";x.lineWidth=Math.max(1,R*.14);x.lineCap="round";
-      x.shadowColor="rgba(0,0,0,.22)";x.shadowBlur=2;
-      x.beginPath();
-      for(var k=0;k<6;k++){
-        x.save();x.rotate(k*Math.PI/3);
-        x.moveTo(0,0);x.lineTo(R,0);
-        x.moveTo(R*.55,0);x.lineTo(R*.8,R*.26);
-        x.moveTo(R*.55,0);x.lineTo(R*.8,-R*.26);
-        x.restore();
-      }
-      x.stroke();x.restore();
+      x.beginPath();x.fillStyle="rgba(255,255,255,.92)";x.shadowColor="rgba(0,0,0,.18)";x.shadowBlur=3;
+      x.arc(f.x,f.y,f.r,0,6.283);x.fill();
     }
     x.clearRect((W-750)/2,0,750,H);
     requestAnimationFrame(tick);
