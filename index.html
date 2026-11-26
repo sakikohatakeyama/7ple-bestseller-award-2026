@@ -150,7 +150,7 @@ a{color:inherit;text-decoration:none}
 /* 部門 */
 .cat{padding:clamp(44px,12.8vw,96px) clamp(16px,4.3vw,32px) clamp(20px,5.3vw,40px);scroll-margin-top:clamp(40px,11vw,70px)}
 .cat + .cat{border-top:0}
-#mens,#cheap,#rakuten{background:var(--red)}
+#mens,#cheap,#pair{background:var(--red)}
 #collab{background:var(--green)}
 #ladies,#goods{background:#EBC873}
 /* 赤・緑の背景の上：見出しは白、商品ごとに白いカード */
@@ -321,17 +321,22 @@ html:not(.js) .santa{transform:none}
     <img class="w2" src="fv/watch-gold.png" alt="CASIO AQ-240EG ゴールド" width="325" height="560">
     <img class="w3" src="fv/watch-digital.png" alt="CASIO A168W デジタル" width="607" height="380">
   </div>
+  <p class="fv-catch">プレゼントに迷ったら、<br>ここから選べば大丈夫。</p>
+  <div class="fv-panel">
+  <p class="fv-cap"><svg aria-hidden="true"><use href="#i-crown"/></svg>各部門 第1位</p>
+  <div class="fv-grid"><span class="fv-ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth009.jpg" alt="" width="300" height="300"></span><span class="fv-ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio15/aq-240eg-9adf.jpg" alt="" width="300" height="300"></span><span class="fv-ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio13/a168w-a.jpg" alt="" width="300" height="300"></span><span class="fv-ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/premico/iei-51602-aa.jpg" alt="" width="300" height="300"></span><span class="fv-ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/ugg/ugg-earmuff-a.jpg" alt="" width="300" height="300"></span><span class="fv-ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbtm169.jpg" alt="" width="300" height="300"></span></div>
+  </div>
 </header>
 
 <section class="intro rv">
   <h2>ななぷれでよく売れているものを、<br>部門ごとに1位〜3位で発表します！</h2>
   <p>腕時計から、冬の小物、記念のコラボモデルまで。贈る相手に合う部門から見てください。</p>
-  <p class="note">※楽天市場 ショップ内ランキング（集計期間：2026年11月18日〜11月24日）をもとに、在庫のある商品を部門ごとに順位順で掲載しています。</p>
+  <p class="note">※ショップ内の売れ行き（ペアウォッチ部門は2026年7月〜10月の売上）をもとに、在庫のある商品を部門ごとに順位順で掲載しています。</p>
 </section>
 
-<nav class="idx" aria-label="部門一覧"><a class="idx-item" href="#mens"><span class="no en">01</span><span class="t">メンズ腕時計</span></a><a class="idx-item" href="#ladies"><span class="no en">02</span><span class="t">レディース腕時計</span></a><a class="idx-item" href="#cheap"><span class="no en">03</span><span class="t">チプカシ</span></a><a class="idx-item" href="#collab"><span class="no en">04</span><span class="t">コラボウォッチ</span></a><a class="idx-item" href="#goods"><span class="no en">05</span><span class="t">ブランド小物</span></a><a class="idx-item" href="#rakuten"><span class="no en">06</span><span class="t">楽天ランキング</span></a></nav>
+<nav class="idx" aria-label="部門一覧"><a class="idx-item" href="#mens"><span class="no en">01</span><span class="t">メンズ腕時計</span></a><a class="idx-item" href="#ladies"><span class="no en">02</span><span class="t">レディース腕時計</span></a><a class="idx-item" href="#cheap"><span class="no en">03</span><span class="t">チプカシ</span></a><a class="idx-item" href="#collab"><span class="no en">04</span><span class="t">コラボウォッチ</span></a><a class="idx-item" href="#goods"><span class="no en">05</span><span class="t">ブランド小物</span></a><a class="idx-item" href="#pair"><span class="no en">06</span><span class="t">ペアウォッチ</span></a></nav>
 
-<nav class="catnav" aria-label="部門"><a href="#mens" data-sec="mens">メンズ腕時計</a><a href="#ladies" data-sec="ladies">レディース腕時計</a><a href="#cheap" data-sec="cheap">チプカシ</a><a href="#collab" data-sec="collab">コラボウォッチ</a><a href="#goods" data-sec="goods">ブランド小物</a><a href="#rakuten" data-sec="rakuten">楽天ランキング</a></nav>
+<nav class="catnav" aria-label="部門"><a href="#mens" data-sec="mens">メンズ腕時計</a><a href="#ladies" data-sec="ladies">レディース腕時計</a><a href="#cheap" data-sec="cheap">チプカシ</a><a href="#collab" data-sec="collab">コラボウォッチ</a><a href="#goods" data-sec="goods">ブランド小物</a><a href="#pair" data-sec="pair">ペアウォッチ</a></nav>
 
 
 <!-- =================== メンズ腕時計部門 =================== -->
@@ -554,47 +559,47 @@ html:not(.js) .santa{transform:none}
       </a>
   </div>
 </section>
-<!-- =================== 楽天ランキング部門 =================== -->
-<section class="cat" id="rakuten">
+<!-- =================== ペアウォッチ部門 =================== -->
+<section class="cat" id="pair">
   <header class="cat-head rv">
     <svg class="cat-ico" aria-hidden="true"><use href="#i-snow"/></svg>
     <p class="cat-no en">CATEGORY 06</p>
-    <h2>楽天ランキング部門</h2>
-    <p class="cat-lead">楽天市場全体でも、売れています。</p>
+    <h2>ペアウォッチ部門</h2>
+    <p class="cat-lead">ふたりで、おそろいに。</p>
   </header>
 
-  <!-- ITEM 1位: sbth007 -->
+  <!-- ITEM 1位: sbtm169 -->
   <div class="first rv">
     <p class="rank r1"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">1</span>位</b></p>
-    <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/sbth007/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbth007.jpg" alt="SEIKO SELECTION Sシリーズ デイデイト SBTH007" width="640" height="640" loading="lazy"></a></div>
+    <div class="phw"><a class="ph" href="https://item.rakuten.co.jp/7ple/sbtm169/"><img src="https://image.rakuten.co.jp/7ple/cabinet/seiko-s2/sbtm169.jpg" alt="SEIKO SELECTION 電波ソーラー ペアウォッチ SBTM169" width="640" height="640" loading="lazy"></a></div>
     <div class="body">
-      <p class="bubble big">アイボリーの文字盤がやさしい雰囲気で、見るたびに好きだなと思います。楽天のメンズ腕時計ランキングで1位にも入りました！</p>
-      <p class="tag">楽天 メンズ腕時計 デイリー1位</p><p class="brand en">SEIKO SELECTION</p>
-      <h3 class="name"><span class="en">S</span>シリーズ デイデイト <span class="en">SBTH007</span></h3>
-      <p class="price en">26,400<small>円</small></p>
-      <div class="act"><a class="btn" href="https://item.rakuten.co.jp/7ple/sbth007/">商品ページを見る</a><button type="button" class="fav" data-id="sbth007" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></div>
+      <p class="bubble big">電波ソーラーだから、電池交換や時刻合わせの手間がかかりません。ペアで選べるモデルがそろっています。</p>
+      <p class="brand en">SEIKO SELECTION</p>
+      <h3 class="name">電波ソーラー ペアウォッチ <span class="en">SBTM169</span></h3>
+      <p class="price en">31,350<small>円〜</small></p>
+      <div class="act"><a class="btn" href="https://item.rakuten.co.jp/7ple/sbtm169/">商品ページを見る</a><button type="button" class="fav" data-id="sbtm169" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></div>
     </div>
   </div>
   <div class="subs">
-      <!-- ITEM 2位: mq-24 -->
-      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/mq-24/">
+      <!-- ITEM 2位: pair-citizen102 -->
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/pair-citizen102/">
         <span class="rank r2"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">2</span>位</b></span>
-        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio12/mq-24.jpg" alt="CASIO MQ-24 アナログ" width="640" height="640" loading="lazy"></span></span>
-        <span class="bubble">色違いで選べるので、つい何本も欲しくなります。1,980円からの気軽さもうれしいです。</span>
-        <span class="tag">楽天 メンズ腕時計 週間1位</span><span class="brand en">CASIO</span>
-        <span class="name"><span class="en">MQ-24</span> アナログ</span>
-        <p class="price sm en">1,980<small>円〜</small></p>
-        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="mq-24" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/pair3/pair-citizen102.jpg" alt="CITIZEN PROMASTER ダイバーズ ペアウォッチ" width="640" height="640" loading="lazy"></span></span>
+        <span class="bubble">ダイバーズデザインのペアウォッチです。</span>
+        <span class="tag"></span><span class="brand en">CITIZEN PROMASTER</span>
+        <span class="name">ダイバーズ ペアウォッチ</span>
+        <p class="price sm en">66,220<small>円</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="pair-citizen102" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
-      <!-- ITEM 3位: ltp-v007l -->
-      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/ltp-v007l/">
+      <!-- ITEM 3位: pair-citizen23 -->
+      <a class="sub rv" href="https://item.rakuten.co.jp/7ple/pair-citizen23/">
         <span class="rank r3"><svg aria-hidden="true"><use href="#i-crown"/></svg><b>第<span class="en">3</span>位</b></span>
-        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/casio11/ltp-v007l.jpg" alt="CASIO LTP-V007L スクエア レザー" width="640" height="640" loading="lazy"></span></span>
-        <span class="bubble">四角い文字盤とレザーのベルトが、レトロでかわいいです。3,000円台で選びやすいです。</span>
-        <span class="tag">楽天 レディース腕時計 週間4位</span><span class="brand en">CASIO</span>
-        <span class="name"><span class="en">LTP-V007L</span> スクエア レザー</span>
-        <p class="price sm en">3,180<small>円〜</small></p>
-        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="ltp-v007l" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
+        <span class="phw"><span class="ph"><img src="https://image.rakuten.co.jp/7ple/cabinet/pair2/pair-citizen23.jpg" alt="CITIZEN エコ・ドライブ電波 ペアウォッチ" width="640" height="640" loading="lazy"></span></span>
+        <span class="bubble">シルバーとピンクの組み合わせ。</span>
+        <span class="tag"></span><span class="brand en">CITIZEN</span>
+        <span class="name">エコ・ドライブ電波 ペアウォッチ</span>
+        <p class="price sm en">66,220<small>円</small></p>
+        <span class="act"><span class="more">商品を見る</span><button type="button" class="fav" data-id="pair-citizen23" aria-label="お気に入りに追加" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.9 4.5 6.5 4.5c2 0 3.7 1.1 5.5 3.2 1.8-2.1 3.5-3.2 5.5-3.2 3.6 0 5.6 3.7 4.1 7.2C19.500 16.400 12 21 12 21z"/></svg></button></span>
       </a>
   </div>
 </section>
@@ -627,9 +632,8 @@ html:not(.js) .santa{transform:none}
 </section>
 
 <p class="notes">
-  ※順位は、楽天市場のショップ内ランキング（集計期間：2026年11月18日〜11月24日）をもとに、在庫のある商品を部門ごとに並べたものです（2026年11月25日時点）。<br>
-  ※「楽天ランキング部門」は、楽天市場の腕時計ランキングで2026年11月25日に確認した順位です。ほかのショップの出品分も含めた、そのモデルの順位です。<br>
-  ※価格は2026年11月25日時点の税込価格です。「〜」はモデルや色によって価格が変わる商品です。最新の価格・在庫は各商品ページでご確認ください。
+  ※順位は、ショップ内の売れ行き（ペアウォッチ部門は2026年7月〜10月の売上、そのほかは2026年11月18日〜11月24日の集計）をもとに、在庫のある商品を部門ごとに並べたものです（在庫は2026年11月26日時点）。<br>
+  ※価格は2026年11月26日時点の税込価格です。「〜」はモデルや色によって価格が変わる商品です。最新の価格・在庫は各商品ページでご確認ください。
 </p>
 </div>
 <aside class="side side-r" aria-label="メニュー">
@@ -637,7 +641,7 @@ html:not(.js) .santa{transform:none}
   <div class="deco" style="right:20px;top:40px;width:70px" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#i-snow"/></svg></div>
   <p class="side-menu">MENU</p>
   <p class="side-menu-t">部門から選ぶ</p>
-  <nav class="side-list"><a href="#mens" data-sec="mens"><span class="en">01</span>メンズ腕時計部門</a><a href="#ladies" data-sec="ladies"><span class="en">02</span>レディース腕時計部門</a><a href="#cheap" data-sec="cheap"><span class="en">03</span>チプカシ部門</a><a href="#collab" data-sec="collab"><span class="en">04</span>コラボウォッチ部門</a><a href="#goods" data-sec="goods"><span class="en">05</span>ブランド小物部門</a><a href="#rakuten" data-sec="rakuten"><span class="en">06</span>楽天ランキング部門</a></nav>
+  <nav class="side-list"><a href="#mens" data-sec="mens"><span class="en">01</span>メンズ腕時計部門</a><a href="#ladies" data-sec="ladies"><span class="en">02</span>レディース腕時計部門</a><a href="#cheap" data-sec="cheap"><span class="en">03</span>チプカシ部門</a><a href="#collab" data-sec="collab"><span class="en">04</span>コラボウォッチ部門</a><a href="#goods" data-sec="goods"><span class="en">05</span>ブランド小物部門</a><a href="#pair" data-sec="pair"><span class="en">06</span>ペアウォッチ部門</a></nav>
   <a class="btn" href="https://search.rakuten.co.jp/search/mall/?sid=404544">すべての商品を見る</a>
   <a class="btn sec" href="https://www.rakuten.co.jp/7ple/">ショップトップへ</a>
 </aside>
