@@ -22,10 +22,10 @@
    ========================================================= */
 :root{
   --red:#C8102A;
-  --green:#1D7A55;
+  --green:#1F3A7A;
   --champ:#E8BE62;
   --sand:#F3DFB0;
-  --sage:#CFE3D6;
+  --sage:#D5DEF2;
   --cream:#FFF8EA;
   --ink:#222;
   --muted:#77706A;
@@ -106,15 +106,15 @@ a{color:inherit;text-decoration:none}
 .intro .note{font-size:.72em;color:var(--muted);margin-top:.8em}
 
 /* 部門の目次 */
-.idx{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,2.1vw,16px);padding:0 clamp(16px,4.3vw,32px) clamp(40px,10.7vw,80px)}
-.idx-item{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:clamp(78px,21vw,150px);padding:clamp(12px,3.2vw,22px) clamp(14px,3.7vw,26px);border-radius:clamp(10px,2.7vw,18px);transition:transform .25s}
+.idx{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(6px,1.6vw,12px);padding:0 clamp(16px,4.3vw,32px) clamp(40px,10.7vw,80px)}
+.idx-item{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:clamp(60px,16vw,104px);padding:clamp(8px,2.1vw,14px) clamp(10px,2.7vw,18px);border-radius:clamp(8px,2.1vw,14px);transition:transform .25s}
 .idx-item:hover{transform:translateY(-3px)}
 .idx-item:nth-child(odd){background:var(--red)}
 .idx-item:nth-child(even){background:var(--green)}
 .idx-item{color:#fff}
-.idx-item .no{font-size:clamp(26px,7.5vw,54px);font-weight:500;line-height:1;color:#FFE08A;letter-spacing:.04em}
-.idx-item .t{margin-top:.3em;font-size:.9em;font-weight:900;line-height:1.4;padding-right:1.2em}
-.idx-item::after{content:"";position:absolute;right:clamp(14px,3.7vw,26px);bottom:clamp(16px,4.3vw,30px);width:.5em;height:.5em;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
+.idx-item .no{font-size:clamp(18px,5vw,34px);font-weight:500;line-height:1;color:#FFE08A;letter-spacing:.04em}
+.idx-item .t{margin-top:.2em;font-size:.72em;font-weight:900;line-height:1.35}
+.idx-item::after{content:"";position:absolute;right:clamp(8px,2.1vw,14px);top:clamp(10px,2.7vw,18px);width:.4em;height:.4em;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
 
 /* 上に貼りつく部門ナビ */
 .catnav{display:none!important;position:sticky;top:0;z-index:20;background:var(--green);display:flex;overflow-x:auto;scrollbar-width:none}
@@ -257,7 +257,7 @@ a{color:inherit;text-decoration:none}
 </svg>
 <div class="page">
 <aside class="side side-l" aria-label="特集タイトル">
-  <div class="deco float" style="left:-60px;top:-50px;width:240px;--dx:10px;--dy:14px" aria-hidden="true"><svg viewBox="0 0 140 130"><path d="M58 8C88-4 124 10 132 42s-6 64-38 76S22 122 8 92 28 20 58 8z" fill="#1D7A55" opacity=".92"/></svg></div>
+  <div class="deco float" style="left:-60px;top:-50px;width:240px;--dx:10px;--dy:14px" aria-hidden="true"><svg viewBox="0 0 140 130"><path d="M58 8C88-4 124 10 132 42s-6 64-38 76S22 122 8 92 28 20 58 8z" fill="#1F3A7A" opacity=".92"/></svg></div>
   <div class="deco" style="right:10px;top:60px;width:120px" aria-hidden="true"><svg viewBox="0 0 130 125"><path d="M70 4c34 2 60 30 56 64s-34 56-68 52S2 92 4 58 36 2 70 4z" fill="#E8BE62" opacity=".6"/></svg></div>
   <div class="deco" style="left:24px;bottom:30px;width:150px" aria-hidden="true"><svg viewBox="0 0 200 120"><use href="#branch"/></svg></div>
   <p class="side-shop">腕時計のななぷれ select shop</p>
@@ -278,7 +278,7 @@ a{color:inherit;text-decoration:none}
 <header class="fv" id="top">
   <div class="deco float" style="left:-14%;top:-8%;width:46%;--dx:10px;--dy:12px" aria-hidden="true"><svg viewBox="0 0 140 130"><path d="M58 8C88-4 124 10 132 42s-6 64-38 76S22 122 8 92 28 20 58 8z" fill="#24428F"/></svg></div>
   <div class="deco float" style="right:-16%;top:28%;width:42%;--dx:-10px;--dy:8px" aria-hidden="true"><svg viewBox="0 0 130 125"><path d="M70 4c34 2 60 30 56 64s-34 56-68 52S2 92 4 58 36 2 70 4z" fill="#E8BE62" opacity=".9"/></svg></div>
-  <div class="deco" style="left:-6%;top:40%;width:30%" aria-hidden="true"><svg viewBox="0 0 130 125"><path d="M70 4c34 2 60 30 56 64s-34 56-68 52S2 92 4 58 36 2 70 4z" fill="#CFE3D6" opacity=".35"/></svg></div>
+  <div class="deco" style="left:-6%;top:40%;width:30%" aria-hidden="true"><svg viewBox="0 0 130 125"><path d="M70 4c34 2 60 30 56 64s-34 56-68 52S2 92 4 58 36 2 70 4z" fill="#D5DEF2" opacity=".35"/></svg></div>
   <div class="deco" style="right:4%;top:4%;width:34%" aria-hidden="true"><svg viewBox="0 0 200 120"><use href="#branch"/></svg></div>
   <div class="deco" style="left:6%;top:30%;width:11%" aria-hidden="true"><svg viewBox="-4 -4 44 40" fill="#F3DFB0" opacity=".8"><circle cx="0" cy="0" r="3.2"/><circle cx="14" cy="4" r="3.2"/><circle cx="28" cy="0" r="3.2"/><circle cx="6" cy="14" r="3.2"/><circle cx="20" cy="16" r="3.2"/><circle cx="34" cy="12" r="3.2"/><circle cx="2" cy="28" r="3.2"/><circle cx="16" cy="30" r="3.2"/><circle cx="30" cy="26" r="3.2"/></svg></div>
   <div class="deco" style="right:8%;top:40%;width:9%" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#i-gift"/></svg></div>
