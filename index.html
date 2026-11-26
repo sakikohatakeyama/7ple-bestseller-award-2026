@@ -232,10 +232,15 @@ a{color:inherit;text-decoration:none}
 .sub:hover .more{background:var(--ink);color:#fff}
 
 /* まとめ */
-.closing{position:relative;overflow:hidden;margin-top:clamp(40px,10.7vw,80px);background:var(--green);color:#fff;padding:clamp(44px,11.7vw,88px) clamp(20px,6.4vw,48px);text-align:center}
-.closing h2{font-size:clamp(19px,5.3vw,40px);font-weight:900;line-height:1.55}
-.closing > :not(.deco){position:relative;z-index:1}
-.closing p{margin-top:.6em;font-size:.9em;color:#E4EAE4}
+.closing{position:relative;overflow:hidden;margin-top:0;background:var(--green);color:#fff;padding:clamp(64px,17vw,120px) clamp(20px,6.4vw,48px) clamp(150px,41vw,260px);text-align:center}
+.garland{position:absolute;left:0;top:0;width:100%;height:clamp(34px,9.3vw,70px);pointer-events:none}
+.closing .st{opacity:.9}
+.closing h2{font-size:clamp(21px,5.9vw,44px);font-weight:900;line-height:1.55}
+.closing > :not(.deco):not(.garland):not(.santa){position:relative;z-index:1}
+.closing p{margin-top:.6em;font-size:.9em;color:#E4EAF5}
+.santa{position:absolute;left:50%;bottom:0;width:clamp(160px,44vw,290px);height:auto;margin-left:calc(-1 * clamp(80px,22vw,145px));z-index:1;transform:translateY(105%);transition:none}
+.js .closing.pop .santa{transform:none;transition:transform .7s cubic-bezier(.3,1.5,.5,1)}
+html:not(.js) .santa{transform:none}
 .closing .btn{max-width:100%}
 .closing .btn.sec{background:transparent;border:2px solid var(--sand);color:var(--sand)}
 .closing .btn.sec:hover{background:rgba(255,255,255,.08)}
@@ -262,6 +267,7 @@ a{color:inherit;text-decoration:none}
   .js .rv,.js .fv > *,.js .fv-ph{opacity:1!important;transform:none!important;transition:none!important}
   .js .first.rv .ph img{transform:none!important;transition:none!important}
   .js .hand .c{opacity:1!important;transform:none!important;transition:none!important}
+  .santa{transform:none!important;transition:none!important}
 }
 </style>
 </head>
@@ -596,15 +602,31 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
-<section class="closing">
-  <div class="deco" style="right:-12%;top:-20%;width:44%" aria-hidden="true"><svg viewBox="0 0 140 130"><path d="M58 8C88-4 124 10 132 42s-6 64-38 76S22 122 8 92 28 20 58 8z" fill="#C8102A"/></svg></div>
-  <div class="deco" style="left:-10%;bottom:-18%;width:36%" aria-hidden="true"><svg viewBox="0 0 130 125"><path d="M70 4c34 2 60 30 56 64s-34 56-68 52S2 92 4 58 36 2 70 4z" fill="#E8BE62" opacity=".85"/></svg></div>
-  <div class="deco" style="left:5%;top:8%;width:16%" aria-hidden="true"><svg viewBox="0 0 120 160"><use href="#sprig"/></svg></div>
-  <div class="deco" style="right:8%;bottom:10%;width:10%" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#i-tree"/></svg></div>
-  <h2>贈りたいひとつは、<br>見つかりましたか？</h2>
+<section class="closing" id="closing">
+  <svg class="garland" viewBox="0 0 750 70" preserveAspectRatio="none" aria-hidden="true"><path d="M-10 10 C90 70 190 70 250 18 C320 70 430 70 500 18 C570 70 680 70 760 10" fill="none" stroke="#E8BE62" stroke-width="3"/><g><circle cx="95" cy="46" r="9" fill="#C8102A"/><circle cx="165" cy="52" r="9" fill="#FFE08A"/><circle cx="250" cy="18" r="9" fill="#fff"/><circle cx="335" cy="52" r="9" fill="#C8102A"/><circle cx="410" cy="52" r="9" fill="#FFE08A"/><circle cx="500" cy="18" r="9" fill="#fff"/><circle cx="585" cy="48" r="9" fill="#C8102A"/><circle cx="665" cy="40" r="9" fill="#FFE08A"/></g></svg>
+  <div class="deco st" style="left:7%;top:24%;width:5%" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="#FFE08A"/></svg></div>
+  <div class="deco st" style="right:9%;top:20%;width:4%" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="#FFE08A"/></svg></div>
+  <div class="deco st" style="left:14%;bottom:30%;width:3%" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="#FFE08A"/></svg></div>
+  <div class="deco st" style="right:14%;top:52%;width:3.4%" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="#FFE08A"/></svg></div>
+  <div class="deco" style="left:7%;bottom:8%;width:10%" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#i-snow"/></svg></div>
+  <div class="deco" style="right:7%;bottom:8%;width:10%" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#i-tree"/></svg></div>
+  <h2>贈りたいひとつは<br>見つかりましたか？</h2>
   <p>ほかにも、冬のギフトにぴったりの腕時計やブランド小物がそろっています。</p>
   <a class="btn" href="https://search.rakuten.co.jp/search/mall/?sid=404544">すべての商品を見る</a>
   <a class="btn sec" href="https://www.rakuten.co.jp/7ple/">ショップトップへ</a>
+  <svg class="santa" viewBox="0 0 200 150" aria-hidden="true">
+    <path d="M52 68C52 36 80 16 112 18c16 1 28 8 34 20l8 30z" fill="#C8102A"/>
+    <circle cx="152" cy="30" r="12" fill="#fff"/>
+    <ellipse cx="100" cy="98" rx="46" ry="40" fill="#F7CFAE"/>
+    <rect x="44" y="62" width="112" height="22" rx="11" fill="#fff"/>
+    <circle cx="72" cy="98" r="6.5" fill="#F2A38A" opacity=".6"/><circle cx="128" cy="98" r="6.5" fill="#F2A38A" opacity=".6"/>
+    <circle cx="84" cy="90" r="3.4" fill="#2B2B2B"/><circle cx="116" cy="90" r="3.4" fill="#2B2B2B"/>
+    <path d="M52 100C50 146 72 170 100 170S150 146 148 100C134 118 118 118 100 110C82 118 66 118 52 100z" fill="#fff"/>
+    <ellipse cx="86" cy="106" rx="17" ry="9" fill="#fff" transform="rotate(12 86 106)"/><ellipse cx="114" cy="106" rx="17" ry="9" fill="#fff" transform="rotate(-12 114 106)"/>
+    <ellipse cx="100" cy="97" rx="8" ry="6.5" fill="#F29A84"/>
+    <circle cx="48" cy="142" r="15" fill="#C8102A"/><rect x="33" y="134" width="30" height="8" rx="4" fill="#fff"/>
+    <circle cx="152" cy="142" r="15" fill="#C8102A"/><rect x="137" y="134" width="30" height="8" rx="4" fill="#fff"/>
+  </svg>
 </section>
 
 <p class="notes">
@@ -640,6 +662,9 @@ a{color:inherit;text-decoration:none}
 
   const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), {threshold: .15});
   document.querySelectorAll(".rv").forEach(el => io.observe(el));
+
+  const cl = document.getElementById("closing");
+  if (cl) new IntersectionObserver((es, o) => es.forEach(en => { if (en.isIntersecting) { cl.classList.add("pop"); o.disconnect(); } }), {threshold: .45}).observe(cl);
 
   const links = [...document.querySelectorAll(".catnav a, .side-list a")];
   const io2 = new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) return;
