@@ -69,6 +69,8 @@ a{color:inherit;text-decoration:none}
   .side-list a .en{font-size:12px;color:#FFE08A;font-weight:600;width:22px}
   .side-list a::after{content:"";margin-left:auto;width:7px;height:7px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg);opacity:.5}
   .side-list a:hover,.side-list a.on{color:#FFE08A}
+  .side .btn:not(.sec){background:#fff;color:#1F3A7A}
+  .side .btn:not(.sec):hover{background:#FFE9A8}
   .side .btn{width:100%;max-width:300px;height:56px;font-size:15px;margin-top:22px}
   .side .btn.sec{margin-top:10px;background:transparent;border:2px solid #fff;color:#fff}
   .side .btn.sec:hover{background:#fff;color:#12275F}
@@ -109,8 +111,7 @@ a{color:inherit;text-decoration:none}
 .idx{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(6px,1.6vw,12px);padding:0 clamp(16px,4.3vw,32px) clamp(40px,10.7vw,80px)}
 .idx-item{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:clamp(60px,16vw,104px);padding:clamp(8px,2.1vw,14px) clamp(10px,2.7vw,18px);border-radius:clamp(8px,2.1vw,14px);transition:transform .25s}
 .idx-item:hover{transform:translateY(-3px)}
-.idx-item:nth-child(odd){background:var(--red)}
-.idx-item:nth-child(even){background:var(--green)}
+.idx-item{background:var(--green)}
 .idx-item{color:#fff}
 .idx-item .no{font-size:clamp(18px,5vw,34px);font-weight:500;line-height:1;color:#FFE08A;letter-spacing:.04em}
 .idx-item .t{margin-top:.2em;font-size:.72em;font-weight:900;line-height:1.35}
@@ -188,9 +189,9 @@ a{color:inherit;text-decoration:none}
 .first .copy{font-size:.93em;color:#3C3C3C}
 .price{font-size:clamp(26px,7.5vw,56px);font-weight:700;line-height:1.2;margin-top:.35em}
 .price small{font-family:"Noto Sans JP";font-size:.4em;font-weight:700;margin-left:.15em}
-.btn{display:flex;align-items:center;justify-content:center;margin-top:clamp(14px,3.7vw,28px);height:clamp(50px,13.9vw,104px);background:var(--red);color:#fff;font-size:clamp(15px,4.3vw,32px);font-weight:700;letter-spacing:.06em;border-radius:6px;transition:background .25s}
+.btn{display:flex;align-items:center;justify-content:center;margin-top:clamp(14px,3.7vw,28px);height:clamp(50px,13.9vw,104px);background:var(--green);color:#fff;font-size:clamp(15px,4.3vw,32px);font-weight:700;letter-spacing:.06em;border-radius:6px;transition:background .25s}
 .btn::after{content:"";width:.45em;height:.45em;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);margin-left:.7em}
-.btn:hover{background:#AE0F24}
+.btn:hover{background:#162C63}
 
 /* 2位・3位 */
 .subs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,2.7vw,20px);margin-top:clamp(28px,8vw,60px)}
@@ -289,7 +290,6 @@ a{color:inherit;text-decoration:none}
   <p class="fv-label en"><i></i>NANAPLE BEST SELLER<i></i></p>
   <h1><span>AWARD</span><span class="y">2026</span></h1>
   <p class="fv-jp">ななぷれ select shop</p>
-  <p class="fv-band">部門別 1位〜3位 発表！</p>
   <p class="fv-catch">プレゼントに迷ったら、<br>ここから選べば大丈夫。</p>
   <div class="fv-panel">
   <p class="fv-cap"><svg aria-hidden="true"><use href="#i-crown"/></svg>各部門 第1位</p>
